@@ -1,0 +1,19 @@
+{
+  "name": "wondershade-system-for-foundry",
+  "version": "0.0.1",
+  "description": "The Wondershade System for FoundryVTT",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abourass/wondershade-system-for-foundry.git"
+  },
+  "author": "Abourass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Abourass/wondershade-system-for-foundry/issues"
+  },
+  "homepage": "https://github.com/Abourass/wondershade-system-for-foundry#readme"
+}

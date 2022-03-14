@@ -1,0 +1,5 @@
+{
+  "Actor": {
+    "types": ["Hero", "NPC", "Creature", "Pawn"]
+  }
+}
