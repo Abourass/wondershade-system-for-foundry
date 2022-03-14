@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Abourass/wondershade-system-for-foundry/issues"
   },
-  "homepage": "https://github.com/Abourass/wondershade-system-for-foundry#readme"
+  "homepage": "https://github.com/Abourass/wondershade-system-for-foundry#readme",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb-base": "^15.0.0"
+  }
 }

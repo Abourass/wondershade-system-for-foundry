@@ -1,0 +1,8 @@
+# data definition files
+**/*.d.ts
+
+# map files
+**/*.map.js
+
+# don't ever lint node_modules
+/node_modules

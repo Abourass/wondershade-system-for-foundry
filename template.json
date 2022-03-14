@@ -1,5 +1,8 @@
 {
   "Actor": {
-    "types": ["Hero", "NPC", "Creature", "Pawn"]
+    "types": ["character", "npc", "creature", "pawn", "vehicle"],
+    "templates": {
+      
+    }
   }
 }
