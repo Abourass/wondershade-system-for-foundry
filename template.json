@@ -1,8 +1,127 @@
 {
   "Actor": {
-    "types": ["character", "npc", "creature", "pawn", "vehicle"],
+    "types": ["character", "npc", "creature", "pawn"],
     "templates": {
-      
+      "base": {
+        "health": { "value": 10, "min": 0, "max": 10 },
+        "sanity": { "value": 10, "min": 0, "max": 10 },
+        "speed": "floor(@dex / 10) * 5",
+        "biography": "",
+        "attributes": {
+          "level": { "value": 1 },
+          "str": { "value": 1 },
+          "int": { "value": 1 },
+          "dex": { "value": 1 },
+          "char": { "value": 1 },
+          "con": { "value": 1 },
+          "pow": { "value": 1 },
+          "luck": { "value": 1 },
+          "iLuck": { "value": 1 },
+          "speed": { "value": 1 }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "skills": {
+        "Alertness": { "value": 20 },
+        "Animal Handling": { "value": 5 },
+        "Athletics": { "value": 10 },
+        "Art": { "value": 5 },
+        "Barter": { "value": 5 },
+        "Craft": { "value": 0 },
+        "Deception": { "value": 10 },
+        "Disguise": { "value": 5 },
+        "Dodge": { "value": 20 },
+        "Drive / Pilot": { "value": 20 },
+        "History": { "value": 10 },
+        "Intimidation": { "value": 5 },
+        "Medicine": { "value": 1 },
+        "Occult": { "value": 0 },
+        "Performance": { "value": 5 },
+        "Persuade": { "value": 10 },
+        "Machinery": { "value": 5 },
+        "Science": { "value": 10 },
+        "Search": { "value": 10 },
+        "Sleight of Hand": { "value": 5 },
+        "Stealth": { "value": 10 },
+        "Survival": { "value": 10 },
+        "Unsanity": { "value": 1 },
+        "Vibe Check": { "value": 15 }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "skills": {
+        "Alertness": { "value": 20 },
+        "Animal Handling": { "value": 5 },
+        "Athletics": { "value": 10 },
+        "Art": { "value": 5 },
+        "Barter": { "value": 5 },
+        "Craft": { "value": 0 },
+        "Deception": { "value": 10 },
+        "Disguise": { "value": 5 },
+        "Dodge": { "value": 20 },
+        "Drive / Pilot": { "value": 20 },
+        "History": { "value": 10 },
+        "Intimidation": { "value": 5 },
+        "Medicine": { "value": 1 },
+        "Occult": { "value": 0 },
+        "Performance": { "value": 5 },
+        "Persuade": { "value": 10 },
+        "Machinery": { "value": 5 },
+        "Science": { "value": 10 },
+        "Search": { "value": 10 },
+        "Sleight of Hand": { "value": 5 },
+        "Stealth": { "value": 10 },
+        "Survival": { "value": 10 },
+        "Unsanity": { "value": 1 },
+        "Vibe Check": { "value": 15 }
+      },
+      "cr": 0
+    },
+    "creature": {
+      "templates": ["base"],
+      "skills": {
+        "Alertness": { "value": 20 },
+        "Athletics": { "value": 10 },
+        "Dodge": { "value": 20 },
+        "Stealth": { "value": 10 },
+        "Survival": { "value": 10 },
+        "Unsanity": { "value": 1 }
+      },
+      "cr": 0
+    },
+    "pawn": {
+      "templates": ["base"],
+      "skills": {
+        "Dodge": { "value": 20 },
+        "Stealth": { "value": 10 },
+        "Survival": { "value": 10 },
+        "Unsanity": { "value": 1 },
+      },
+      "cr": 0
+    }
+  },
+  "Item": {
+    "types": ["item", "feature", "spell"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "item": {
+      "templates": ["base"],
+      "quantity": 1,
+      "weight": 0,
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+    },
+    "feature": {
+      "templates": ["base"]
+    },
+    "spell": {
+      "templates": ["base"],
+      "spellLevel": 1
     }
   }
 }
