@@ -1,0 +1,19 @@
+{
+  "name": "wondershade",
+  "title": "Wondershade",
+  "description": "The glittery black heart that beats within my chest.",
+  "version": "0.0.1",
+  "templateVersion": 2,
+  "author": "Mod",
+  "scripts": [],
+  "esmodules": [],
+  "styles": [],
+  "packs": [],
+  "languages": [],
+  "socket": false,
+  "initiative": "1d20",
+  "gridDistance": 10,
+  "gridUnit": "ft",
+  "primaryTokenAttribute": "resources.health",
+  "secondaryTokenAttribute": null
+}
