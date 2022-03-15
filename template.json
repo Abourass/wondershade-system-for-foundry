@@ -98,7 +98,7 @@
         "Dodge": { "value": 20 },
         "Stealth": { "value": 10 },
         "Survival": { "value": 10 },
-        "Unsanity": { "value": 1 },
+        "Unsanity": { "value": 1 }
       },
       "cr": 0
     }

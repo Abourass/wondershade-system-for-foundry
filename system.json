@@ -14,6 +14,6 @@
   "initiative": "1d20",
   "gridDistance": 10,
   "gridUnit": "ft",
-  "primaryTokenAttribute": "resources.health",
+  "primaryTokenAttribute": "base.health",
   "secondaryTokenAttribute": null
 }
