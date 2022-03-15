@@ -1,20 +1,19 @@
 {
+  "root": true,
   "extends": [ "airbnb-base" ],
   "env": {
     "shared-node-browser": true,
-    "es6": true,
+    "node": true,
+    "es2021": true,
     "mongo": true,
     "jquery": true
   },
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "rules": {
     "object-shorthand": "off",
-    "arrow-parens": [
-      "error",
-      "as-needed",
-      {
-        "requireForBlockBody": true
-      }
-    ],
+    "arrow-parens": ["error", "as-needed", { "requireForBlockBody": true }],
     "default-case": "off",
     "one-var": "off",
     "class-methods-use-this": "off",
@@ -22,12 +21,10 @@
     "consistent-return": "off",
     "func-names": "off",
     "max-len": "off",
+    "no-restricted-syntax": "off",
     "no-unused-expressions": "off",
     "no-console": "off",
-    "no-shadow": [
-      "error",
-      {"hoist": "never"}
-    ],
+    "no-shadow": ["error", { "hoist": "never" }],
     "no-param-reassign": "off",
     "no-prototype-builtins": "off",
     "no-new": "off",
@@ -36,21 +33,12 @@
     "no-new-object": "error",
     "no-plusplus": "off",
     "no-bitwise": "off",
-    "object-curly-newline": [
-      "error",
-      {
-        "multiline": true,
-        "consistent": true
-      }
-    ],
+    "object-curly-newline": ["error", { "multiline": true, "consistent": true }],
     "no-underscore-dangle": "off",
     "object-curly-spacing": "off",
     "prefer-destructuring": "off",
     "space-before-blocks": "off",
-    "space-before-function-paren": [
-      "error",
-      "never"
-    ],
+    "space-before-function-paren": ["error", "never"],
     "prefer-rest-params": "off",
     "no-undef": "off",
     "lines-between-class-members": "off",
