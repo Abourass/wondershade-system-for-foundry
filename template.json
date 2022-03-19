@@ -5,7 +5,7 @@
       "base": {
         "health": { "value": 10, "min": 0, "max": 10 },
         "sanity": { "value": 10, "min": 0, "max": 10 },
-        "speed": "floor(@dex / 10) * 5",
+        "speed": "floor(@attributes.dex / 10) * 5",
         "biography": "",
         "attributes": {
           "level": { "value": 1 },
@@ -104,24 +104,30 @@
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["weapon", "equipment"],
     "templates": {
-      "base": {
-        "description": ""
+      "itemDescription": {
+        "description": {
+          "value": "",
+          "chat": "",
+          "unidentified": ""
+        },
+        "source": ""
       }
     },
-    "item": {
-      "templates": ["base"],
+    "weapon": {
+      "templates": ["itemDescription"],
       "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "bonus": {},
+      "properties": {},
+      "proficient": true
     },
-    "feature": {
-      "templates": ["base"]
-    },
-    "spell": {
-      "templates": ["base"],
-      "spellLevel": 1
+    "equipment": {
+      "templates": ["itemDescription"],
+      "quantity": 1,
+      "bonus": {},
+      "properties": {},
+      "proficient": true
     }
   }
 }

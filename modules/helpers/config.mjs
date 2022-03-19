@@ -1,4 +1,4 @@
-export const scores = {
+export const wondershade = {
   abilities: {},
   abilitiesAbbreviations: {},
 };

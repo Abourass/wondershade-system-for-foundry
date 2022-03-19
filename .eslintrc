@@ -44,6 +44,7 @@
     "lines-between-class-members": "off",
     "camelcase": "off",
     "max-classes-per-file": "off",
-    "spaced-comment": "off"
+    "spaced-comment": "off",
+    "import/extensions": "off"
   }
 }

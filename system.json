@@ -1,19 +1,22 @@
 {
   "name": "wondershade",
   "title": "Wondershade",
-  "description": "The glittery black heart that beats within my chest.",
+  "description": "The glittery black heart that beats within my chest. Also known as the Wonder System",
   "version": "0.0.1",
   "templateVersion": 2,
   "author": "Mod",
   "scripts": [],
-  "esmodules": [],
-  "styles": [],
+  "esmodules": [
+    "wonderSystem.mjs"
+  ],
+  "styles": [
+    "./styles/wonder.css"
+  ],
   "packs": [],
   "languages": [],
   "socket": false,
-  "initiative": "1d20",
-  "gridDistance": 10,
+  "gridDistance": 5,
   "gridUnit": "ft",
-  "primaryTokenAttribute": "base.health",
+  "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": null
 }

@@ -2,5 +2,19 @@
   "cSpell.words": [
     "esmodules",
     "Unsanity"
-  ]
+  ],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    ".idea": true,
+    ".vscode": true,
+    "**/*.d.ts": true,
+    "**/*.js": false,
+    "**/*.js.map": true
+  },
+  "explorerExclude.backup": null
 }
