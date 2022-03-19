@@ -1,6 +1,6 @@
-export default class WonderItemSheet extends ItemSheet {
+export default class WonderItemSheet extends ActorSheet {
   get template(){
-    return `systems/wondershade/templates/sheets/${this.item.data.type}-sheet.html`;
+    return `systems/wondershade/templates/sheets/${this.actor.data.type}-sheet.html`;
   }
 
   getData() {
