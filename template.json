@@ -113,20 +113,20 @@
           "unidentified": ""
         },
         "source": ""
+      },
+      "itemProperties": {
+        "quantity": 1,
+        "attrBonus": {},
+        "skillBonus": {},
+        "properties": {}
       }
     },
     "weapon": {
-      "templates": ["itemDescription"],
-      "quantity": 1,
-      "bonus": {},
-      "properties": {},
+      "templates": ["itemDescription", "itemProperties"],
       "proficient": true
     },
     "equipment": {
-      "templates": ["itemDescription"],
-      "quantity": 1,
-      "bonus": {},
-      "properties": {},
+      "templates": ["itemDescription", "itemProperties"],
       "proficient": true
     }
   }

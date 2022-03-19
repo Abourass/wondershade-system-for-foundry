@@ -45,6 +45,7 @@
     "camelcase": "off",
     "max-classes-per-file": "off",
     "spaced-comment": "off",
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "import/prefer-default-export": "off"
   }
 }

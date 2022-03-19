@@ -1,0 +1,16 @@
+{
+  "wondershade": {
+    "attributes": {
+      "level": "Level",
+      "str": "Strength",
+      "int": "Intelligence",
+      "dex": "Dexterity",
+      "char": "Charisma",
+      "con": "Constitution",
+      "pow": "Power",
+      "luck": "Luck",
+      "iLuck": "Innate Luck",
+      "speed": "Speed"
+    }
+  }
+}
