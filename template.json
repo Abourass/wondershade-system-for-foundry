@@ -3,10 +3,25 @@
     "types": ["character", "npc", "creature", "pawn"],
     "templates": {
       "base": {
-        "health": { "value": 10, "min": 0, "max": 10, "temp": 0, "tempMax": 0 },
-        "sanity": { "value": 10, "min": 0, "max": 10, "temp": 0, "tempMax": 0 },
-        "init": { "value": 0, "bonus": 0 },
         "attributes": {
+          "hp": { "value": 10, "min": 0, "max": 10, "temp": 0, "tempMax": 0 },
+          "sanity": { "value": 10, "min": 0, "max": 10, "temp": 0, "tempMax": 0 },
+          "willpower": { "value": 0, "min": -3, "max": 3 },
+          "fortitude": { "value": 0, "min": 0, "max": 1 },
+          "finesse": { "value": 0, "min": 0, "max": 1 },
+          "init": { "value": 0, "bonus": 0 },
+          "movement": {
+            "burrow": 0,
+            "climb": 0,
+            "fly": 0,
+            "swim": 0,
+            "walk": "floor(@attributes.dex / 10) * 5",
+            "units": "ft",
+            "hover": false
+          },
+          "ac": { "flat": null, "calc": "default", "formula": "" }
+        },
+        "abilities": {
           "level": { "value": 1 },
           "str": {
             "value": 1,
@@ -49,54 +64,111 @@
           },
           "speed": { "value": 1 }
         },
-        "movement": {
-          "burrow": 0,
-          "climb": 0,
-          "fly": 0,
-          "swim": 0,
-          "walk": "floor(@attributes.dex / 10) * 5",
-          "units": "ft",
-          "hover": false
-        },
+        
         "details": {
           "biography": {
             "value": "",
             "public": ""
           }
+        },
+        "currency": { "pp": 0, "gp": 0, "ep": 0, "sp": 0, "cp": 0, "drops": 0 },
+        "traits": {
+          "size": "med",
+          "di": { "value": [], "custom": "" },
+          "dr": { "value": [], "custom": "" },
+          "dv": { "value": [], "custom": "" },
+          "ci": { "value": [], "custom": "" }
+        },
+        "skills": {
+          "dodge": { "value": 20, "bonus": 0 },
+          "stealth": { "value": 10, "bonus": 0 },
+          "survival": { "value": 10, "bonus": 0 },
+          "unsanity": { "value": 1, "bonus": 0 }
+        }
+      },
+      "creature": {
+        "attributes": {
+          "senses": {
+            "darkvision": 0,
+            "blindsight": 0,
+            "tremorsense": 0,
+            "truesight": 0,
+            "units": "ft",
+            "special": ""
+          },
+          "spellcasting": "int"
+        },
+        "details": { "alignment": "", "race": "" },
+        "traits": {
+          "languages": { "value": [], "custom": "" }
+        },
+        "spells": {
+          "spell1": { "value": 0, "override": null },
+          "spell2": { "value": 0, "override": null },
+          "spell3": { "value": 0, "override": null },
+          "spell4": { "value": 0, "override": null },
+          "spell5": { "value": 0, "override": null },
+          "spell6": { "value": 0, "override": null },
+          "spell7": { "value": 0, "override": null },
+          "spell8": { "value": 0, "override": null },
+          "spell9": { "value": 0, "override": null },
+          "pact": { "value": 0, "override": null }
         }
       }
     },
+    "htmlFields": ["details.biography.value", "details.biography.public"],
     "character": {
-      "templates": ["base"],
+      "templates": ["base", "creature"],
       "skills": {
-        "alertness": { "value": 20 },
-        "animalHandling": { "value": 5 },
-        "athletics": { "value": 10 },
-        "art": { "value": 5 },
-        "barter": { "value": 5 },
-        "craft": { "value": 0 },
-        "deception": { "value": 10 },
-        "disguise": { "value": 5 },
-        "dodge": { "value": 20 },
-        "drivePilot": { "value": 20 },
-        "history": { "value": 10 },
-        "intimidation": { "value": 5 },
-        "medicine": { "value": 1 },
-        "occult": { "value": 0 },
-        "performance": { "value": 5 },
-        "persuade": { "value": 10 },
-        "machinery": { "value": 5 },
-        "science": { "value": 10 },
-        "search": { "value": 10 },
-        "sleightOfHand": { "value": 5 },
-        "stealth": { "value": 10 },
-        "survival": { "value": 10 },
-        "unsanity": { "value": 1 },
-        "vibeCheck": { "value": 15 }
+        "alertness": { "value": 20, "bonus": 0 },
+        "animalHandling": { "value": 5, "bonus": 0 },
+        "athletics": { "value": 10, "bonus": 0 },
+        "art": { "value": 5, "bonus": 0 },
+        "barter": { "value": 5, "bonus": 0 },
+        "craft": { "value": 0, "bonus": 0 },
+        "deception": { "value": 10, "bonus": 0 },
+        "disguise": { "value": 5, "bonus": 0 },
+        "drivePilot": { "value": 20, "bonus": 0 },
+        "history": { "value": 10, "bonus": 0 },
+        "intimidation": { "value": 5, "bonus": 0 },
+        "medicine": { "value": 1, "bonus": 0 },
+        "occult": { "value": 0, "bonus": 0 },
+        "performance": { "value": 5, "bonus": 0 },
+        "persuade": { "value": 10, "bonus": 0 },
+        "machinery": { "value": 5, "bonus": 0 },
+        "science": { "value": 10, "bonus": 0 },
+        "search": { "value": 10, "bonus": 0 },
+        "sleightOfHand": { "value": 5, "bonus": 0 },
+        "vibeCheck": { "value": 15, "bonus": 0 }
+      },
+      "attributes": {
+        "death": { "success": 0, "failure": 0 },
+        "inspiration": 0
+      },
+      "details": {
+        "background": "",
+        "originalClass": "",
+        "xp": { "value": 0, "min": 0, "max": 300 },
+        "appearance": "",
+        "age": { "value": 0 },
+        "trait": "",
+        "ideal": "",
+        "bond": "",
+        "flaw": ""
+      },
+      "resources": {
+        "primary": { "value": 0, "max": 0, "sr": 0, "lr": 0 },
+        "secondary": { "value": 0, "max": 0, "sr": 0, "lr": 0 },
+        "tertiary": { "value": 0, "max": 0, "sr": 0, "lr": 0 }
+      },
+      "traits": {
+        "weaponProf": { "value": [], "custom": "" },
+        "armorProf": { "value": [], "custom": "" },
+        "toolProf": { "value": [], "custom": "" }
       }
     },
     "npc": {
-      "templates": ["base"],
+      "templates": ["base", "creature"],
       "skills": {
         "alertness": { "value": 20 },
         "animalHandling": { "value": 5 },
@@ -106,7 +178,6 @@
         "craft": { "value": 0 },
         "deception": { "value": 10 },
         "disguise": { "value": 5 },
-        "dodge": { "value": 20 },
         "drivePilot": { "value": 20 },
         "history": { "value": 10 },
         "intimidation": { "value": 5 },
@@ -118,34 +189,57 @@
         "science": { "value": 10 },
         "search": { "value": 10 },
         "sleightOfHand": { "value": 5 },
-        "stealth": { "value": 10 },
-        "survival": { "value": 10 },
-        "unsanity": { "value": 1 },
         "vibeCheck": { "value": 15 }
       },
-      "cr": 0
+      "details": {
+        "type": { "value": "", "subtype": "", "swarm": "", "custom": "" },
+        "environment": "",
+        "cr": 1,
+        "spellLevel": 0,
+        "xp": { "value": 10 },
+        "source": ""
+      },
+      "resources": {
+        "legact": { "value": 0, "max": 0 },
+        "legres": { "value": 0, "max": 0 },
+        "lair": { "value": 0, "max": 0 }
+      }
     },
     "creature": {
-      "templates": ["base"],
+      "templates": ["base", "creature"],
       "skills": {
         "alertness": { "value": 20 },
-        "athletics": { "value": 10 },
-        "dodge": { "value": 20 },
-        "stealth": { "value": 10 },
-        "survival": { "value": 10 },
-        "unsanity": { "value": 1 }
+        "athletics": { "value": 10 }
       },
-      "cr": 0
+      "details": {
+        "type": { "value": "", "subtype": "", "swarm": "", "custom": "" },
+        "environment": "",
+        "cr": 1,
+        "spellLevel": 0,
+        "xp": { "value": 10 },
+        "source": ""
+      },
+      "resources": {
+        "legact": { "value": 0, "max": 0 },
+        "legres": { "value": 0, "max": 0 },
+        "lair": { "value": 0, "max": 0 }
+      }
     },
     "pawn": {
-      "templates": ["base"],
-      "skills": {
-        "dodge": { "value": 20 },
-        "stealth": { "value": 10 },
-        "survival": { "value": 10 },
-        "unsanity": { "value": 1 }
+      "templates": ["base", "creature"],
+      "details": {
+        "type": { "value": "", "subtype": "", "swarm": "", "custom": "" },
+        "environment": "",
+        "cr": 1,
+        "spellLevel": 0,
+        "xp": { "value": 10 },
+        "source": ""
       },
-      "cr": 0
+      "resources": {
+        "legact": { "value": 0, "max": 0 },
+        "legres": { "value": 0, "max": 0 },
+        "lair": { "value": 0, "max": 0 }
+      }
     }
   },
   "Item": {
