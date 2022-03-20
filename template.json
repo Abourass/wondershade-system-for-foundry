@@ -3,21 +3,66 @@
     "types": ["character", "npc", "creature", "pawn"],
     "templates": {
       "base": {
-        "health": { "value": 10, "min": 0, "max": 10 },
-        "sanity": { "value": 10, "min": 0, "max": 10 },
-        "speed": "floor(@attributes.dex / 10) * 5",
-        "biography": "",
+        "health": { "value": 10, "min": 0, "max": 10, "temp": 0, "tempMax": 0 },
+        "sanity": { "value": 10, "min": 0, "max": 10, "temp": 0, "tempMax": 0 },
+        "init": { "value": 0, "bonus": 0 },
         "attributes": {
           "level": { "value": 1 },
-          "str": { "value": 1 },
-          "int": { "value": 1 },
-          "dex": { "value": 1 },
-          "char": { "value": 1 },
-          "con": { "value": 1 },
-          "pow": { "value": 1 },
-          "luck": { "value": 1 },
-          "iLuck": { "value": 1 },
+          "str": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "int": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "dex": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "char": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "con": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "pow": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "luck": {
+            "value": 1,
+            "proficient": 0,
+            "bonuses": { "check": "", "save": "" }
+          },
+          "iLuck": {
+            "value": 1,
+            "bonuses": { "check": "", "save": "" }
+          },
           "speed": { "value": 1 }
+        },
+        "movement": {
+          "burrow": 0,
+          "climb": 0,
+          "fly": 0,
+          "swim": 0,
+          "walk": "floor(@attributes.dex / 10) * 5",
+          "units": "ft",
+          "hover": false
+        },
+        "details": {
+          "biography": {
+            "value": "",
+            "public": ""
+          }
         }
       }
     },
