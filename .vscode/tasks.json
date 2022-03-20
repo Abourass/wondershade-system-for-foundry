@@ -8,6 +8,12 @@
       "type": "shell",
       "command": "lessc ./styles/src/index.less ./styles/wonder.css",
       "group": "build"
+    },
+    {
+      "type": "gulp",
+      "task": "less",
+      "problemMatcher": [],
+      "label": "gulp: less"
     }
   ]
 }
