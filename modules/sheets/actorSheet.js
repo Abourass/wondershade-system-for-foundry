@@ -1,4 +1,4 @@
-export default class WonderItemSheet extends ActorSheet {
+export default class WonderActorSheet extends ActorSheet {
   /**
    * Options for the UI composition
    * This will make Item Sheets open larger
@@ -16,7 +16,7 @@ export default class WonderItemSheet extends ActorSheet {
   }
 
   get template(){
-    return `systems/wondershade/templates/sheets/actors/${this.actor.data.type}-sheet.html`;
+    return `systems/wondershade/templates/sheets/actors/${this.actor.data.type}-sheet.hbs`;
   }
 
   getData() {

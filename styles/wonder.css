@@ -369,6 +369,9 @@ option:focus-within {
   font-family: 'Lora', serif;
   color: #f5f5f5c2;
 }
+.window-app .window-content {
+  background: none !important;
+}
 input[type=number] {
   -moz-appearance: textfield;
 }

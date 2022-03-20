@@ -17,7 +17,7 @@ export default class WonderItemSheet extends ItemSheet {
 
   // Point to the correct HTML depending on the item type
   get template(){
-    return `systems/wondershade/templates/sheets/items/${this.item.data.type}-sheet.html`;
+    return `systems/wondershade/templates/sheets/items/${this.item.data.type}-sheet.hbs`;
   }
 
   getData() {
