@@ -1,16 +1,54 @@
 {
+  "actor": {
+    "typeCharacter": "Player Character",
+    "typeNPC": "Non-Player Character",
+    "typeCreature": "Creature",
+    "typePawn": "Pawn"
+  },
+  "item": {
+    "typeBackpack": "Backpack",
+    "typeClass": "Class",
+    "typeConsumable": "Consumable",
+    "typeEquipment": "Equipment",
+    "typeFeat": "Feat",
+    "typeLoot": "Loot",
+    "typeSpell": "Spell",
+    "typeTool": "Tool",
+    "typeWeapon": "Weapon"
+  },
   "wondershade": {
-    "attributes": {
-      "level": "Level",
+    "title": "Wonder System",
+    "abbreviations": {
+      "CR": "CR",
+      "Conc": "Conc.",
+      "DC": "DC",
+      "Kgs": "kgs",
+      "LR": "LR",
+      "Level": "Lvl",
+      "Lbs": "lbs",
+      "SR": "SR"
+    },
+    "abilities": {
       "str": "Strength",
+      "strAbbr": "str",
       "int": "Intelligence",
+      "intAbbr": "int",
       "dex": "Dexterity",
+      "dexAbbr": "dex",
       "char": "Charisma",
+      "charAbbr": "cha",
       "con": "Constitution",
+      "conAbbr": "con",
       "pow": "Power",
+      "powAbbr": "pow",
       "luck": "Luck",
+      "luckAbbr": "luck",
       "iLuck": "Innate Luck",
-      "speed": "Speed"
+      "iLuckAbbr": "iLuck",
+      "modifier": "Stat Modifier",
+      "promptText": "What type of {ability} check?",
+      "promptTitle": "{ability} Stat Check",
+      "useHint": "Configure how you would like to use the {name} {type}."
     }
   }
 }

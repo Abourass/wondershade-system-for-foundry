@@ -19,10 +19,10 @@
             "units": "ft",
             "hover": false
           },
+          "level": { "value": 1 },
           "ac": { "flat": null, "calc": "default", "formula": "" }
         },
         "abilities": {
-          "level": { "value": 1 },
           "str": {
             "value": 1,
             "proficient": 0,
@@ -61,10 +61,8 @@
           "iLuck": {
             "value": 1,
             "bonuses": { "check": "", "save": "" }
-          },
-          "speed": { "value": 1 }
+          }
         },
-        
         "details": {
           "biography": {
             "value": "",
