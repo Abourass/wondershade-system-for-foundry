@@ -151,7 +151,11 @@
       "identified": "Identified",
       "initiative": "Initiative",
       "inspiration": "Inspiration",
-      "inventory": "Inventory"
+      "inventory": "Inventory",
+      "jackOfAllTrades": "Jack of all Trades",
+      "lairAct": "Uses Lair Action",
+      "lairActionLabel": "Lair Action",
+      "lairActionInitiative": "Lair Action Initiative Count"
     },
     "attunement": {
       "default": "Attunement",
@@ -530,6 +534,34 @@
       "diceRoll": "Roll Hit Dice",
       "diceUsed": "Hit Dice Used",
       "diceWarn": "{name} has no available {formula} Hit Dice remaining!"
+    },
+    "languages": {
+      "default": "Languages",
+      "aarakocra": "Aarakocra",
+      "abyssal": "Abyssal",
+      "aquan": "Aquan",
+      "auran": "Auran",
+      "celestial": "Celestial",
+      "common": "Common",
+      "deepSpeech": "Deep Speech",
+      "draconic": "Draconic",
+      "druidic": "Druidic",
+      "dwarvish": "Dwarvish",
+      "elvish": "Elvish",
+      "giant": "Giant",
+      "gith": "Gith",
+      "gnoll": "Gnoll",
+      "gnomish": "Gnomish",
+      "goblin": "Goblin",
+      "halfling": "Halfling",
+      "ignan": "Ignan",
+      "infernal": "Infernal",
+      "orc": "Orc",
+      "primordial": "Primordial",
+      "sylvan": "Sylvan",
+      "terran": "Terran",
+      "thievesCant": "Thieves' Cant",
+      "undercommon": "Undercommon"
     }
   }
 }
