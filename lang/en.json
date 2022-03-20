@@ -562,6 +562,15 @@
       "terran": "Terran",
       "thievesCant": "Thieves' Cant",
       "undercommon": "Undercommon"
+    },
+    "legendary": {
+      "action": "Legendary Actions",
+      "actionMax": "Maximum Legendary Actions",
+      "actionRemaining": "Remaining Legendary Actions",
+      "actionLabel": "Legendary Action",
+      "resistance": "Legendary Resistance",
+      "resistanceMax": "Maximum Legendary Resistances",
+      "resistanceRemaining": "Remaining Legendary Resistances"
     }
   }
 }
