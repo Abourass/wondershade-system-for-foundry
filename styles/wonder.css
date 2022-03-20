@@ -369,6 +369,51 @@ option:focus-within {
   font-family: 'Lora', serif;
   color: #f5f5f5c2;
 }
+/*Configure the tab buttons*/
+.skills,
+.combat,
+.magick,
+.items,
+.journal {
+  display: none;
+}
+/* show the selected tab */
+.sheet-tabstoggle[value="skills"] ~ div.skills,
+.sheet-tabstoggle[value="combat"] ~ div.combat,
+.sheet-tabstoggle[value="magick"] ~ div.magick,
+.sheet-tabstoggle[value="items"] ~ div.items,
+.sheet-tabstoggle[value="journal"] ~ div.journal {
+  display: block;
+}
+/*Configure the magick tab buttons*/
+.wonderLvlSpell,
+.finesseClassLvlSpell,
+.cantripLvlSpell,
+.firstLvlSpell,
+.secondLvlSpell,
+.thirdLvlSpell,
+.fourthLvlSpell,
+.fifthLvlSpell,
+.sixthLvlSpell,
+.seventhLvlSpell,
+.eighthLvlSpell,
+.ninthLvlSpell {
+  display: none;
+}
+.sheet-magictabstoggle[value="wonderLvlSpell"] ~ div.wonderLvlSpell,
+.sheet-magictabstoggle[value="finesseClassLvlSpell"] ~ div.finesseClassLvlSpell,
+.sheet-magictabstoggle[value="cantripLvlSpell"] ~ div.cantripLvlSpell,
+.sheet-magictabstoggle[value="firstLvlSpell"] ~ div.firstLvlSpell,
+.sheet-magictabstoggle[value="secondLvlSpell"] ~ div.secondLvlSpell,
+.sheet-magictabstoggle[value="thirdLvlSpell"] ~ div.thirdLvlSpell,
+.sheet-magictabstoggle[value="fourthLvlSpell"] ~ div.fourthLvlSpell,
+.sheet-magictabstoggle[value="fifthLvlSpell"] ~ div.fifthLvlSpell,
+.sheet-magictabstoggle[value="sixthLvlSpell"] ~ div.sixthLvlSpell,
+.sheet-magictabstoggle[value="seventhLvlSpell"] ~ div.seventhLvlSpell,
+.sheet-magictabstoggle[value="eighthLvlSpell"] ~ div.eighthLvlSpell,
+.sheet-magictabstoggle[value="ninthLvlSpell"] ~ div.ninthLvlSpell {
+  display: block;
+}
 .window-app .window-content {
   background: none !important;
 }
