@@ -128,7 +128,12 @@
       "dimensions": "Dimensions",
       "disadvantage": "Disadvantage",
       "duration": "Duration",
-      "effects": "Effects"
+      "effects": "Effects",
+      "exhaustion": "Exhaustion",
+      "expertise": "Expertise",
+      "featureActionRecharge": "Action Recharge",
+      "flaws": "Flaws",
+      "formulaCannotContainDiceWarn": "{name} formula cannot contain dice expressions.",
     },
     "attunement": {
       "default": "Attunement",
@@ -362,6 +367,47 @@
       "trinket": "Trinket",
       "vehicle": "Vehicle Equipment",
       "equipped": "Equipped"
+    },
+    "effect": {
+      "create": "Create Effect",
+      "toggle": "Toggle Effect",
+      "edit": "Edit Effect",
+      "enable": "Enable Effect",
+      "delete": "Delete Effect",
+      "disable": "Disable Effect",
+      "temporary": "Temporary Effects",
+      "passive": "Passive Effects",
+      "inactive": "Inactive Effects",
+      "new": "New Effect",
+      "unavailable": "Unavailable Effects",
+      "unavailableInfo": "Source item must be equipped or attuned to activate these"
+    },
+    "item": {
+      "rarityCommon": "common",
+      "rarityUncommon": "uncommon",
+      "rarityRare": "rare",
+      "rarityVeryRare": "very rare",
+      "rarityLegendary": "legendary",
+      "rarityArtifact": "artifact",
+      "typeClass": "Class",
+      "typeClassPl": "Class Levels",
+      "typeConsumable": "Consumable",
+      "typeConsumablePl": "Consumables",
+      "typeContainer": "Container",
+      "typeBackpack": "Container",
+      "typeContainerPl": "Containers",
+      "typeEquipment": "Equipment",
+      "typeEquipmentPl": "Equipment",
+      "typeFeat": "Feature",
+      "typeLoot": "Loot",
+      "typeLootPl": "Loot",
+      "typeTool": "Tool",
+      "typeToolPl": "Tools",
+      "typeSpell": "Spell",
+      "typeSpellPl": "Spells",
+      "typeWeapon": "Weapon",
+      "typeWeaponPl": "Weapons",
+      "noUses": "{name} has no available uses remaining."
     }
   }
 }
