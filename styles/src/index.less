@@ -1,3 +1,291 @@
 @import "./effects/neon.less";
 @import "./layout/base.less";
+@import "./layout/flex.less";
 @import "./layout/formatter.less";
+@import "./layout/forms.less";
+
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+.stat-blocks {
+  border-radius: 10px;
+  background: #151617;
+}
+
+.removeSides {
+  padding: 0px !important;
+  margin: 2px !important;
+}
+
+.shaded-input {
+  background: #222428c4 !important;
+  text-align: center;
+}
+
+.check-label {
+  cursor: pointer;
+}
+
+.smallCheck {
+  height: 3rem !important;
+  width: 3rem !important;
+  padding-right: 0!important;
+}
+
+.smallDot {
+  height: 7px!important;
+  width: 7px!important;
+  &.tearShape {
+    border-radius: 0px 50% 50% 50% !important;
+    /* Angle at the top */
+    transform: rotate(45deg);
+  }
+}
+
+.spellSlotRow {
+  margin-bottom: .2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.spellSlotLabel {
+  min-width: 12rem
+}
+
+.smallCol {
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+}
+
+.repcontrol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0.7rem;
+  margin-top: 0.4rem;
+
+  .btn {
+    background: #25272b;
+    color: aqua;
+    border: aqua;
+    text-shadow: none;
+    font-family: 'Mountains of Christmas';
+    font-size: 1.5rem;
+  }
+
+  .btn:hover {
+    background: #4a4848a6 !important;
+    color: #d840cb !important;
+  }
+}
+
+.toggle-box { display: none !important; }
+
+.skillHeading {
+  margin: 2rem 0;
+  font-size: 2em;
+  letter-spacing: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #88738a;
+  font-family: 'Mountains of Christmas';
+  margin-bottom: .5rem;
+}
+
+.lora {
+  font-family: 'Lora' !important;
+  font-size: 1.9rem !important;
+}
+
+.skillHeading {
+  &:before, &:after {
+    flex: 1;
+    display: block;
+    content: "";
+    height: 0;
+    margin: 1rem;
+    border-bottom: 3px solid #88738a;
+  }
+}
+
+.negativeBottomMargin {
+  margin-bottom: -1.5rem;
+}
+
+.skillCol {
+  padding: 0 0.1666666667rem;
+}
+
+.skillDisplay {
+  grid-template-columns: 2.5em 1fr;
+  border: 1px solid #88738a;
+  display: grid;
+  align-items: stretch;
+  margin-bottom: 0.5rem;
+  border-radius: 0 10%;
+  overflow: hidden;
+}
+
+.ruffle-1 {
+  border-radius: 10% 0 15% !important;
+}
+
+.ruffle-2 {
+  border-radius: 0 10% 15% !important;
+}
+
+.skillLabelCol {
+  grid-column: 2;
+  background: rgb(0 0 0 / 2%);
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 3em;
+  min-height: 36px;
+  padding: 0;
+  padding-left: .2rem;
+}
+
+.displayTitle {
+  font-size: 2.4rem;
+  font-family: 'Mountains of Christmas';
+  font-weight: 400;
+  color: #e6e6e6;
+  line-height: 3.2rem;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-top: 0.4rem;
+  margin-left: 0.2rem;
+}
+
+.header {
+  margin-top: -1rem;
+  margin-bottom: -.2rem;
+}
+
+.title {
+  font-family: 'Mountains of Christmas';
+  font-weight: 400;
+  text-align: center;
+  font-size: 4.5em;
+  color: #eeeef7;
+  line-height: 1.5;
+}
+
+.doubleLabel {
+  font-size: 2.3rem;
+  font-family: 'Mountains of Christmas';
+}
+
+.base {
+  background: rgb(52 56 62 / 65%);
+  border-radius: 5px;
+  padding: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  background: rgb(21 22 23);
+  padding: 5px 10px !important;
+  border-radius: 10px;
+}
+
+.tabButton {
+  background: transparent;
+  font-size: 2.8rem;
+  font-family: 'Mountains of Christmas';
+  border: none;
+  padding: .4rem 0.2rem;
+  margin: .5rem;
+}
+
+.magickTabButton {
+  background: transparent;
+  font-size: 1.6rem;
+  font-family: 'Lora', serif;
+  border: none;
+  padding: .4rem 0.2rem;
+  margin: .5rem;
+}
+
+.skillSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.5rem;
+  box-sizing: border-box;
+  height: auto;
+  max-height: 100%;
+  width: 100%;
+  padding: 0 0.25rem;
+}
+
+.stat-block {
+  display: flex;
+  align-items: center;
+  margin: 0 .5rem;
+  min-width: 4rem;
+  width: 4rem;
+}
+
+.skillButton {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.rollButton {
+  background: transparent;
+  border-radius: .5rem;
+  color: aqua;
+  font-size: 1.5em;
+  border-color: transparent;
+  display: none;
+}
+
+.charsheet {
+  background-image: url(https://github.com/Abourass/wondershade-classic/blob/main/dist/stars-964022_960_720.png?raw=true);
+
+  /*black space with tiny white stars*/
+  background-color: black;
+  background-repeat: repeat;
+  color: white;
+}
+
+.skillInput {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  height: 36px;
+  width: 100% !important;
+  background: #33383e61;
+  padding-top: 0;
+}
+
+.btn {
+  &:hover {
+    background: transparent !important;
+    color: rgb(216, 64, 203) !important;
+  }
+}
+
+.journal-border {
+  border: 1px solid #7a717a38;
+  border-radius: 55px;
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.journal-entry {
+  border: none;
+  color: whitesmoke;
+  font-family: 'Lora';
+  font-size: 1.5rem;
+  text-align: left;
+}

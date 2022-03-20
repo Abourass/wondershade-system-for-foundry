@@ -1,0 +1,222 @@
+@easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955); 
+
+.label {
+  color: #f5f5f5c2;
+  padding-right: .2rem;
+  font-size: 1.5rem;
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.clickable-label { cursor: pointer; }
+
+label {
+  margin-bottom: 0 !important;
+  font-family: 'Lora', serif;
+  font-weight: 400 !important;
+  margin-bottom: 0 !important;
+
+  strong {
+    font-family: 'Mountains of Christmas';
+    font-size: 1.8rem;
+  }
+}
+
+.input {
+  background: #151617;
+  color: #d6d2d2;
+  font-size: 3rem;
+  border-radius: .2rem;
+  border-color: transparent;
+  padding-left: .2rem;
+  overflow: hidden;
+  font-family: 'Mountains of Christmas', serif;
+
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    display: none;
+  }
+}
+
+
+input.toggle-show {
+  &:not(:checked) ~ div.hiddenSection {
+    display: none;
+  }
+
+  &:checked ~ {
+    .checkMinus { display: inline !important; }
+    .checkPlus { display: none !important; }
+  }
+
+  &:not(:checked) ~ .checkMinus { display: none !important; }
+}
+
+.checkPlus {
+  font-size: 2.4rem;
+  font-family: 'Pictos';
+  padding: 5px;
+  background-color: #3AC5C9;
+  line-height: 16px;
+  border-radius: 4px;
+  position: relative;
+  left: 4px;
+  top: -19px;
+}
+
+.checkMinus {
+  font-size: 2.4rem;
+  font-family: 'Pictos';
+  padding: 4px;
+  background-color: #887389;
+  line-height: 16px;
+  border-radius: 4px;
+  position: relative;
+  left: 4px;
+  top: -19px;
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input[type=checkbox] {
+    position: absolute;
+    left: -999999px;
+    display: unset;
+    width: unset;
+    height: unset;
+    padding: unset;
+    margin-bottom: unset;
+    font-family: unset;
+    font-size: unset;
+    font-weight: unset;
+    line-height: unset;
+    color: unset;
+    border: unset;
+    border-radius: unset;
+    background: unset;
+    background-color: unset;
+    box-shadow: unset;
+
+    + span {
+      background-color: unset;
+      border: 1px solid #88738a;
+      display: block;
+      height: 1em;
+      width: 1em;
+      align-self: center;
+      border-radius: 50%;
+      word-break: break-word;
+      cursor: pointer;
+    }
+
+    &:checked + span {
+      animation: neonBgGlow 3s infinite alternate @easeInOutQuad;
+      background-color: #873b8e;
+      border: 1px solid #873b8e;
+      height: .75em;
+      width: .75em;
+    }
+    &:checked + span.fairyFire {
+      animation: neonSoftBgGlow 2s infinite alternate cubic-bezier(0, 1.67, 1, 1.63) !important;
+    }
+  }
+}
+
+.form {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+select {
+  border: none;
+  padding: 0 1em 0 0;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  border: none;
+
+  &.dark-drop {
+    appearance: none;
+    background-color: transparent;
+    margin: 0;
+    width: 100%;
+    font-family: 'Mountains of Christmas';
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+    color: #d6d2d2;
+    height: 3rem;
+    text-align: center;
+
+    // Stack above custom arrow
+    z-index: 1;
+  
+    // Remove dropdown arrow in IE10 & IE11
+    // @link https://www.filamentgroup.com/lab/select-css.html
+    &::-ms-expand { display: none; }
+  
+    // Remove focus outline, will add on alternate element
+    outline: none;
+
+    display: grid;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
+
+    &::after { grid-area: select; }
+
+    min-width: 15ch;
+    max-width: 30ch;
+
+    border: 1px solid transparent;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+
+    // Custom arrow
+    &:not(.select--multiple)::after {
+      content: "";
+      justify-self: end;
+      width: 0.8em;
+      height: 0.5em;
+      background-color: whitesmoke;
+      clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    }
+  }
+  
+}
+
+option {
+  white-space: normal;
+  outline-color: rgb(155, 19, 148);
+  background: #222428;
+
+  &:focus-within {
+    background: #3AC5C9;
+    color: #222428;
+  }
+}
+
+.mini-drop {
+  height: 38px !important;
+  border-radius: .2rem !important;
+  margin-left: 0.9rem !important;
+  margin-right: 0.1rem !important;
+  width: -webkit-fill-available !important;
+}
+
+.center-drop {
+  option {
+    padding: 0 !important;
+    padding-left: 2px !important;
+    text-align: left !important;
+  }
+}
+
+.slot-label {
+  font-family: 'Lora', serif;
+  color: #f5f5f5c2;
+}
