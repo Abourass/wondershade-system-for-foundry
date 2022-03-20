@@ -1,0 +1,136 @@
+@easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955); 
+
+.neon { animation: neonGlow 2s infinite alternate @easeInOutQuad; }
+
+@keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255,255,255,.8),
+                 0 0 20px rgba(255,255,255,.8),
+                 0 0 22px  rgba(255,255,255,.8),
+                 0 0 40px  rgba(66,220,219,.8),
+                 0 0 60px  rgba(66,220,219,.8),
+                 0 0 80px  rgba(66,220,219,.5),
+                 0 0 100px rgba(66,220,219,.5),
+                 0 0 140px rgba(66,220,219,.5),
+                 0 0 200px rgba(66,220,219,.5);
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(255,255,255,.8),
+                 0 0 8px rgba(255,255,255,.8),
+                 0 0 10px rgba(255,255,255,.8),
+                 0 0 20px rgba(66,220,219,.8),
+                 0 0 30px rgba(66,220,219,.8),
+                 0 0 40px rgba(66,220,219,.8),
+                 0 0 50px rgba(66,220,219,.5),
+                 0 0 80px rgba(66,220,219,.5);
+  }
+}
+
+.neon-red { animation: neonRedGlow 2s infinite alternate @easeInOutQuad; }
+
+@keyframes neonRedGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255,255,255,.8),
+                 0 0 20px rgba(255,255,255,.8),
+                 0 0 22px  rgba(255,255,255,.8),
+                 0 0 40px  rgba(206, 81, 102,.8),
+                 0 0 60px  rgba(206, 81, 102,.8),
+                 0 0 80px  rgba(206, 81, 102,.5),
+                 0 0 100px rgba(206, 81, 102,.5),
+                 0 0 140px rgba(206, 81, 102,.5),
+                 0 0 200px rgba(206, 81, 102, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(255,255,255,.8),
+                 0 0 8px rgba(255,255,255,.8),
+                 0 0 10px rgba(255,255,255,.8),
+                 0 0 20px rgba(206, 81, 102,.8),
+                 0 0 30px rgba(206, 81, 102,.8),
+                 0 0 40px rgba(206, 81, 102,.8),
+                 0 0 50px rgba(206, 81, 102,.5),
+                 0 0 80px rgba(206, 81, 102, 0.5)
+  }
+}
+
+
+.neon-soft { animation: neonSoftGlow 2s infinite alternate @easeInOutQuad; }
+
+@keyframes neonSoftGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255,255,255,.8),
+                 0 0 20px rgba(255,255,255,.8),
+                 0 0 22px  rgba(255,255,255,.8),
+                 0 0 40px  rgba(179, 116, 204,.8),
+                 0 0 60px  rgba(179, 116, 204,.8),
+                 0 0 80px  rgba(179, 116, 204,.5),
+                 0 0 100px rgba(179, 116, 204,.5),
+                 0 0 140px rgba(179, 116, 204,.5),
+                 0 0 200px rgba(179, 116, 204,.5);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(255,255,255,.8),
+                 0 0 8px rgba(255,255,255,.8),
+                 0 0 10px rgba(179, 116, 204,.9),
+                 0 0 20px rgba(179, 116, 204,.8),
+                 0 0 30px rgba(179, 116, 204,.8),
+                 0 0 40px rgba(179, 116, 204,.8),
+                 0 0 50px rgba(179, 116, 204,.5),
+                 0 0 80px rgba(179, 116, 204, 0.5);
+  }
+}
+
+@keyframes neonBgGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255,255,255,.8),
+                 0 0 20px rgba(255,255,255,.8),
+                 0 0 22px  rgba(255,255,255,.8),
+                 0 0 40px  rgba(179, 116, 204,.8),
+                 0 0 60px  rgba(179, 116, 204,.8),
+                 0 0 80px  rgba(179, 116, 204,.5),
+                 0 0 100px rgba(179, 116, 204,.5),
+                 0 0 140px rgba(179, 116, 204,.5),
+                 0 0 200px rgba(179, 116, 204,.5);
+    background: rgba(255,255,255,.8);
+    border-color: rgba(255, 255, 255, 0.144);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(255,255,255,.8),
+                 0 0 8px rgba(255,255,255,.8),
+                 0 0 10px rgba(179, 116, 204,.9),
+                 0 0 20px rgba(179, 116, 204,.8),
+                 0 0 30px rgba(179, 116, 204,.8),
+                 0 0 40px rgba(179, 116, 204,.8),
+                 0 0 50px rgba(179, 116, 204,.5),
+                 0 0 80px rgba(179, 116, 204, 0.5);
+    background: rgba(179, 116, 204, 0.5);
+    border-color:rgba(179, 116, 204, 0.5);
+  }
+}
+
+@keyframes neonSoftBgGlow {
+  0% {
+    box-shadow: 0 0 7px rgba(255,255,255,.8),
+                0 0 15px rgba(255,255,255,.8),
+                0 0 20px  rgba(255,255,255,.8),
+                0 0 30px  rgba(209, 247, 247, 0.8),
+                0 0 38px  rgba(182, 230, 231, 0.8),
+                0 0 45px  rgba(179, 222, 230, 0.5),
+                0 0 55px rgba(136, 184, 212, 0.5),
+                0 0 70px rgba(127, 175, 214, 0.5),
+                0 0 80px rgba(136, 198, 235, 0.5);
+    background: rgba(255,255,255,.8);
+    border-color: rgba(255, 255, 255, 0.144);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(255,255,255,.8),
+                0 0 4px rgba(255,255,255,.8),
+                0 0 8px rgba(179, 116, 204,.9),
+                0 0 16px rgba(179, 116, 204,.8),
+                0 0 22px rgba(179, 116, 204,.8),
+                0 0 30px rgba(95, 195, 202, 0.8),
+                0 0 38px rgba(93, 211, 211, 0.5),
+                0 0 56px rgba(48, 218, 218, 0.5);
+    background: rgba(116, 201, 204, 0.5);
+    border-color:rgba(116, 201, 204, 0.5);
+  }
+}
