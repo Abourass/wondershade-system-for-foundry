@@ -1,13 +1,138 @@
-nav ul {
-  margin: 0;
-  padding: 6px;
-  list-style: none;
+.neon {
+  animation: neonGlow 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
 }
-nav li {
-  display: inline-block;
+@keyframes neonGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 22px rgba(255, 255, 255, 0.8), 0 0 40px rgba(66, 220, 219, 0.8), 0 0 60px rgba(66, 220, 219, 0.8), 0 0 80px rgba(66, 220, 219, 0.5), 0 0 100px rgba(66, 220, 219, 0.5), 0 0 140px rgba(66, 220, 219, 0.5), 0 0 200px rgba(66, 220, 219, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(66, 220, 219, 0.8), 0 0 30px rgba(66, 220, 219, 0.8), 0 0 40px rgba(66, 220, 219, 0.8), 0 0 50px rgba(66, 220, 219, 0.5), 0 0 80px rgba(66, 220, 219, 0.5);
+  }
 }
-nav a {
-  display: block;
-  padding: 6px 12px;
-  text-decoration: none;
+.neon-red {
+  animation: neonRedGlow 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+@keyframes neonRedGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 22px rgba(255, 255, 255, 0.8), 0 0 40px rgba(206, 81, 102, 0.8), 0 0 60px rgba(206, 81, 102, 0.8), 0 0 80px rgba(206, 81, 102, 0.5), 0 0 100px rgba(206, 81, 102, 0.5), 0 0 140px rgba(206, 81, 102, 0.5), 0 0 200px rgba(206, 81, 102, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(206, 81, 102, 0.8), 0 0 30px rgba(206, 81, 102, 0.8), 0 0 40px rgba(206, 81, 102, 0.8), 0 0 50px rgba(206, 81, 102, 0.5), 0 0 80px rgba(206, 81, 102, 0.5);
+  }
+}
+.neon-soft {
+  animation: neonSoftGlow 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+@keyframes neonSoftGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 22px rgba(255, 255, 255, 0.8), 0 0 40px rgba(179, 116, 204, 0.8), 0 0 60px rgba(179, 116, 204, 0.8), 0 0 80px rgba(179, 116, 204, 0.5), 0 0 100px rgba(179, 116, 204, 0.5), 0 0 140px rgba(179, 116, 204, 0.5), 0 0 200px rgba(179, 116, 204, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.8), 0 0 10px rgba(179, 116, 204, 0.9), 0 0 20px rgba(179, 116, 204, 0.8), 0 0 30px rgba(179, 116, 204, 0.8), 0 0 40px rgba(179, 116, 204, 0.8), 0 0 50px rgba(179, 116, 204, 0.5), 0 0 80px rgba(179, 116, 204, 0.5);
+  }
+}
+@keyframes neonBgGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 22px rgba(255, 255, 255, 0.8), 0 0 40px rgba(179, 116, 204, 0.8), 0 0 60px rgba(179, 116, 204, 0.8), 0 0 80px rgba(179, 116, 204, 0.5), 0 0 100px rgba(179, 116, 204, 0.5), 0 0 140px rgba(179, 116, 204, 0.5), 0 0 200px rgba(179, 116, 204, 0.5);
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.144);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.8), 0 0 10px rgba(179, 116, 204, 0.9), 0 0 20px rgba(179, 116, 204, 0.8), 0 0 30px rgba(179, 116, 204, 0.8), 0 0 40px rgba(179, 116, 204, 0.8), 0 0 50px rgba(179, 116, 204, 0.5), 0 0 80px rgba(179, 116, 204, 0.5);
+    background: rgba(179, 116, 204, 0.5);
+    border-color: rgba(179, 116, 204, 0.5);
+  }
+}
+@keyframes neonSoftBgGlow {
+  0% {
+    box-shadow: 0 0 7px rgba(255, 255, 255, 0.8), 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(209, 247, 247, 0.8), 0 0 38px rgba(182, 230, 231, 0.8), 0 0 45px rgba(179, 222, 230, 0.5), 0 0 55px rgba(136, 184, 212, 0.5), 0 0 70px rgba(127, 175, 214, 0.5), 0 0 80px rgba(136, 198, 235, 0.5);
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.144);
+  }
+  100% {
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(179, 116, 204, 0.9), 0 0 16px rgba(179, 116, 204, 0.8), 0 0 22px rgba(179, 116, 204, 0.8), 0 0 30px rgba(95, 195, 202, 0.8), 0 0 38px rgba(93, 211, 211, 0.5), 0 0 56px rgba(48, 218, 218, 0.5);
+    background: rgba(116, 201, 204, 0.5);
+    border-color: rgba(116, 201, 204, 0.5);
+  }
+}
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lora/v23/0QI6MX1D_JOuGQbT0gvTJPa787weuxJBkqg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Mountains of Christmas';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/mountainsofchristmas/v18/3y9w6a4zcCnn5X0FDyrKi2ZRUBIy8uxoUo7eDNGsNA.ttf) format('truetype');
+}
+.body {
+  padding: 10px 0;
+  font-family: 'Lora', serif;
+  line-height: 1.7;
+  min-height: 100%;
+}
+.fit-size {
+  max-width: fit-content;
+}
+.fit-width {
+  width: -webkit-fill-available;
+  width: -moz-available;
+}
+.min-input {
+  max-width: 16rem;
+}
+.mini-number {
+  font-size: xx-large;
+  height: 2.8rem !important;
+  width: 4.5rem !important;
+}
+.center-txt {
+  text-align: center;
+}
+.full-height {
+  height: 100% !important;
+}
+.pt0 {
+  padding-top: 0 !important;
+}
+.pt1 {
+  padding-top: 0.1rem;
+}
+.pt2 {
+  padding-top: 0.2rem;
+}
+.pt3 {
+  padding-top: 0.3rem;
+}
+.pr0 {
+  padding-right: 0;
+}
+.mt0 {
+  margin-top: 0;
+}
+.mt1 {
+  margin-top: 0.1rem;
+}
+.mt2 {
+  margin-top: 0.2rem;
+}
+.mt3 {
+  margin-top: 0.3rem;
+}
+.mt4 {
+  margin-top: 0.4rem;
+}
+.mt5 {
+  margin-top: 0.5rem;
+}
+.mt10 {
+  margin-top: 1rem;
+}
+.mb0 {
+  margin-bottom: 0;
+}
+.font-2 {
+  font-size: 2rem !important;
 }
