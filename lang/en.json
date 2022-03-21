@@ -1,21 +1,20 @@
 {
-  "actor": {
-    "typeCharacter": "Player Character",
-    "typeNPC": "Non-Player Character",
-    "typeCreature": "Creature",
-    "typePawn": "Pawn"
-  },
-  "item": {
-    "typeBackpack": "Backpack",
-    "typeClass": "Class",
-    "typeConsumable": "Consumable",
-    "typeEquipment": "Equipment",
-    "typeFeat": "Feat",
-    "typeLoot": "Loot",
-    "typeSpell": "Spell",
-    "typeTool": "Tool",
-    "typeWeapon": "Weapon"
-  },
+  "ACTOR.TypeCharacter": "Player Character",
+  "ACTOR.TypeNPC": "Non-Player Character",
+  "ACTOR.TypeCreature": "Creature",
+  "ACTOR.TypePawn": "Pawn",
+  "ACTOR.TypeVehicle": "Vehicle",
+
+  "ITEM.TypeBackpack": "Backpack",
+  "ITEM.TypeClass": "Class",
+  "ITEM.TypeConsumable": "Consumable",
+  "ITEM.TypeEquipment": "Equipment",
+  "ITEM.TypeFeat": "Feature",
+  "ITEM.TypeLoot": "Loot",
+  "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeTool": "Tool",
+  "ITEM.TypeWeapon": "Weapon",
+
   "wondershade": {
     "title": "Wonder System",
     "abbreviations": {
