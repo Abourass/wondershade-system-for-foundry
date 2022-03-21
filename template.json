@@ -26,41 +26,49 @@
           "str": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 0
           },
           "int": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 1
           },
           "dex": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 2
           },
-          "char": {
+          "cha": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 3
           },
           "con": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 4
           },
           "pow": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 5
           },
           "luck": {
             "value": 1,
             "proficient": 0,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 6
           },
           "iLuck": {
             "value": 1,
-            "bonuses": { "check": "", "save": "" }
+            "bonuses": { "check": "", "save": "" },
+            "menuOrder": 7
           }
         },
         "details": {
