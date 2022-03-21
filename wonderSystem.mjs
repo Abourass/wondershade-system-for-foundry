@@ -28,9 +28,9 @@ Hooks.once('init', () => {
 });
 
 Handlebars.registerHelper('entries', function(data, property) {
-  const data = getProperty(this, property);
-  console.log({data})
+  const propData = getProperty(this, property);
+  console.log({propData})
   const entries = Object.entries(data);
   console.log({entries})
-  return Object.entries(data);
+  return Object.entries(propData);
 });
