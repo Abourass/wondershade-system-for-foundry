@@ -2,7 +2,7 @@
   <div class="flex-row justify-evenly">
     {{#each (entries actorData.abilities)}}
 
-    {{log this}}
+    {{log this level='debug'}}
       {{#if this[1].menuOrder <= 2}}
         <div class="stat-block">
           <label for="" class="label flex-col align-center clickable-label">
@@ -22,6 +22,7 @@
   </div>
   <div class="flex-row justify-evenly">
     {{#each (entries actorData.abilities)}}
+    {{log this level='debug'}}
       {{#if this[1].menuOrder >= 3}}
         <div class="stat-block">
           <label for="" class="label flex-col align-center clickable-label">
