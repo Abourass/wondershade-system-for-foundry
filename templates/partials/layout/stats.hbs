@@ -1,43 +1,39 @@
 <div class="stat-blocks column">
   <div class="flex-row justify-evenly">
-    {{#each (entries actorData.abilities)}}
+    {{#each (entries [actorData.abilities[0], actorData.abilities[1], actorData.abilities[2]])}}
 
     {{log this level='debug'}}
-      {{#if this[1].menuOrder <= 2}}
-        <div class="stat-block">
-          <label for="" class="label flex-col align-center clickable-label">
-            <div class="flex-row align-center justify-center">
-              <span>{{this[0]}}</span>
-              <button class="skillButton"></button>
-            </div>
-            <input
-              type="text"
-              class="input mini-number center-txt"
-              value="{{this[1].value}}"
-            >
-          </label>
-        </div>
-      {{/if}}
+      <div class="stat-block">
+        <label for="" class="label flex-col align-center clickable-label">
+          <div class="flex-row align-center justify-center">
+            <span>{{this[0]}}</span>
+            <button class="skillButton"></button>
+          </div>
+          <input
+            type="text"
+            class="input mini-number center-txt"
+            value="{{this[1].value}}"
+          >
+        </label>
+      </div>
     {{/each}}
   </div>
   <div class="flex-row justify-evenly">
     {{#each (entries actorData.abilities)}}
     {{log this level='debug'}}
-      {{#if this[1].menuOrder >= 3}}
-        <div class="stat-block">
-          <label for="" class="label flex-col align-center clickable-label">
-            <div class="flex-row align-center justify-center">
-              <span>{{this[0]}}</span>
-              <button class="skillButton"></button>
-            </div>
-            <input
-              type="text"
-              class="input mini-number center-txt"
-              value="{{this[1].value}}"
-            >
-          </label>
-        </div>
-      {{/if}}
+      <div class="stat-block">
+        <label for="" class="label flex-col align-center clickable-label">
+          <div class="flex-row align-center justify-center">
+            <span>{{this[0]}}</span>
+            <button class="skillButton"></button>
+          </div>
+          <input
+            type="text"
+            class="input mini-number center-txt"
+            value="{{this[1].value}}"
+          >
+        </label>
+      </div>
     {{/each}}
   </div>
 </div>
