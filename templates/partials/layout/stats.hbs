@@ -1,6 +1,6 @@
 <div class="stat-blocks column">
   <div class="flex-row justify-evenly">
-    {{#each entries actorData "abilities"}}
+    {{#each (entries actorData "abilities")}}
       <div class="stat-block">
         <label for="" class="label flex-col align-center clickable-label">
           <div class="flex-row align-center justify-center">
@@ -17,7 +17,7 @@
     {{/each}}
   </div>
   <div class="flex-row justify-evenly">
-    {{#each entries actorData "abilities"}}
+    {{#each (entries actorData "abilities")}}
       <div class="stat-block">
         <label for="" class="label flex-col align-center clickable-label">
           <div class="flex-row align-center justify-center">
