@@ -64,6 +64,7 @@
           }
         },
         "details": {
+          "profession": "",
           "biography": {
             "value": "",
             "public": ""
@@ -148,7 +149,7 @@
         "originalClass": "",
         "xp": { "value": 0, "min": 0, "max": 300 },
         "appearance": "",
-        "age": { "value": 0 },
+        "age": { "value": 20 },
         "trait": "",
         "ideal": "",
         "bond": "",

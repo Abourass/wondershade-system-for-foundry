@@ -22,8 +22,11 @@ export default class WonderActorSheet extends ActorSheet {
   getData() {
     // Execute the default getData() method
     const data = super.getData();
+    console.log(data);
     // Attach the localization to the data
     data.config = CONFIG.wondershade;
+    // Let's alias actor data.data since it's tedious to access
+    data.actorData = data.actor.data.data;
     return data;
   }
 }

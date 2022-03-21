@@ -155,7 +155,10 @@
       "jackOfAllTrades": "Jack of all Trades",
       "lairAct": "Uses Lair Action",
       "lairActionLabel": "Lair Action",
-      "lairActionInitiative": "Lair Action Initiative Count"
+      "lairActionInitiative": "Lair Action Initiative Count",
+      "level": "Level",
+      "levelScaling": "Level Scaling",
+      "name": "Name"
     },
     "attunement": {
       "default": "Attunement",
