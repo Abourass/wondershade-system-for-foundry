@@ -27,10 +27,8 @@ Hooks.once('init', () => {
   preloadHBSTemplates();
 });
 
-Handlebars.registerHelper('entries', function(data, property) {
-  const propData = getProperty(this, property);
-  console.log({propData})
+Handlebars.registerHelper('entries', function(data) {
   const entries = Object.entries(data);
   console.log({entries})
-  return Object.entries(propData);
+  return entries
 });
