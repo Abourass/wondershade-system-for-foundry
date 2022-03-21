@@ -15,6 +15,9 @@
   "ITEM.TypeTool": "Tool",
   "ITEM.TypeWeapon": "Weapon",
 
+  "Wondershade.title": "Wonder System",
+  "Wondershade.level": "Level",
+
   "wondershade": {
     "title": "Wonder System",
     "abbreviations": {
