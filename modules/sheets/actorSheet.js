@@ -27,6 +27,22 @@ export default class WonderActorSheet extends ActorSheet {
     data.config = CONFIG.wondershade;
     // Let's alias actor data.data since it's tedious to access
     data.actorData = data.actor.data.data;
+
+    // Attach the stat types
+    data.stats = {
+      top: [
+        { shortTxt: 'Str', fullTxt: 'Strength' },
+        { shortTxt: 'Int', fullTxt: 'Intelligence' },
+        { shortTxt: 'Dex', fullTxt: 'Dexterity' },
+        { shortTxt: 'Cha', fullTxt: 'Charisma' },
+      ],
+      bottom: [
+        { shortTxt: 'Con', fullTxt: 'Constitution' },
+        { shortTxt: 'Pow', fullTxt: 'Power' },
+        { shortTxt: 'Luck', fullTxt: 'Luck' },
+        { shortTxt: 'I. Luck', fullTxt: 'ILuck' },
+      ]
+    }
     return data;
   }
 }

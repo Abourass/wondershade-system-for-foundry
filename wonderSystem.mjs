@@ -5,6 +5,7 @@ import WonderActorSheet from './modules/sheets/actorSheet.js';
 async function preloadHBSTemplates(){
   const templatePaths = [
     'systems/wondershade/templates/partials/layout/backgroundInfo.hbs',
+    'systems/wondershade/templates/partials/layout/stats.hbs',
   ];
 
   return loadTemplates(templatePaths);
