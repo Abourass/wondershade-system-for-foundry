@@ -2,19 +2,19 @@
   <div class="flex-row">
     <div class="form">
       <label for="name" class="label clickable-label">
-        Name
+        {{ localize 'WonderSystem.Name' }}
         <input
           name="name"
           type="text"
           value="{{actor.name}}"
-          placeholder="{{localize 'Wondershade.name'}}"
+          placeholder="{{localize 'WonderSystem.name'}}"
           class="input"
         />
       </label>
     </div>
     <div class="form">
       <label for="actorData.attributes.level.value" class="label clickable-label">
-        {{ localize "Wondershade.level" }}
+        {{ localize "WonderSystem.Level" }}
         <input
           name="actorData.attributes.level.value"
           value="{{actorData.attributes.level.value}}"
@@ -27,7 +27,7 @@
   <div class="flex-row">
     <div class="form">
       <label for="age" class="label clickable-label">
-        Age
+        {{ localize "WonderSystem.Age" }}
         <input
           name="age"
           value="{{actorData.details.age.value}}"
@@ -40,7 +40,7 @@
     <div class="form">
       <div class="form fit-size">
         <label for="profession" class="label clickable-label">
-          Profession
+          {{ localize "WonderSystem.Profession" }}
           <input
             name="profession"
             value="{{actorData.details.profession}}"
