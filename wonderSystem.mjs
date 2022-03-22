@@ -1,4 +1,4 @@
-import { wondershadeConf } from './modules/config.js';
+import { WonderSystemConf } from './modules/config.js';
 import WonderItemSheet from './modules/sheets/itemSheet.js';
 import WonderActorSheet from './modules/sheets/actorSheet.js';
 
@@ -15,7 +15,7 @@ async function preloadHBSTemplates(){
 Hooks.once('init', () => {
   console.log('Wonder System loading...');
 
-  CONFIG.wondershade = wondershadeConf;
+  CONFIG.wondershade = WonderSystemConf;
 
   // Unregister the default item sheet
   Items.unregisterSheet('core', ItemSheet);
