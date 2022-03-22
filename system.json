@@ -4,6 +4,7 @@
   "description": "The glittery black heart that beats within my chest. Also known as the Wonder System",
   "version": "0.0.1",
   "templateVersion": 2,
+  "minimumCoreVersion": "9.251",
   "author": "Mod",
   "scripts": [],
   "esmodules": [
@@ -24,5 +25,7 @@
   "gridDistance": 5,
   "gridUnit": "ft",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": null
+  "secondaryTokenAttribute": null,
+  "manifest": "https://raw.githubusercontent.com/Abourass/wondershade-system-for-foundry/main/system.json",
+  "download": "https://github.com/Abourass/wondershade-system-for-foundry/archive/refs/tags/development.zip"
 }
