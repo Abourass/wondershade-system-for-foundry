@@ -1,0 +1,30 @@
+<div class="section flex-row" style='width: 100%; justify-content: space-evenly;'>
+  <!-- Difficulty -->
+  <div class="flex-col" style='display: flex; align-items: center; justify-content: center'>
+    <dropdown
+      class="dark-drop mini-drop"
+      style='margin-left: 0!important'
+      name="data.attributes.difficulty"
+    >
+      {{selectOptions config.html.difficulty selected=actorData.attributes.difficulty nameAttr="value" labelAttr="text"}} 
+    </dropdown>
+  </div>
+  <!-- /Difficulty -->
+  <!-- Initiative -->
+  <div class="flex-col" style="min-width: 155px;">
+    <div class="stat-block">
+      <label for="data.attributes.init.value" class="label flex-col align-center clickable-label">
+        <div class="flex-row align-center justify-center">
+          <span>{{ localize 'WonderSystem.Initiative' }}</span>
+        </div>
+        <input
+          type="number"
+          class="input mini-number center-txt"
+          name="data.attributes.init.value"
+          value="{{actorData.attributes.init.value}}"
+        >
+      </label>
+    </div>
+  </div>
+  <!-- /Initiative -->
+</div>
