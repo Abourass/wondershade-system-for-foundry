@@ -5,9 +5,10 @@
   "author": "Mod",
   "authors": [],
   "flags": {},
-  "version": "0.0.11",
+  "version": "0.0.12",
   "templateVersion": 2,
   "minimumCoreVersion": 9,
+  "compatibleCoreVersion": "9",
   "scripts": [],
   "esmodules": [
     "wonderSystem.mjs"

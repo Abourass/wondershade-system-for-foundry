@@ -1,13 +1,13 @@
 <div class="section flex-row" style='width: 100%; justify-content: space-evenly;'>
   <!-- Difficulty -->
   <div class="flex-col" style='display: flex; align-items: center; justify-content: center'>
-    <dropdown
+    <select
       class="dark-drop mini-drop"
       style='margin-left: 0!important'
       name="data.attributes.difficulty"
     >
       {{selectOptions config.html.difficulty selected=actorData.attributes.difficulty nameAttr="value" labelAttr="text"}} 
-    </dropdown>
+    </select>
   </div>
   <!-- /Difficulty -->
 
