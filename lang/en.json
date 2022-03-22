@@ -593,6 +593,7 @@
   "WonderSystem.RollExample": "e.g. 1d4",
   "WonderSystem.RollMode": "Roll Mode",
   "WonderSystem.RollSituationalBonus": "Situational Bonus?",
+  "WonderSystem.Sanity": "Sanity",
   "WonderSystem.Movement": "Movement",
   "WonderSystem.MovementConfig": "Configure Movement Speed",
   "WonderSystem.MovementConfigHint": "Configure the movement speed and special movement attributes of this creature.",

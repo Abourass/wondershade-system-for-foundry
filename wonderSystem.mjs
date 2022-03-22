@@ -6,6 +6,7 @@ async function preloadHBSTemplates(){
   const templatePaths = [
     'systems/wondershade/templates/partials/layout/backgroundInfo.hbs',
     'systems/wondershade/templates/partials/layout/stats.hbs',
+    'systems/wondershade/templates/partials/layout/forces.hbs',
   ];
 
   return loadTemplates(templatePaths);
@@ -25,10 +26,4 @@ Hooks.once('init', () => {
   Actors.registerSheet('wondershade', WonderActorSheet, { makeDefault: true });
 
   preloadHBSTemplates();
-});
-
-Handlebars.registerHelper('entries', function(data) {
-  const entries = Object.entries(data);
-  console.log({entries})
-  return entries
 });

@@ -25,24 +25,15 @@ export default class WonderActorSheet extends ActorSheet {
     console.log(data);
     // Attach the localization to the data
     data.config = CONFIG.wondershade;
-    // Let's alias actor data.data since it's tedious to access
+    // Let's alias actor.data.data since it's tedious to access
     data.actorData = data.actor.data.data;
-
-    // Attach the stat types
-    data.stats = {
-      top: [
-        { shortTxt: 'Str', fullTxt: 'Strength' },
-        { shortTxt: 'Int', fullTxt: 'Intelligence' },
-        { shortTxt: 'Dex', fullTxt: 'Dexterity' },
-        { shortTxt: 'Cha', fullTxt: 'Charisma' },
-      ],
-      bottom: [
-        { shortTxt: 'Con', fullTxt: 'Constitution' },
-        { shortTxt: 'Pow', fullTxt: 'Power' },
-        { shortTxt: 'Luck', fullTxt: 'Luck' },
-        { shortTxt: 'I. Luck', fullTxt: 'ILuck' },
-      ]
+    // Lets check if they've yet to set their max health
+    if (data.actorData.attributes.hp.max === 0) {
+      data.actorData.attributes.hp.max = Math.round(
+        ((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5,
+      );
     }
+
     return data;
   }
 }

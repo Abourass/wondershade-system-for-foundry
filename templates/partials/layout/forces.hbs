@@ -1,0 +1,52 @@
+<div class="column mt5" style="margin: 0; padding-left: 0; padding-right: 0;">
+  <div class="flex-row">
+    <div class="section column flex-center">
+      <div class="stat-block flex-center">
+        <label for="data.attributes.hp.value" class="label flex-col align-center justify-center">
+          <div class="flex-row align-center">
+            <span class="doubleLabel"> {{ localize 'WonderSystem.HP'}} </span>
+          </div>
+          <div class="flex-row align-center">
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.hp.value"
+              value="{{actorData.attributes.hp.value}}"
+            >
+            <span class="vs">/</span>
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.hp.max"
+              value="{{actorData.attributes.hp.max}}"
+            >
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="section column flex-center">
+      <div class="stat-block flex-center">
+        <label for="data.attributes.sanity.value" class="label flex-col align-center justify-center">
+          <div class="flex-row align-center">
+            <span class="doubleLabel"> {{ localize 'WonderSystem.Sanity'}} </span>
+          </div>
+          <div class="flex-row align-center">
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.sanity.value"
+              value="{{actorData.attributes.sanity.value}}"
+            >
+            <span class="vs">/</span>
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.sanity.max"
+              value="{{actorData.attributes.sanity.max}}"
+            >
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
