@@ -5,9 +5,9 @@
         <div class="stat-block">
           <label for="data.abilities.{{@key}}.value" class="label flex-col align-center clickable-label">
             <div class="flex-row align-center justify-center">
-              {{log 'data' data}}
-              {{log 'data' config}}
-              <span>{{dynamicLocalization data.config.attributes @key}}</span>
+              {{log 'data' ../data}}
+              {{log 'config' ../config}}
+              <span>{{dynamicLocalization ../config.attributes @key}}</span>
               <button class="skillButton"></button>
             </div>
             <input
