@@ -1,5 +1,6 @@
 <div class="column mt5" style="margin: 0; padding-left: 0; padding-right: 0;">
   <div class="flex-row">
+    <!-- Stat: HP -->
     <div class="section column flex-center">
       <div class="stat-block flex-center">
         <label for="data.attributes.hp.value" class="label flex-col align-center justify-center">
@@ -24,6 +25,9 @@
         </label>
       </div>
     </div>
+    <!-- /Stat: HP -->
+
+    <!-- Stat: Sanity -->
     <div class="section column flex-center">
       <div class="stat-block flex-center">
         <label for="data.attributes.sanity.value" class="label flex-col align-center justify-center clickable-label">
@@ -48,6 +52,9 @@
         </label>
       </div>
     </div>
+    <!-- /Stat: Sanity -->
+
+    <!-- Stat: Willpower -->
     <div class="section column">
       <div class="stat-blocks">
         <div class="flex-row justify-evenly">
@@ -61,12 +68,67 @@
                 class="dark-drop"
                 value="{{actorData.attributes.willpower}}"
               >
-              {{selectOptions config.html.willpower selected=actorData.attributes.willpower nameAttr="value" labelAttr="text"}}
+                {{selectOptions config.html.willpower selected=actorData.attributes.willpower nameAttr="value" labelAttr="text"}}
               </select>
             </div>
           </label>
         </div>
       </div>
     </div>
+    <!-- /Stat: Willpower -->
+
+    <!-- Stat: Fortitude -->
+    <div class="section column flex-center">
+      <div class="stat-block flex-center">
+        <label for="data.attributes.fortitude.value" class="label flex-col align-center justify-center clickable-label">
+          <div class="flex-row align-center">
+            <span class="doubleLabel"> {{ localize 'WonderSystem.Fortitude'}} </span>
+          </div>
+          <div class="flex-row align-center">
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.fortitude.value"
+              value="{{actorData.attributes.fortitude.value}}"
+            >
+            <span class="vs">/</span>
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.fortitude.max"
+              value="{{actorData.attributes.fortitude.max}}"
+            >
+          </div>
+        </label>
+      </div>
+    </div>
+    <!-- /Stat: Fortitude -->
+
+    <!-- Stat: Finesse -->
+    <div class="section column flex-center">
+      <div class="stat-block flex-center">
+        <label for="data.attributes.finesse.value" class="label flex-col align-center justify-center clickable-label">
+          <div class="flex-row align-center">
+            <span class="doubleLabel"> {{ localize 'WonderSystem.WeaponPropertiesFin'}} </span>
+          </div>
+          <div class="flex-row align-center">
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.finesse.value"
+              value="{{actorData.attributes.finesse.value}}"
+            >
+            <span class="vs">/</span>
+            <input
+              type="number"
+              class="input mini-number center-txt"
+              name="data.attributes.finesse.max"
+              value="{{actorData.attributes.finesse.max}}"
+            >
+          </div>
+        </label>
+      </div>
+    </div>
+    <!-- /Stat: Finesse -->
   </div>
 </div>
