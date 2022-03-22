@@ -21,11 +21,20 @@
     "attributes": {
       "str": "Strength",
       "strAbbr": "Str",
-      "DEX": "Dexterity",
-      "CON": "Constitution",
-      "INT": "Intelligence",
-      "WIS": "Wisdom",
-      "CHA": "Charisma"
+      "dex": "Dexterity",
+      "dexAbbr": "Dex",
+      "con": "Constitution",
+      "conAbbr": "Con",
+      "int": "Intelligence",
+      "intAbbr": "Int",
+      "cha": "Charisma",
+      "chaAbbr": "Cha",
+      "pow": "Power",
+      "powAbbr": "Pow",
+      "luck": "Luck",
+      "luckAbbr": "Luck",
+      "iLuck": "Innate Luck",
+      "iLuckAbbr": "I. Luck"
     }
   },
   
