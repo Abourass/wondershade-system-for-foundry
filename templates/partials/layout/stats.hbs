@@ -2,16 +2,14 @@
   <div class="flex-row justify-evenly">
     {{#each actorData.abilities}}
       {{#if (lte this.menuOrder 3)}}
-        {{log 'this' this}}
-        {{log 'key' @key}}
         <div class="stat-block">
-          <label for="data.attributes.{{@key}}.value" class="label flex-col align-center clickable-label">
+          <label for="data.abilities.{{@key}}.value" class="label flex-col align-center clickable-label">
             <div class="flex-row align-center justify-center">
               <span>{{@key}}</span>
               <button class="skillButton"></button>
             </div>
             <input
-              name="data.attributes.{{@key}}.value"
+              name="data.abilities.{{@key}}.value"
               type="text"
               class="input mini-number center-txt"
               value="{{this.value}}"
@@ -24,15 +22,14 @@
   <div class="flex-row justify-evenly">
     {{#each actorData.abilities}}
       {{#if (gte this.menuOrder 4)}}
-        {{log 'this' this}}
         <div class="stat-block">
-          <label for="attributes.{{@key}}.value" class="label flex-col align-center clickable-label">
+          <label for="data.abilities.{{@key}}.value" class="label flex-col align-center clickable-label">
             <div class="flex-row align-center justify-center">
               <span>{{@key}}</span>
               <button class="skillButton"></button>
             </div>
             <input
-              name="attributes.{{@key}}.value"
+              name="data.abilities.{{@key}}.value"
               type="text"
               class="input mini-number center-txt"
               value="{{this.value}}"
