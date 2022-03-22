@@ -1,0 +1,104 @@
+<div class="items">
+  <h1 class="skillHeading">{{ localize "WonderSystem.Inventory" }}</h1>
+  <div class="flex-row">
+    <!-- Currency: Copper -->
+    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
+      <label for="data.currency.cp" class="label" style="width: auto">
+        {{ localize "WonderSystem.CurrencyCP" }}
+      </label>
+      <input
+        type="text"
+        class="input shade-input fit-width font-2"
+        name="data.currency.cp"
+        value="{{ actorData.currency.cp }}"
+        style="width: 8vw"
+      >
+    </div>
+    <!-- /Currency: Copper -->
+
+    <!-- Currency: Silver -->
+    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
+      <label for="data.currency.sp" class="label" style="width: auto">
+        {{ localize "WonderSystem.CurrencySP" }}
+      </label>
+      <input
+        type="text"
+        class="input shade-input fit-width font-2"
+        name="data.currency.sp"
+        value="{{ actorData.currency.sp }}"
+        style="width: 8vw"
+      >
+    </div>
+    <!-- /Currency: Silver -->
+
+    <!-- Currency: Gold -->
+    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
+      <label for="data.currency.gp" class="label" style="width: auto">
+        {{ localize "WonderSystem.CurrencyGP" }}
+      </label>
+      <input
+        type="text"
+        class="input shade-input fit-width font-2"
+        name="data.currency.gp"
+        value="{{ actorData.currency.gp }}"
+        style="width: 8vw"
+      >
+    </div>
+    <!-- /Currency: Gold -->
+
+    <!-- Currency: Platinum -->
+    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
+      <label for="data.currency.pp" class="label" style="width: auto">
+        {{ localize "WonderSystem.CurrencyPP" }}
+      </label>
+      <input
+        type="text"
+        class="input shade-input fit-width font-2"
+        name="data.currency.pp"
+        value="{{ actorData.currency.pp }}"
+        style="width: 8vw"
+      >
+    </div>
+    <!-- /Currency: Platinum -->
+
+    <!-- Currency: Drops -->
+    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
+      <label for="data.currency.drops" class="label" style="width: auto">
+        {{ localize "WonderSystem.CurrencyDrops" }}
+      </label>
+      <input
+        type="text"
+        class="input shade-input fit-width font-2"
+        name="data.currency.drops"
+        value="{{ actorData.currency.drops }}"
+        style="width: 8vw"
+      >
+    </div>
+    <!-- /Currency: Drops -->
+  </div>
+  <hr style="border-color: #887389;">
+  <fieldset class="repeating_items" style='margin-left: 0.8rem; margin-right: 1.6rem;'>
+    <div class="flex-row" style='margin-left: 2.5rem'>
+      <div class="column removeSides">
+        <div class="label">
+          <input
+            type="text"
+            class="input shaded-input fit-width font-2"
+            placeholder="{{ localize "WonderSystem.ItemName" }}"
+          >
+        </div>
+      </div>
+
+      <div class="column removeSides" style='max-width: 30.8%;'>
+        <div class="label">
+          <input
+            type="text"
+            class="input shaded-input fit-width font-2"
+            placeholder="{{ localize "WonderSystem.Quantity" }}"
+          >
+        </div>
+      </div>
+    </div>
+  </fieldset>
+    
+</div>

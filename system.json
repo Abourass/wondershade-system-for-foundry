@@ -5,9 +5,9 @@
   "author": "Mod",
   "authors": [],
   "flags": {},
-  "version": "0.0.8",
+  "version": "0.0.9",
   "templateVersion": 2,
-  "minimumCoreVersion": "9",
+  "minimumCoreVersion": 9,
   "scripts": [],
   "esmodules": [
     "wonderSystem.mjs"
@@ -16,11 +16,7 @@
     "styles/wonder.css"
   ],
   "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "lang/en.json"
-    }
+    { "lang": "en", "name": "English", "path": "lang/en.json" }
   ],
   "packs": [],
   "system": [],

@@ -37,6 +37,6 @@ export const WonderSystemConf = {
       {value: 25, text: '25% Harder'},
       {value: 30, text: '30% Harder'},
       {value: 40, text: '40% Harder'},
-    ]
-  }
+    ],
+  },
 };

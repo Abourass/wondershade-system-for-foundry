@@ -17,4 +17,4 @@ Hooks.once('init', () => {
   preloadHBSTemplates();
 });
 
-Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.localize(data[key]))
+Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.localize(data[key]));
