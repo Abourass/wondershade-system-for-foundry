@@ -201,7 +201,11 @@ label strong {
   font-family: 'Mountains of Christmas';
   font-size: 1.8rem;
 }
-.input {
+input[type="text"] .input,
+input[type="number"] .input,
+input[type="password"] .input,
+input[type="date"] .input,
+input[type="time"] .input {
   background: #151617 !important;
   color: #d6d2d2 !important;
   font-size: 3rem;
@@ -211,8 +215,16 @@ label strong {
   overflow: hidden;
   font-family: 'Mountains of Christmas', serif;
 }
-.input::-webkit-outer-spin-button,
-.input::-webkit-inner-spin-button {
+input[type="text"] .input::-webkit-outer-spin-button,
+input[type="number"] .input::-webkit-outer-spin-button,
+input[type="password"] .input::-webkit-outer-spin-button,
+input[type="date"] .input::-webkit-outer-spin-button,
+input[type="time"] .input::-webkit-outer-spin-button,
+input[type="text"] .input::-webkit-inner-spin-button,
+input[type="number"] .input::-webkit-inner-spin-button,
+input[type="password"] .input::-webkit-inner-spin-button,
+input[type="date"] .input::-webkit-inner-spin-button,
+input[type="time"] .input::-webkit-inner-spin-button {
   display: none;
 }
 input.toggle-show:not(:checked) ~ div.hiddenSection {
