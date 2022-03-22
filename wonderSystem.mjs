@@ -27,3 +27,8 @@ Hooks.once('init', () => {
 
   preloadHBSTemplates();
 });
+
+Handlebars.registerHelper('dynamicLocalization', (data, key) => {
+  console.log('[WonderSystem:Handlebars]', game.i18n.localize(data[key]))
+  return game.i18n.localize(data[key]);
+})

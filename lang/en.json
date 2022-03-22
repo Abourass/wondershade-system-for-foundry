@@ -17,6 +17,19 @@
 
   "WonderSystem.Title": "Wonder System",
 
+  "WonderSystem": {
+    "attributes": {
+      "str": "Strength",
+      "strAbbr": "Str",
+      "DEX": "Dexterity",
+      "CON": "Constitution",
+      "INT": "Intelligence",
+      "WIS": "Wisdom",
+      "CHA": "Charisma"
+    }
+  },
+  
+
   "WonderSystem.AbbreviationCR": "CR",
   "WonderSystem.AbbreviationConc": "Conc.",
   "WonderSystem.AbbreviationDC": "DC",

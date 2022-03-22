@@ -1,7 +1,8 @@
 export const wondershadeConf = {
   attributes: {
     level: 'wondershade.attributes.level',
-    str: 'wondershade.attributes.str',
+    str: 'WonderSystem.attributes.str',
+    strAbbr: 'WonderSystem.attributes.strAbbr',
     int: 'wondershade.attributes.int',
     dex: 'wondershade.attributes.dex',
     char: 'wondershade.attributes.char',
