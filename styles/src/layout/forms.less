@@ -1,16 +1,5 @@
 @easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955); 
 
-.label {
-  color: #f5f5f5c2!important;
-  padding-right: .2rem;
-  font-size: 1.5rem;
-  font-family: 'Lora', serif;
-  font-weight: 400;
-  margin-bottom: 0;
-}
-
-.clickable-label { cursor: pointer; }
-
 label {
   margin-bottom: 0 !important;
   font-family: 'Lora', serif;
@@ -21,10 +10,21 @@ label {
     font-family: 'Mountains of Christmas';
     font-size: 1.8rem;
   }
+
+  .label {
+    color: #f5f5f5c2!important;
+    padding-right: .2rem;
+    font-size: 1.5rem;
+    font-family: 'Lora', serif;
+    font-weight: 400;
+    margin-bottom: 0;
+  }
+  
+  .clickable-label { cursor: pointer; }
 }
 
 
-input[type="text"], input[type="number"], input[type="password"], input[type="date"], input[type="time"] {
+input {
   .input {
   background: #151617 !important;
   color: #d6d2d2 !important;
@@ -34,26 +34,23 @@ input[type="text"], input[type="number"], input[type="password"], input[type="da
   padding-left: .2rem;
   overflow: hidden;
   font-family: 'Mountains of Christmas', serif;
-
-  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
-    display: none;
-  }
-}
-}
-
-
-
-input.toggle-show {
-  &:not(:checked) ~ div.hiddenSection {
-    display: none;
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+      display: none;
+    }
   }
 
-  &:checked ~ {
-    .checkMinus { display: inline !important; }
-    .checkPlus { display: none !important; }
+  .toggle-show {
+    &:not(:checked) ~ div.hiddenSection {
+      display: none;
+    }
+  
+    &:checked ~ {
+      .checkMinus { display: inline !important; }
+      .checkPlus { display: none !important; }
+    }
+  
+    &:not(:checked) ~ .checkMinus { display: none !important; }
   }
-
-  &:not(:checked) ~ .checkMinus { display: none !important; }
 }
 
 .checkPlus {
