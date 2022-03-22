@@ -128,13 +128,8 @@
 .min-input {
   max-width: 16rem;
 }
-.mini-number {
-  font-size: xx-large;
-  height: 2.8rem !important;
-  width: 4.5rem !important;
-}
 .center-txt {
-  text-align: center;
+  text-align: center !important;
 }
 .full-height {
   height: 100% !important;
@@ -214,6 +209,11 @@ input.input {
 input.input::-webkit-outer-spin-button,
 input.input::-webkit-inner-spin-button {
   display: none;
+}
+input.input.mini-number {
+  font-size: xx-large;
+  height: 2.8rem !important;
+  width: 4.5rem !important;
 }
 input .toggle-show:not(:checked) ~ div.hiddenSection {
   display: none;
