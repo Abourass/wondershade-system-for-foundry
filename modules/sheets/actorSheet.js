@@ -27,13 +27,34 @@ export default class WonderActorSheet extends ActorSheet {
     data.config = CONFIG.wondershade;
     // Let's alias actor.data.data since it's tedious to access
     data.actorData = data.actor.data.data;
-    // Lets check if they've yet to set their max health
-    if (data.actorData.attributes.hp.max === 0) {
-      data.actorData.attributes.hp.max = Math.round(
-        ((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5,
-      );
+
+    if (data.actorData.firstOpen){
+      const maxHealth = Math.round(((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5);
+      // lets set their current health
+      data.actorData.attributes.hp.value = maxHealth;
+      // Lets set their max health
+      data.actorData.attributes.hp.max = maxHealth;
+
+      data.actorData.firstOpen = false;
     }
 
     return data;
+  }
+
+  activateListeners(html) {
+    // Owner-only Listeners
+    if (this.actor.owner) {
+      html.find('.stat-roll').click(this._onStatRoll.bind(this));
+    }
+
+    super.activateListeners(html);
+  }
+
+  _onStatRoll(event) {
+    const itemID = event.currentTarget.closest('.item').dataset.itemId;
+    const item = this.actor.getOwnedItem(itemID);
+
+    // Roll the stat
+    item.roll();
   }
 }

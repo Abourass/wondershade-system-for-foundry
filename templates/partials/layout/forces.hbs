@@ -26,7 +26,7 @@
     </div>
     <div class="section column flex-center">
       <div class="stat-block flex-center">
-        <label for="data.attributes.sanity.value" class="label flex-col align-center justify-center">
+        <label for="data.attributes.sanity.value" class="label flex-col align-center justify-center clickable-label">
           <div class="flex-row align-center">
             <span class="doubleLabel"> {{ localize 'WonderSystem.Sanity'}} </span>
           </div>
@@ -46,6 +46,26 @@
             >
           </div>
         </label>
+      </div>
+    </div>
+    <div class="section column">
+      <div class="stat-blocks">
+        <div class="flex-row justify-evenly">
+          <label for="data.attributes.willpower" class="label flex-col align-center justify-center">
+            <div class="flex-row align-center">
+              <span class="doubleLabel">{{ localize 'WonderSystem.Willpower'}}</span>
+            </div>
+            <div class="flex-row align-center">
+              <select
+                name="data.attributes.willpower"
+                class="dark-drop"
+                value="{{actorData.attributes.willpower}}"
+              >
+              
+              </select>
+            </div>
+          </label>
+        </div>
       </div>
     </div>
   </div>
