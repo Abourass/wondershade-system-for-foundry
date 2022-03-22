@@ -1,5 +1,5 @@
 export default async function preloadHBSTemplates(){
-  const templatePaths = [
+  return loadTemplates([
     // Layout
     'systems/wondershade/templates/partials/layout/backgroundInfo.hbs',
     'systems/wondershade/templates/partials/layout/stats.hbs',
@@ -7,12 +7,10 @@ export default async function preloadHBSTemplates(){
     'systems/wondershade/templates/partials/layout/difficultyInitAndRest.hbs',
     'systems/wondershade/templates/partials/layout/tabs.hbs',
     // Tabs
-    'systems/wondershade/templates/partials/layout/tabs/combat.hbs',
-    'systems/wondershade/templates/partials/layout/tabs/inventory.hbs',
-    'systems/wondershade/templates/partials/layout/tabs/journal.hbs',
-    'systems/wondershade/templates/partials/layout/tabs/magick.hbs',
-    'systems/wondershade/templates/partials/layout/tabs/skills.hbs',
-  ];
-
-  return loadTemplates(templatePaths);
+    'systems/wondershade/templates/partials/tabs/combat.hbs',
+    'systems/wondershade/templates/partials/tabs/inventory.hbs',
+    'systems/wondershade/templates/partials/tabs/journal.hbs',
+    'systems/wondershade/templates/partials/tabs/magick.hbs',
+    'systems/wondershade/templates/partials/tabs/skills.hbs',
+  ]);
 }
