@@ -1,10 +1,9 @@
 @easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955); 
 
 label {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
   font-family: 'Lora', serif;
-  font-weight: 400 !important;
-  margin-bottom: 0 !important;
+  font-weight: 400;
 
   strong {
     font-family: 'Mountains of Christmas';
@@ -12,15 +11,21 @@ label {
   }
 
   &.label {
-    color: #f5f5f5c2!important;
+    color: #f5f5f5f5;
     padding-right: .2rem;
-    font-size: 1.5rem;
-    font-family: 'Lora', serif;
-    font-weight: 400;
-    margin-bottom: 0;
+    font-size: 15.6px;
   }
-  
+  &.clickable { cursor: pointer; }
   &.clickable-label { cursor: pointer; }
+  &.force-label {
+    color: #f5f5f5f5;
+    padding-right: .2rem;
+    font-size: 15.6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 
@@ -28,7 +33,7 @@ input {
   &.input {
   background: #151617 !important;
   color: #d6d2d2 !important;
-  font-size: 3rem;
+  font-size: 1.6rem;
   border-radius: .2rem;
   border-color: transparent;
   padding-left: .2rem;
@@ -39,8 +44,8 @@ input {
     }
 
     &.mini-number {
-      font-size: xx-large;
-      height: 2.8rem;
+      font-size: 30px;
+      height: 28px;
       width: calc(100% - 4px);
     }
   }
@@ -152,7 +157,7 @@ select {
     margin: 0;
     width: 100%;
     font-family: 'Mountains of Christmas';
-    font-size: 2rem;
+    font-size: 1.2rem;
     cursor: pointer;
     line-height: 1;
     color: #d6d2d2;
@@ -161,10 +166,6 @@ select {
 
     // Stack above custom arrow
     z-index: 1;
-  
-    // Remove dropdown arrow in IE10 & IE11
-    // @link https://www.filamentgroup.com/lab/select-css.html
-    &::-ms-expand { display: none; }
   
     // Remove focus outline, will add on alternate element
     outline: none;
@@ -226,4 +227,10 @@ option {
 .slot-label {
   font-family: 'Lora', serif;
   color: #f5f5f5c2;
+}
+
+.doubleLabel {
+  font-size: 23px;
+  line-height: 23px;
+  font-family: 'Mountains of Christmas';
 }

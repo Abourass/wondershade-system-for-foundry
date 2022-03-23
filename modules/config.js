@@ -1,14 +1,14 @@
 export const WonderSystemConf = {
   local: {
     attr: {
-      str: 'WonderSystem.attributes.strAbbr',
-      int: 'WonderSystem.attributes.intAbbr',
-      dex: 'WonderSystem.attributes.dexAbbr',
-      con: 'WonderSystem.attributes.conAbbr',
-      cha: 'WonderSystem.attributes.chaAbbr',
-      pow: 'WonderSystem.attributes.powAbbr',
-      luck: 'WonderSystem.attributes.luckAbbr',
-      iLuck: 'WonderSystem.attributes.iLuckAbbr',
+      str: 'WonderSystem.attributes.STR',
+      int: 'WonderSystem.attributes.INT',
+      dex: 'WonderSystem.attributes.DEX',
+      con: 'WonderSystem.attributes.CON',
+      cha: 'WonderSystem.attributes.CHA',
+      pow: 'WonderSystem.attributes.POW',
+      luck: 'WonderSystem.attributes.LUCK',
+      iLuck: 'WonderSystem.attributes.ILUCK',
     },
   },
   html: {

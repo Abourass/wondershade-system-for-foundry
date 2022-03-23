@@ -1,8 +1,8 @@
-<div class="section column pt0 even-spaced-col">
+<div class="flex-section space-evenly">
   <div class="flex-row">
     <!-- Name -->
     <div class="form">
-      <label for="name" class="label clickable-label">
+      <label for="name" class="label">
         {{ localize 'WonderSystem.Name' }}
         <input
           name="name"
@@ -16,52 +16,48 @@
     <!-- /Name -->
 
     <!-- Level -->
-    <div class="form">
-      <label for="data.attributes.level.value" class="label clickable-label">
+    <div class="form w-30 center-col">
+      <label for="data.attributes.level.value" class="label center-col">
         {{ localize "WonderSystem.Level" }}
         <input
           name="data.attributes.level.value"
           value="{{actorData.attributes.level.value}}"
           type="number"
-          class="input mini-number"
+          class="input mini-number center-txt"
         >
       </label>
     </div>
+    <!--- /Level -->
   </div>
-  <!--- /Level -->
-
-  <!--- Age -->
+  
   <div class="flex-row">
-    <div class="form">
-      <label for="data.details.age.value" class="label clickable-label">
-        {{ localize "WonderSystem.Age" }}
-        <input
-          name="data.details.age.value"
-          value="{{actorData.details.age.value}}"
-          type="number"
-          class="input mini-number"
-          style="margin-right: 0.6rem;"
-        >
-      </label>
-    </div>
-    <!--- /Age -->
-
     <!--- Profession -->
-    <div class="form">
-      <div class="form fit-size">
-        <label for="data.details.profession" class="label clickable-label">
+      <div class="form">
+        <label for="data.details.profession" class="label">
           {{ localize "WonderSystem.Profession" }}
           <input
             name="data.details.profession"
             value="{{actorData.details.profession}}"
             type="text"
-            class="input min-input"
+            class="input"
             placeholder="{{ localize "WonderSystem.Profession" }}"
-            style="font-size: 2.2rem"
           >
         </label>
       </div>
-    </div>
     <!--- /Profession -->
+
+    <!--- Age -->
+    <div class="form w-30">
+      <label for="data.details.age.value" class="label center-col">
+        {{ localize "WonderSystem.Age" }}
+        <input
+          name="data.details.age.value"
+          value="{{actorData.details.age.value}}"
+          type="number"
+          class="input mini-number center-txt"
+        >
+      </label>
+    </div>
+    <!--- /Age -->
   </div>
 </div>

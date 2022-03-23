@@ -1,3 +1,22 @@
+.flex-section {
+  background: #151617;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 0 2.5px;
+
+  display: flex;
+  flex-direction: column;
+  
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  
+  &.thin { padding: 2.5px 5px; }
+  &.center { align-items: center; justify-content: center; }
+  &.space-evenly { justify-content: space-evenly; }
+}
+
+
 .flex { display: flex !important; }
 .flex-col {
   display: flex;
@@ -26,7 +45,7 @@
   flex-grow: 1;
   flex-shrink: 1;
   padding: 0.75rem;
-  margin: 0 .25rem;
+  margin: 0 2.5px;
 }
 
 .flex-center {
@@ -39,3 +58,10 @@
 .justify-center { justify-content: center; }
 .justify-between { justify-content: space-between; }
 .justify-evenly { justify-content: space-evenly; }
+
+.center-col {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+}
