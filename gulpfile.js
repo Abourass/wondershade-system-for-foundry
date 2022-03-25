@@ -1,17 +1,14 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
-const autoprefixer = require('gulp-autoprefixer');
+const LessAutoprefix = require('less-plugin-autoprefix');
+
+const autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 
 gulp.task('less', (cb) => {
   gulp
     .src('./styles/src/index.less')
-    .pipe(less())
-    .pipe(
-      autoprefixer({ cascade: false }),
-    )
-    .pipe(
-      gulp.dest(f => `/styles/${f.base}`),
-    );
+    .pipe(less({ plugins: [autoprefix] }))
+    .pipe(gulp.dest(() => './styles/'));
   cb();
 });
 
