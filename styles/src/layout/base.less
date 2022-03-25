@@ -12,6 +12,7 @@ body {
   font-family: 'Lora', serif;
   line-height: 15.6px;
   min-height: 100%;
+  z-index: 4;
 }
 
 .base {
@@ -20,11 +21,14 @@ body {
   padding: 20px;
   margin-left: auto;
   margin-right: auto;
+  z-index: 5;
 }
 
 .header {
-  margin-top: -1rem;
+  margin-top: -.3rem;
   margin-bottom: -.2rem;
+  position: relative;
+  z-index: 5;
   >.title {
     font-family: 'Mountains of Christmas';
     font-weight: 400;
@@ -33,11 +37,14 @@ body {
     color: #eeeef7;
     line-height: 1.5;
     border-bottom: 0;
+    z-index: 5;
+
   }
 }
 
 .section {
-  background: rgb(21 22 23);
+  background: #76808b2e;
   padding: 5px 10px !important;
   border-radius: 10px;
+  z-index: 5;
 }

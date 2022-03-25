@@ -1,4 +1,6 @@
 @import "./effects/neon.less";
+@import "./effects/stars.less";
+@import "./effects/glitch.less";
 @import "./layout/base.less";
 @import "./layout/flex.less";
 @import "./layout/formatter.less";
@@ -25,9 +27,7 @@ i {
 }
 
 .main-controls {
-  >li {
-    background: rgb(10 3 3 / 85%) !important;
-  }
+  >li { background: rgb(10 3 3 / 85%) !important; }
 }
 
 .journalHeader {
@@ -43,13 +43,12 @@ i {
   justify-content: center;
 }
 
-input[type=number] {
-  -moz-appearance:textfield;
-}
+input[type=number] { -moz-appearance:textfield; }
 
 .stat-blocks {
   border-radius: 10px;
-  background: #151617;
+  background: #76808b2e;
+  z-index: 3;
 }
 
 .removeSides {
