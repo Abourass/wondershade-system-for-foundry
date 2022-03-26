@@ -52,23 +52,21 @@
 
     <!-- Force: Willpower -->
     <div class="flex-section thin center fit-nice">
-      <div class="stat-blocks">
-        <div class="flex-row justify-evenly">
-          <label for="data.attributes.willpower" class="force-label">
-            <div class="flex-row align-center">
-              <span class="doubleLabel">{{ localize 'WonderSystem.Willpower'}}</span>
-            </div>
-            <div class="flex-row align-center">
-              <select
-                name="data.attributes.willpower"
-                class="dark-drop"
-                value="{{actorData.attributes.willpower}}"
-              >
-                {{selectOptions config.html.willpower selected=actorData.attributes.willpower nameAttr="value" labelAttr="text"}}
-              </select>
-            </div>
-          </label>
-        </div>
+      <div class="flex-row justify-evenly">
+        <label for="data.attributes.willpower" class="force-label">
+          <div class="flex-row align-center">
+            <span class="doubleLabel">{{ localize 'WonderSystem.Willpower'}}</span>
+          </div>
+          <div class="flex-row align-center">
+            <select
+              name="data.attributes.willpower"
+              class="dark-drop"
+              value="{{actorData.attributes.willpower}}"
+            >
+              {{selectOptions config.html.willpower selected=actorData.attributes.willpower nameAttr="value" labelAttr="text"}}
+            </select>
+          </div>
+        </label>
       </div>
     </div>
     <!-- /Force: Willpower -->

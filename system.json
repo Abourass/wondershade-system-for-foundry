@@ -14,7 +14,7 @@
     "wonderSystem.mjs"
   ],
   "styles": [
-    "styles/wonder.css"
+    "styles/index.min.css"
   ],
   "languages": [
     { "lang": "en", "name": "English", "path": "lang/en.json" }
