@@ -28,6 +28,7 @@ label {
   }
 }
 
+input[type=number] { -moz-appearance:textfield; }
 
 input {
   &.input {
@@ -86,6 +87,24 @@ input {
   position: relative;
   left: 4px;
   top: -19px;
+}
+
+.check-label { cursor: pointer; }
+
+.smallCheck {
+  height: 3rem !important;
+  width: 3rem !important;
+  padding-right: 0!important;
+}
+
+.smallDot {
+  height: 7px!important;
+  width: 7px!important;
+  &.tearShape {
+    border-radius: 0px 50% 50% 50% !important;
+    /* Angle at the top */
+    transform: rotate(45deg);
+  }
 }
 
 .checkmark {
