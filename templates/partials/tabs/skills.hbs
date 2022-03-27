@@ -1,1 +1,63 @@
-<div class="skills"></div>
+<div class="skills">
+  <h1 class="skillHeading">Skills</h1>
+  <div class="skillSection">
+    {{#each config.html.skills as |section|}}
+    {{log '[skillSection:each -> key' @key}}
+    {{log '[skillSection:each -> section' section}}
+      {{#if (eq @key 'left')}}
+        <div class="skillCol">
+          {{#each section as |skill|}}
+          {{log '[skillSection:each -> key' @key}}
+          {{log '[skill:each -> this' skill}}
+            <div class="skillDisplay">
+              <label class="checkmark mb0 flex">
+                <input
+                  type="checkbox"
+                  data-skillChecked="{{skill.keyVal}}"
+                  {{#if (skillChecked ../../actorData skill.keyVal)}}checked{{/if}}
+                >
+                <span></span>
+              </label>
+            </div>
+            <div class="skillLabelCol pr0">
+              <label class="mb0 clickable-label">
+                <strong class="displayTitle">{{skill.name}}</strong>
+                <button class="skillButton">R</button>
+              </label>
+              <label for="" class="mb0 pr0 full-height">
+                <input
+                  type="number"
+                  class="input skillInput lora full-height"
+                  name="data.skills.{{skill.name}}.value"
+                  value="actorData.skills.{{skill.keyVal}}.value"
+                />
+              </label>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{!-- {{#if middle}}
+        <div class="skillCol">
+          {{#each middle as |skill|}}
+            <div class="skill">
+              <div class="skillName">{{skill.name}}</div>
+              <div class="skillLevel">{{skill.level}}</div>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+
+      {{#if right}}
+        <div class="skillCol">
+          {{#each right as |skill|}}
+            <div class="skill">
+              <div class="skillName">{{skill.name}}</div>
+              <div class="skillLevel">{{skill.level}}</div>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}} --}}
+    {{/each}}
+  </div>
+</div>

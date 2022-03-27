@@ -18,3 +18,9 @@ Hooks.once('init', () => {
 });
 
 Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.localize(data[key]));
+
+Handlebars.registerHelper('skillChecked', (data, skill) => {
+  console.log({data});
+  if (data.skills[skill].checked) return true;
+  return false;
+});

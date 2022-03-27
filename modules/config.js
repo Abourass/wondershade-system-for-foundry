@@ -1,3 +1,18 @@
+function dynamicSort(property) {
+  let sortOrder = 1;
+  if (property[0] === '-'){
+    sortOrder = -1;
+    property = property.substr(1);
+  }
+  return function(a, b) {
+    // eslint-disable-next-line no-nested-ternary
+    const result = (a[property] < b[property])
+      ? -1
+      : (a[property] > b[property]) ? 1 : 0;
+    return result * sortOrder;
+  };
+}
+
 export const WonderSystemConf = {
   local: {
     attr: {
@@ -38,5 +53,40 @@ export const WonderSystemConf = {
       {value: 30, text: '30% Harder'},
       {value: 40, text: '40% Harder'},
     ],
+    skills: {
+      left: [
+        { name: 'Alertness', keyVal: 'alertness' },
+        { name: 'Animal Handling', keyVal: 'animalHandling' },
+        { name: 'Athletics', keyVal: 'athletics' },
+        { name: 'Art', keyVal: 'art' },
+        { name: 'Barter', keyVal: 'barter' },
+        { name: 'Craft', keyVal: 'craft' },
+        { name: 'Deception', keyVal: 'deception' },
+        { name: 'Disguise', keyVal: 'disguise' },
+        { name: 'Dodge', keyVal: 'dodge' },
+      ].sort(dynamicSort('name')),
+      middle: [
+        { name: 'Drive / Pilot', value: 20, ruffle: 1 },
+        { name: 'History', value: 10 },
+        { name: 'Intimidation', value: 5 },
+        { name: 'Medicine', value: 1 },
+        { name: 'Nature', value: 5 },
+        { name: 'Navigate', value: 15 },
+        { name: 'Occult', value: 0, ruffle: 1 },
+        { name: 'Performance', value: 5},
+        { name: 'Persuade', value: 10},
+      ].sort(dynamicSort('name')),
+      right: [
+        { name: 'Machinery', value: 5 },
+        { name: 'Science', value: 10, ruffle: 1 },
+        { name: 'Search', value: 10 },
+        { name: 'Speed', value: 0 },
+        { name: 'Sleight of Hand', value: 5},
+        { name: 'Stealth', value: 10, ruffle: 1},
+        { name: 'Survival', value: 10},
+        { name: 'Unsanity', value: 0},
+        { name: 'Vibe Check', value: 15},
+      ].sort(dynamicSort('name')),
+    },
   },
 };
