@@ -6,7 +6,7 @@ export default class WonderActorSheet extends ActorSheet {
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
-      width: 800,
+      width: 900,
       height: 800,
       // resizable: false,
       // draggable: false,

@@ -89,6 +89,7 @@
           "ci": { "value": [], "custom": "" }
         },
         "skills": {
+          "alertness": { "value": 20, "bonus": 0 },
           "dodge": { "value": 20, "bonus": 0 },
           "stealth": { "value": 10, "bonus": 0 },
           "survival": { "value": 10, "bonus": 0 },
@@ -129,7 +130,7 @@
     "character": {
       "templates": ["base", "creature"],
       "skills": {
-        "alertness": { "value": 20, "bonus": 0, "checked": false },
+        "alertness": { "checked": false },
         "animalHandling": { "value": 5, "bonus": 0, "checked": false },
         "athletics": { "value": 10, "bonus": 0, "checked": false },
         "art": { "value": 5, "bonus": 0, "checked": false },
@@ -141,6 +142,8 @@
         "history": { "value": 10, "bonus": 0, "checked": false },
         "intimidation": { "value": 5, "bonus": 0, "checked": false },
         "medicine": { "value": 1, "bonus": 0, "checked": false },
+        "nature": { "value": 5, "bonus": 0, "checked": false },
+        "navigate": { "value": 15, "bonus": 0, "checked": false },
         "occult": { "value": 0, "bonus": 0, "checked": false },
         "performance": { "value": 5, "bonus": 0, "checked": false },
         "persuade": { "value": 10, "bonus": 0, "checked": false },
@@ -183,7 +186,6 @@
     "npc": {
       "templates": ["base", "creature"],
       "skills": {
-        "alertness": { "value": 20 },
         "animalHandling": { "value": 5 },
         "athletics": { "value": 10 },
         "art": { "value": 5 },
@@ -221,7 +223,6 @@
     "creature": {
       "templates": ["base", "creature"],
       "skills": {
-        "alertness": { "value": 20 },
         "athletics": { "value": 10 }
       },
       "details": {

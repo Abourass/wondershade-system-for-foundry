@@ -2,62 +2,98 @@
   <h1 class="skillHeading">Skills</h1>
   <div class="skillSection">
     {{#each config.html.skills as |section|}}
-    {{log '[skillSection:each -> key' @key}}
-    {{log '[skillSection:each -> section' section}}
+    {{!-- Left Column --}}
       {{#if (eq @key 'left')}}
         <div class="skillCol">
           {{#each section as |skill|}}
-          {{log '[skillSection:each -> key' @key}}
-          {{log '[skill:each -> this' skill}}
             <div class="skillDisplay">
-              <label class="checkmark mb0 flex">
+              <label class="checkmark">
                 <input
                   type="checkbox"
-                  data-skillChecked="{{skill.keyVal}}"
-                  {{#if (skillChecked ../../actorData skill.keyVal)}}checked{{/if}}
+                  name="data.skills.{{skill.keyVal}}.checked"
+                  {{#if (skillChecked ../../actorData skill.keyVal false)}}checked{{/if}}
                 >
                 <span></span>
               </label>
+              <div class="skillLabelCol">
+                <label class="clickable-label">
+                  <strong>{{skill.name}}</strong>
+                </label>
+                <label for="data.skills.{{skill.keyVal}}.value" class="pr0 full-height">
+                  <input
+                    type="number"
+                    name="data.skills.{{skill.keyVal}}.value"
+                    value="{{skillValue ../../actorData skill.keyVal false}}"
+                  />
+                </label>
+              </div>
             </div>
-            <div class="skillLabelCol pr0">
-              <label class="mb0 clickable-label">
-                <strong class="displayTitle">{{skill.name}}</strong>
-                <button class="skillButton">R</button>
-              </label>
-              <label for="" class="mb0 pr0 full-height">
+          {{/each}}
+        </div>
+      {{/if}}
+      {{!-- /Left Column --}}
+
+      {{!-- Middle Column --}}
+      {{#if (eq @key 'middle')}}
+        <div class="skillCol">
+          {{#each section as |skill|}}
+            <div class="skillDisplay">
+              <label class="checkmark">
                 <input
-                  type="number"
-                  class="input skillInput lora full-height"
-                  name="data.skills.{{skill.name}}.value"
-                  value="actorData.skills.{{skill.keyVal}}.value"
-                />
+                  type="checkbox"
+                  name="data.skills.{{skill.keyVal}}.checked"
+                  {{#if (skillChecked ../../actorData skill.keyVal true)}}checked{{/if}}
+                >
+                <span></span>
               </label>
+              <div class="skillLabelCol">
+                <label class="clickable-label">
+                  <strong>{{skill.name}}</strong>
+                </label>
+                <label for="data.skills.{{skill.keyVal}}.value" class="pr0 full-height">
+                  <input
+                    type="number"
+                    name="data.skills.{{skill.keyVal}}.value"
+                    value="{{skillValue ../../actorData skill.keyVal false}}"
+                  />
+                </label>
+              </div>
             </div>
           {{/each}}
         </div>
       {{/if}}
+      {{!-- /Middle Column --}}
 
-      {{!-- {{#if middle}}
+      {{!-- Right Column --}}
+      {{#if (eq @key 'right')}}
         <div class="skillCol">
-          {{#each middle as |skill|}}
-            <div class="skill">
-              <div class="skillName">{{skill.name}}</div>
-              <div class="skillLevel">{{skill.level}}</div>
+          {{#each section as |skill|}}
+            <div class="skillDisplay">
+              <label class="checkmark">
+                <input
+                  type="checkbox"
+                  name="data.skills.{{skill.keyVal}}.checked"
+                  {{#if (skillChecked ../../actorData skill.keyVal false)}}checked{{/if}}
+                >
+                <span></span>
+              </label>
+              <div class="skillLabelCol">
+                <label class="clickable-label">
+                  <strong>{{skill.name}}</strong>
+                </label>
+                <label for="data.skills.{{skill.keyVal}}.value" class="pr0 full-height">
+                  <input
+                    type="number"
+                    name="data.skills.{{skill.keyVal}}.value"
+                    value="{{skillValue ../../actorData skill.keyVal false}}"
+                  />
+                </label>
+              </div>
             </div>
           {{/each}}
         </div>
       {{/if}}
-
-      {{#if right}}
-        <div class="skillCol">
-          {{#each right as |skill|}}
-            <div class="skill">
-              <div class="skillName">{{skill.name}}</div>
-              <div class="skillLevel">{{skill.level}}</div>
-            </div>
-          {{/each}}
-        </div>
-      {{/if}} --}}
+      {{!-- /Right Column --}}
     {{/each}}
   </div>
 </div>

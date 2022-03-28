@@ -1,49 +1,28 @@
 .ruffle-1 { border-radius: 10% 0 15% !important; }
 .ruffle-2 { border-radius: 0 10% 15% !important; }
 
-.skillHeading {
-  margin: 2rem 0;
-  font-size: 2em;
-  letter-spacing: 5px;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  color: #88738a;
-  font-family: 'Mountains of Christmas';
-  margin-bottom: .5rem;
-  &:before, &:after {
-    flex: 1;
-    display: block;
-    content: "";
-    height: 0;
-    margin: 1rem;
-    border-bottom: 3px solid #88738a;
+h1 {
+  &.skillHeading {
+    margin: 20px 0 5px;
+    font-size: 26px;
+    letter-spacing: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #88738a;
+    font-family: 'Mountains of Christmas';
+    border-bottom: none;
+    font-weight: 700;
+    line-height: 36px;
+    &:before, &:after {
+      flex: 1;
+      display: block;
+      content: "";
+      height: 0;
+      margin: 10px;
+      border-bottom: 3px solid #88738a;
+    }
   }
-}
-
-.skillLabelCol {
-  grid-column: 2;
-  background: rgb(0 0 0 / 2%);
-  position: relative;
-  display: grid;
-  align-items: center;
-  grid-gap: 0.5rem;
-  grid-template-columns: 1fr 3em;
-  min-height: 36px;
-  padding: 0;
-  padding-left: .2rem;
-}
-
-.skillCol { padding: 0 0.1666666667rem; }
-
-.skillDisplay {
-  grid-template-columns: 2.5em 1fr;
-  border: 1px solid #88738a;
-  display: grid;
-  align-items: stretch;
-  margin-bottom: 0.5rem;
-  border-radius: 0 10%;
-  overflow: hidden;
 }
 
 .skillSection {
@@ -55,20 +34,73 @@
   max-height: 100%;
   width: 100%;
   padding: 0 0.25rem;
-}
 
-.skillButton {
-  background: transparent;
-  border: 0;
-  padding: 0;
-}
+  .skillCol {
+    padding: 0 0.1666666667rem;
+  
+    .skillDisplay {
+      grid-template-columns: 2.5em 1fr;
+      border: 1px solid #88738a;
+      display: grid;
+      align-items: stretch;
+      margin-bottom: 5px;
+      border-radius: 0 10%;
+      overflow: hidden;
+    
+      label {
+        font-size: 15.6px;
+        color: rgb(179, 179, 179);
+        line-height: 18px
+      }
+  
+      .skillLabelCol {
+        grid-column: 2;
+        background: rgb(0 0 0 / 2%);
+        position: relative;
+        display: grid;
+        align-items: center;
+        grid-gap: 0.5rem;
+        grid-template-columns: 1fr 3em;
+        min-height: 36px;
+        padding: 0;
+        padding-left: .2rem;
+      
+        label {
+          strong { /* Skill Labels */
+            font-size: 24px;
+            font-weight: 400;
+            color: #e6e6e6;
+            line-height: 32px;
+            margin-top: auto;
+            margin-bottom: auto;
+            padding-top: 4px;
+            margin-left: 2px;
+          }
+      
+          button { /* Hidden Roll Button */
+            background: transparent;
+            border: 0;
+            padding: 0;
+          }
 
-.skillInput {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  height: 36px;
-  width: 100% !important;
-  background: #33383e61;
-  padding-top: 0;
+          input {
+            font-size: 19px;
+            font-family: "Lora";
+            font-weight: 700;
+            text-align: center;
+            height: 100%;
+            width: 100%;
+            background: #33383e61;
+            border-radius: 2px;
+            border-color: transparent;
+            color: #d6d2d2;
+            padding-top: 0;
+            padding-left: 2px;
+            overflow: hidden;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
 }

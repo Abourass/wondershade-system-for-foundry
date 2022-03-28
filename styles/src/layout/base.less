@@ -14,6 +14,7 @@ body {
   line-height: 15.6px;
   min-height: 100%;
   z-index: 4;
+  font-size: 13px;
 }
 
 .base {
@@ -27,7 +28,7 @@ body {
 
 .header {
   margin-top: -.3rem;
-  margin-bottom: -.2rem;
+  margin-bottom: -1rem;
   position: relative;
   z-index: 5;
   >.title {
@@ -62,8 +63,12 @@ body {
   margin: 0 5px;
   min-width: 4rem;
   width: 4rem;
-}
 
+  span{
+    white-space: nowrap;
+    color: #d8dadabf;
+  }
+}
 
 button {
   &.tab {
@@ -71,8 +76,8 @@ button {
     font-size: 1.8rem;
     font-family: 'Mountains of Christmas';
     border: none;
-    padding: .4rem 0.2rem;
-    margin: .5rem;
+    padding: 4px 2px;
+    margin: 5px 5px 0 5px;
     color: var(--color-text-light-7);
   }
 }
