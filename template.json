@@ -257,7 +257,17 @@
     }
   },
   "Item": {
-    "types": ["weapon", "equipment", "consumable", "tool", "loot", "class", "spell", "feat", "backpack"],
+    "types": [
+        "weapon",
+        "equipment",
+        "consumable",
+        "tool",
+        "loot",
+        "class",
+        "spell",
+        "feat",
+        "backpack"
+      ],
     "templates": {
       "itemDescription": {
         "description": { "value": "", "chat": "", "unidentified": "" },

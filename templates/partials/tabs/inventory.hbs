@@ -78,12 +78,14 @@
   </div>
   <hr style="border-color: #887389;">
   <fieldset class="repeating_items" style='margin-left: 0.8rem; margin-right: 1.6rem;'>
+    {{#each weapons as |weapon wID|}}
     <div class="flex-row" style='margin-left: 2.5rem'>
       <div class="column removeSides">
         <div class="label">
           <input
             type="text"
             class="input shaded-input fit-width font-2"
+            value="{{ weapon.name }}"
             placeholder="{{ localize "WonderSystem.ItemName" }}"
           >
         </div>
@@ -99,6 +101,7 @@
         </div>
       </div>
     </div>
+    {{/each}}
   </fieldset>
     
 </div>
