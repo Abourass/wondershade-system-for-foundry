@@ -1,8 +1,7 @@
 export default class WonderItemSheet extends ItemSheet {
   /**
    * Options for the UI composition
-   * This will make Item Sheets open larger
-   * and with the classes we want
+   * This will make Item Sheets open larger and with the classes we want
    */
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
