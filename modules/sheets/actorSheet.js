@@ -73,6 +73,7 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Iterate through the items, assigning them to their appropriate array
     for (const item of ctx.items) {
+      item.img = item.img || DEFAULT_TOKEN;
       if (item.type === 'weapon') weapons.push(item);
       if (item.type === 'equipment') equipment.push(item);
       if (item.type === 'consumable') consumables.push(item);
