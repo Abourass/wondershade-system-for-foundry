@@ -11,7 +11,7 @@
   "compatibleCoreVersion": "9",
   "scripts": [],
   "esmodules": [
-    "wonderSystem.mjs"
+    "wonderSystem.js"
   ],
   "styles": [
     "styles/index.min.css"
