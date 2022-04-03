@@ -1,94 +1,89 @@
-<div class="items">
+<div class="tab items" data-tab="inventory" data-group="primary-tabs">
   <h1 class="skillHeading">{{ localize "WonderSystem.Inventory" }}</h1>
-  <div class="flex-row">
+  <div class="currencies">
     <!-- Currency: Copper -->
-    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
-      <label for="data.currency.cp" class="label" style="width: auto">
+    <div class="currency">
+      <label for="data.currency.cp" class="label">
         {{ localize "WonderSystem.CurrencyCP" }}
       </label>
       <input
         type="text"
-        class="input shade-input fit-width font-2"
+        class="input"
         name="data.currency.cp"
         value="{{ actorData.currency.cp }}"
-        style="width: 8vw"
       >
     </div>
     <!-- /Currency: Copper -->
 
     <!-- Currency: Silver -->
-    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
-      <label for="data.currency.sp" class="label" style="width: auto">
+    <div class="currency">
+      <label for="data.currency.sp" class="label">
         {{ localize "WonderSystem.CurrencySP" }}
       </label>
       <input
         type="text"
-        class="input shade-input fit-width font-2"
+        class="input"
         name="data.currency.sp"
         value="{{ actorData.currency.sp }}"
-        style="width: 8vw"
       >
     </div>
     <!-- /Currency: Silver -->
 
     <!-- Currency: Gold -->
-    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
-      <label for="data.currency.gp" class="label" style="width: auto">
+    <div class="currency">
+      <label for="data.currency.gp" class="label">
         {{ localize "WonderSystem.CurrencyGP" }}
       </label>
       <input
         type="text"
-        class="input shade-input fit-width font-2"
+        class="input"
         name="data.currency.gp"
         value="{{ actorData.currency.gp }}"
-        style="width: 8vw"
       >
     </div>
     <!-- /Currency: Gold -->
 
     <!-- Currency: Platinum -->
-    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
-      <label for="data.currency.pp" class="label" style="width: auto">
+    <div class="currency">
+      <label for="data.currency.pp" class="label">
         {{ localize "WonderSystem.CurrencyPP" }}
       </label>
       <input
         type="text"
-        class="input shade-input fit-width font-2"
+        class="input"
         name="data.currency.pp"
         value="{{ actorData.currency.pp }}"
-        style="width: 8vw"
       >
     </div>
     <!-- /Currency: Platinum -->
 
     <!-- Currency: Drops -->
-    <div class="column removeSides" style="display: flex; align-items: center; flex-direction: column">
-      <label for="data.currency.drops" class="label" style="width: auto">
+    <div class="currency">
+      <label for="data.currency.drops" class="label">
         {{ localize "WonderSystem.CurrencyDrops" }}
       </label>
       <input
         type="text"
-        class="input shade-input fit-width font-2"
+        class="input"
         name="data.currency.drops"
         value="{{ actorData.currency.drops }}"
-        style="width: 8vw"
       >
     </div>
     <!-- /Currency: Drops -->
   </div>
-  <hr style="border-color: #887389;">
-  <ul class="repeating_items">
+  <hr />
+  <ul>
     {{#each weapons as |weapon wID|}}
-      <li class="item flex-row" data-item-id="{{weapon._id}}">
-        <div class="flex-col item-img">
+      <li data-item-id="{{weapon._id}}">
+        <div class="img-col">
           <a class="rollable" data-roll-type="item">
             <img src="{{weapon.img}}" title="{{weapon.name}}" width="24" height="24"/>
           </a>
         </div>
-        <div class="flex-col item-description">
+        <div class="desc-col">
           <h4>{{weapon.name}}</h4>
         </div>
-        <div class="flex-col">
+        <div class="controls-col">
           <div class="item-controls">
             <a class="item-control item-edit" title="Edit Item">
               <i class="fas fa-edit"></i>
@@ -101,5 +96,4 @@
       </li>
     {{/each}}
   </fieldset>
-    
 </div>

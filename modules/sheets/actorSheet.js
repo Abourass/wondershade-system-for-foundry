@@ -10,6 +10,11 @@ export default class WonderActorSheet extends ActorSheet {
       // resizable: false,
       // draggable: false,
       classes: ['wondershade', 'sheet', 'character'],
+      tabs: [{
+        navSelector: '.tab-controls',
+        contentSelector: '.tabs',
+        initial: 'skills',
+      }],
       // scrollY: ['.sheet-body'],
     });
   }
