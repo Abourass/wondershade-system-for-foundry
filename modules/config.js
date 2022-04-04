@@ -58,7 +58,6 @@ export const WonderSystemConf = {
         { name: 'Alertness', keyVal: 'alertness' },
         { name: 'Animal Handling', keyVal: 'animalHandling' },
         { name: 'Athletics', keyVal: 'athletics' },
-        { name: 'Art', keyVal: 'art' },
         { name: 'Barter', keyVal: 'barter' },
         { name: 'Craft', keyVal: 'craft' },
         { name: 'Deception', keyVal: 'deception' },

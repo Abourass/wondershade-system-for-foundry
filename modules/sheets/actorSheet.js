@@ -14,6 +14,11 @@ export default class WonderActorSheet extends ActorSheet {
         navSelector: '.tab-controls',
         contentSelector: '.tabs',
         initial: 'skills',
+      },
+      {
+        navSelector: '.magick-controls',
+        contentSelector: '.magick-tabs',
+        initial: 'wonder',
       }],
       // scrollY: ['.sheet-body'],
     });
@@ -64,6 +69,7 @@ export default class WonderActorSheet extends ActorSheet {
     const spells = {
       cantrips: [],
       wonderSpells: [],
+      finesse: [],
       firstLevel: [],
       secondLevel: [],
       thirdLevel: [],

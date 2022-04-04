@@ -1,0 +1,52 @@
+.spells {
+  ul {
+    li {
+      display: flex;
+      flex-direction: row;
+      
+      .img-col {
+        display: flex;
+        flex-direction: column;
+        width: max-content;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .desc-col {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .controls-col {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
+        width: 6%;
+      }
+    }
+  }
+}
+
+.magick-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5px;
+  line-height: 22.1px;
+  a {
+    background: transparent;
+    font-size: 16px;
+    font-family: "Lora", serif;
+    border: none;
+    padding: 4px 2px;
+    margin: 5px;
+    &.active {
+      animation: neonGlow 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+  }
+}
