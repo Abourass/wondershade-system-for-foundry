@@ -4,7 +4,7 @@ import WonderActorSheet from './modules/sheets/actorSheet.js';
 import preloadHBSTemplates from './modules/system/preloadHBS.js';
 
 Hooks.once('init', () => {
-  console.log('Wonder System loading...');
+  console.log('[WonderSystem:Loading]');
   // Add conf for localization and html stuff
   CONFIG.wondershade = WonderSystemConf;
   // Unregister the default item sheet
@@ -21,15 +21,17 @@ Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.locali
 
 Handlebars.registerHelper('skillChecked', (data, skill, debug = false) => {
   if (debug) {
-    console.log(`[HBS:SkillChecked:${skill}] -> called`);
-    console.log(`[HBS:SkillChecked:${skill}] -> checked`, data.skills[skill].checked);
+    console.debug(`[WonderSystem::HBS:SkillChecked:${skill}] -> called`);
+    console.debug(`[WonderSystem::HBS:SkillChecked:${skill}] -> checked`, data.skills[skill].checked);
   }
   return data.skills[skill].checked;
 });
 
 Handlebars.registerHelper('skillValue', (data, skill, debug = false) => {
   if (debug) {
-    console.log(`[HBS:SkillValue:${skill}] -> value`, data.skills[skill].value);
+    console.debug(`[WonderSystem::HBS:SkillValue:${skill}] -> value`, data.skills[skill].value);
   }
   return data.skills[skill].value;
 });
+
+Handlebars.registerHelper('includes', (arr, value) => arr.includes(value));

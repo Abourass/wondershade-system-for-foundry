@@ -18,7 +18,7 @@ export default class WonderActorSheet extends ActorSheet {
       {
         navSelector: '.magick-controls',
         contentSelector: '.magick-tabs',
-        initial: 'wonder',
+        initial: 'wonder'
       }],
       // scrollY: ['.sheet-body'],
     });
@@ -31,7 +31,7 @@ export default class WonderActorSheet extends ActorSheet {
   getData() {
     // Execute the default getData() method
     const ctx = super.getData();
-    console.log('[WonderSystem:CTX]', ctx);
+    console.debug('[WonderSystem:CTX]', ctx);
 
     // Create a safe clone of the actor data
     const actorData = this.actor.data.toObject(false);
@@ -40,6 +40,16 @@ export default class WonderActorSheet extends ActorSheet {
     ctx.config = CONFIG.wondershade;
     // Let's alias actor.data.data since it's tedious to access
     ctx.actorData = actorData.data;
+
+    // ctx.actorData.spellSlots = Object.keys(actorData.data.spells).map(key => {
+    //   if (key !== 'pact'){
+    //     return ({
+    //       level: key,
+    //       checked: actorData.data.spells[key],
+    //     })
+    //   }
+    //   return;
+    // })
 
     this._prepareItems(ctx);
 

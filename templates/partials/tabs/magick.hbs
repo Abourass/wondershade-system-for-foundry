@@ -1,42 +1,40 @@
 <div class="tab magick" data-tab="magick" data-group="primary-tabs">
   <h1 class="skillHeading"> {{ localize "WonderSystem.Magick" }} </h1>
   <div class="magick-controls" data-group="magick-tabs">
-    <a data-tab="wonder">{{ localize "WonderSystem.Wonder" }}</a>
-    <a data-tab="finesse-and-class">{{ localize "WonderSystem.FinesseAndClass" }}</a>
-    <a data-tab="cantrips">{{ localize "WonderSystem.Cantrips" }}</a>
-    <a data-tab="first">{{ localize "WonderSystem.FirstNum" }}</a>
-    <a data-tab="second">{{ localize "WonderSystem.SecondNum" }}</a>
-    <a data-tab="third">{{ localize "WonderSystem.ThirdNum" }}</a>
-    <a data-tab="fourth">{{ localize "WonderSystem.FourthNum" }}</a>
-    <a data-tab="fifth">{{ localize "WonderSystem.FifthNum" }}</a>
-    <a data-tab="sixth">{{ localize "WonderSystem.SixthNum" }}</a>
-    <a data-tab="seventh">{{ localize "WonderSystem.SeventhNum" }}</a>
-    <a data-tab="eighth">{{ localize "WonderSystem.EighthNum" }}</a>
-    <a data-tab="ninth">{{ localize "WonderSystem.NinthNum" }}</a>
-    <a data-tab="all">{{ localize "WonderSystem.All" }}</a>
+    <a data-tab="wonder" data-group="magick-tabs">{{ localize "WonderSystem.Wonder" }}</a>
+    <a data-tab="finesse-and-class" data-group="magick-tabs">{{ localize "WonderSystem.FinesseAndClass" }}</a>
+    <a data-tab="cantrips" data-group="magick-tabs">{{ localize "WonderSystem.Cantrips" }}</a>
+    <a data-tab="first" data-group="magick-tabs">{{ localize "WonderSystem.FirstNum" }}</a>
+    <a data-tab="second" data-group="magick-tabs">{{ localize "WonderSystem.SecondNum" }}</a>
+    <a data-tab="third" data-group="magick-tabs">{{ localize "WonderSystem.ThirdNum" }}</a>
+    <a data-tab="fourth" data-group="magick-tabs">{{ localize "WonderSystem.FourthNum" }}</a>
+    <a data-tab="fifth" data-group="magick-tabs">{{ localize "WonderSystem.FifthNum" }}</a>
+    <a data-tab="sixth" data-group="magick-tabs">{{ localize "WonderSystem.SixthNum" }}</a>
+    <a data-tab="seventh" data-group="magick-tabs">{{ localize "WonderSystem.SeventhNum" }}</a>
+    <a data-tab="eighth" data-group="magick-tabs">{{ localize "WonderSystem.EighthNum" }}</a>
+    <a data-tab="ninth" data-group="magick-tabs">{{ localize "WonderSystem.NinthNum" }}</a>
+    <a data-tab="all" data-group="magick-tabs">{{ localize "WonderSystem.All" }}</a>
   </div>
-  <ul class="spells">
-    {{#each spellSection as |lvl ID|}}
-      <li data-item-id="{{spell._id}}">
-          <div class="img-col">
-            <a class="rollable" data-roll-type="item">
-              <img src="{{spell.img}}" title="{{spell.name}}" width="24" height="24"/>
-            </a>
-          </div>
-          <div class="desc-col">
-            <h4>{{spell.name}}</h4>
-          </div>
-          <div class="controls-col">
-            <div class="item-controls">
-              <a class="item-control item-edit" title="Edit Item">
-                <i class="fas fa-edit"></i>
-              </a>
-              <a class="item-control item-delete" title="Delete Item">
-                <i class="fas fa-trash"></i>
-              </a>
+  <div class="magick-tabs">
+    {{#each config.html.spellSections as |spellSection ID|}}
+      <div class="tab {{spellSection.keyVal}}" data-tab="{{spellSection.keyVal}}" data-group="magick-tabs">
+        {{#unless (includes ../config.html.spellLevelsWithoutSlots spellSection.keyVal)}}
+          <div class="flex-row spellSlotRow">
+            <div class="flex-col flex spellSlotLabel">
+              <span>{{spellSection.name}} Level Spell Slots</span>
+            </div>
+            <div class="flex-col flex smallCol">
+              <label for="data.spells.{{spellSection.spellSlot}}" class="checkmark mb0 flex smallCheck">
+                <input
+                  type="checkbox"
+                  name="data.spells.{{spellSection.spellSlot}}"
+                >
+                <span class="smallDot"></span>
+              </label>
             </div>
           </div>
-        </li>
+        {{/unless}}
+      </div>
     {{/each}}
-  </ul>
+  </div>
 </div>
