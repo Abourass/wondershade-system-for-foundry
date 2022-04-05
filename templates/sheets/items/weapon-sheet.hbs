@@ -10,7 +10,7 @@
     </div>
 
     <div class="summary">
-      <input type="text" name="data.itemDescription.source" value="{{itemData.itemDescription.source}}" placeholder="Summary">
+      <input type="text" name="data.source" value="{{itemData.source}}" placeholder="Summary">
     </div>
   </header>
 
@@ -25,10 +25,15 @@
       <div class="flex-section">
         <label for="data.itemDescription.text">
           <div class="flex-row align-center">
-            <span class="doubleLabel"> {{ localize 'WonderSystem.Description'}} </span>
+            <p class="doubleLabel"> {{ localize 'WonderSystem.Description'}} </p>
           </div>
-          <div class="flex-row align-center">
-            <textarea name="data.itemDescription.text" placeholder="Description">{{itemData.itemDescription.text}}</textarea>
+
+          <div class="item-properties">
+
+          </div>
+
+          <div class="item-description">
+            <textarea name="data.description.value" placeholder="Description">{{itemData.description.value}}</textarea>
           </div>
         </label>
       </div>
