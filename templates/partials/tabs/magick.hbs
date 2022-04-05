@@ -21,15 +21,12 @@
         {{#unless (includes ../config.html.spellLevelsWithoutSlots spellSection.keyVal)}}
           <div class="flex-row spellSlotRow">
             <div class="flex-col flex spellSlotLabel">
-              <span>{{spellSection.name}} Level Spell Slots</span>
+              <span>{{spellSection.name}} Spell Slots</span>
             </div>
             <div class="flex-col flex smallCol">
-              <label for="data.spells.{{spellSection.spellSlot}}" class="checkmark mb0 flex smallCheck">
-                <input
-                  type="checkbox"
-                  name="data.spells.{{spellSection.spellSlot}}"
-                >
-                <span class="smallDot"></span>
+              <label class="checkmark mb0 flex smallCheck">
+                <input type="checkbox" >
+                <span class="smallDot tearShape fairyFire" data-id="{{spellSection.spellSlot}}"></span>
               </label>
             </div>
           </div>

@@ -138,6 +138,8 @@ export default class WonderActorSheet extends ActorSheet {
     }
 
     super.activateListeners(html);
+
+    html.find('.smallDot').click(this._spellSlotCheckEvent.bind(this))
   }
 
   _onStatRoll(event) {
@@ -146,5 +148,16 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Roll the stat
     item.roll();
+  }
+
+  _spellSlotCheckEvent(event) {
+    const spellLevel = event.currentTarget.dataset.id;
+    console.log({
+      event,
+      target: event.currentTarget,
+      spellLevel,
+      actorSpellLevel: this.actor.data.data.spells[spellLevel],
+      checked: event.currentTarget.previousElementSibling.checked,
+    })
   }
 }
