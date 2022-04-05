@@ -4,5 +4,36 @@
     <h1>
       <input type="name" value="{{item.name}}" placeholder="Name" name="name">
     </h1>
+
+    <div class="item-subtitle">
+      <h4 class="item-type">{{item.type}}</h4>
+    </div>
+
+    <div class="summary">
+      <input type="text" name="data.itemDescription.source" value="{{itemData.itemDescription.source}}" placeholder="Summary">
+    </div>
   </header>
+
+  <nav class="item-tabs-ctrls tabs" data-group="itemTabs">
+    <a class="tab-btn" data-tab="description">Description</a>
+    <a class="tab-btn" data-tab="details">Details</a>
+    <a class="tab-btn" data-tab="effects">Effects</a>
+  </nav>
+
+  <section class="item-tabs">
+    <div class="tab" data-group="itemTabs" data-tab="description">
+      <div class="flex-section">
+        <label for="data.itemDescription.text">
+          <div class="flex-row align-center">
+            <span class="doubleLabel"> {{ localize 'WonderSystem.Description'}} </span>
+          </div>
+          <div class="flex-row align-center">
+            <textarea name="data.itemDescription.text" placeholder="Description">{{itemData.itemDescription.text}}</textarea>
+          </div>
+        </label>
+      </div>
+    </div>
+    <div class="tab" data-group="itemTabs" data-tab="details"> Details </div>
+    <div class="tab" data-group="itemTabs" data-tab="effects"> Effects </div>
+  </section>
 </form>
