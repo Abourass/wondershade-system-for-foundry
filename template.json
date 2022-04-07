@@ -113,15 +113,15 @@
           "languages": { "value": [], "custom": "" }
         },
         "spells": {
-          "spell1": { "value": 0, "override": null, "max": 0 },
-          "spell2": { "value": 0, "override": null, "max": 0 },
-          "spell3": { "value": 0, "override": null, "max": 0 },
-          "spell4": { "value": 0, "override": null, "max": 0 },
-          "spell5": { "value": 0, "override": null, "max": 0 },
-          "spell6": { "value": 0, "override": null, "max": 0 },
-          "spell7": { "value": 0, "override": null, "max": 0 },
-          "spell8": { "value": 0, "override": null, "max": 0 },
-          "spell9": { "value": 0, "override": null, "max": 0 },
+          "spell1": { "value": 0, "override": null, "max": 6 },
+          "spell2": { "value": 0, "override": null, "max": 6 },
+          "spell3": { "value": 0, "override": null, "max": 6 },
+          "spell4": { "value": 0, "override": null, "max": 6 },
+          "spell5": { "value": 0, "override": null, "max": 6 },
+          "spell6": { "value": 0, "override": null, "max": 6 },
+          "spell7": { "value": 0, "override": null, "max": 6 },
+          "spell8": { "value": 0, "override": null, "max": 6 },
+          "spell9": { "value": 0, "override": null, "max": 6 },
           "pact": { "value": 0, "override": null }
         }
       }

@@ -26,13 +26,16 @@
             </div>
             {{#unless (eq spellSection.keyVal 'all')}}
               {{#each (spellSlots ../actorData.spells spellSection.spellSlot) as |isAvailable SID|}}
+              {{log 'isAvailable' isAvailable}}
                 <div class="flex-col flex smallCol">
                   <label class="checkmark mb0 flex smallCheck">
                     <input
+                    class="spellSlotCheck"
                     type="checkbox"
+                    data-id="{{spellSection.spellSlot}}"
                     {{#if isAvailable}} checked="checked" {{/if}}
                     >
-                    <span class="smallDot tearShape fairyFire" data-id="{{spellSection.spellSlot}}"></span>
+                    <span class="smallDot tearShape fairyFire"></span>
                   </label>
                 </div>
               {{/each}}

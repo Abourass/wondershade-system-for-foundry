@@ -33,11 +33,15 @@ export default class WonderActorSheet extends ActorSheet {
     const ctx = super.getData();
     console.debug('[WonderSystem:CTX]', ctx);
 
+    // Prepare the spell slots early so they are copied in the next step
+    this._prepareSpellSlots(ctx);
+
     // Create a safe clone of the actor data
     const actorData = this.actor.data.toObject(false);
 
     // Attach the localization to the ctx
     ctx.config = CONFIG.wondershade;
+
     // Let's alias actor.data.data since it's tedious to access
     ctx.actorData = actorData.data;
 
@@ -52,7 +56,6 @@ export default class WonderActorSheet extends ActorSheet {
     // })
 
     this._prepareItems(ctx);
-    this._prepareSpellSlots(ctx);
 
     // if (data.actorData.firstOpen){
     //   const maxHealth = Math.round(((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5);
@@ -140,7 +143,7 @@ export default class WonderActorSheet extends ActorSheet {
 
     super.activateListeners(html);
 
-    html.find('.smallDot').click(this._spellSlotCheckEvent.bind(this));
+    html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
   }
 
   _onStatRoll(event) {
@@ -152,26 +155,26 @@ export default class WonderActorSheet extends ActorSheet {
   }
 
   _prepareSpellSlots(ctx){
-    for (const key of Object.keys(ctx.actorData.spells)){
+    for (const key of Object.keys(ctx.actor.data.data.spells)){
       if (key !== 'pact'){
-        const { value } = ctx.actorData.spells[key];
-        ctx.actorData.spells[key].slots = [];
+        const { value, max } = ctx.actor.data.data.spells[key];
+        ctx.actor.data.data.spells[key].slots = [];
 
-        for (let i = 0; i < value; i++){ ctx.actorData.spells[key].slots.push(true); }
-        for (let i = value; i < 6; i++){ ctx.actorData.spells[key].slots.push(false); }
+        for (let i = 0; i < value; i++){ ctx.actor.data.data.spells[key].slots.push(true); }
+        for (let i = value; i < max; i++){ ctx.actor.data.data.spells[key].slots.push(false); }
       }
     }
   }
 
   _spellSlotCheckEvent(event) {
+    const checked = event.currentTarget.checked;
     const spellLevel = event.currentTarget.dataset.id;
-    console.log({
-      this: this,
-      event,
-      target: event.currentTarget,
-      spellLevel,
-      // actorSpellLevel: this.actorData.spells[spellLevel],
-      checked: event.currentTarget.previousElementSibling.checked,
-    });
+    const { spells } = this.object.data.data;
+
+    if (checked){
+      spells[spellLevel].value++;
+    } else {
+      spells[spellLevel].value--;
+    }
   }
 }
