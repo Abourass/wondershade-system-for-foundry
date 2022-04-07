@@ -18,7 +18,7 @@ export default class WonderActorSheet extends ActorSheet {
       {
         navSelector: '.magick-controls',
         contentSelector: '.magick-tabs',
-        initial: 'wonder'
+        initial: 'wonder',
       }],
       // scrollY: ['.sheet-body'],
     });
@@ -52,6 +52,7 @@ export default class WonderActorSheet extends ActorSheet {
     // })
 
     this._prepareItems(ctx);
+    this._prepareSpellSlots(ctx);
 
     // if (data.actorData.firstOpen){
     //   const maxHealth = Math.round(((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5);
@@ -139,7 +140,7 @@ export default class WonderActorSheet extends ActorSheet {
 
     super.activateListeners(html);
 
-    html.find('.smallDot').click(this._spellSlotCheckEvent.bind(this))
+    html.find('.smallDot').click(this._spellSlotCheckEvent.bind(this));
   }
 
   _onStatRoll(event) {
@@ -150,14 +151,27 @@ export default class WonderActorSheet extends ActorSheet {
     item.roll();
   }
 
+  _prepareSpellSlots(ctx){
+    for (const key of Object.keys(ctx.actorData.spells)){
+      if (key !== 'pact'){
+        const { value } = ctx.actorData.spells[key];
+        ctx.actorData.spells[key].slots = [];
+
+        for (let i = 0; i < value; i++){ ctx.actorData.spells[key].slots.push(true); }
+        for (let i = value; i < 6; i++){ ctx.actorData.spells[key].slots.push(false); }
+      }
+    }
+  }
+
   _spellSlotCheckEvent(event) {
     const spellLevel = event.currentTarget.dataset.id;
     console.log({
+      this: this,
       event,
       target: event.currentTarget,
       spellLevel,
-      actorSpellLevel: this.actor.data.data.spells[spellLevel],
+      // actorSpellLevel: this.actorData.spells[spellLevel],
       checked: event.currentTarget.previousElementSibling.checked,
-    })
+    });
   }
 }

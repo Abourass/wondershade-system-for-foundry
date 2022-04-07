@@ -35,3 +35,7 @@ Handlebars.registerHelper('skillValue', (data, skill, debug = false) => {
 });
 
 Handlebars.registerHelper('includes', (arr, value) => arr.includes(value));
+
+Handlebars.registerHelper('atKey', (data, key) => data[key]);
+
+Handlebars.registerHelper('spellSlots', (data, spellLevel) => data[spellLevel].slots);

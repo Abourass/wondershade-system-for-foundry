@@ -18,17 +18,25 @@
   <div class="magick-tabs">
     {{#each config.html.spellSections as |spellSection ID|}}
       <div class="tab {{spellSection.keyVal}}" data-tab="{{spellSection.keyVal}}" data-group="magick-tabs">
+        {{!-- Only includes spell slots on spell categories that have them --}}
         {{#unless (includes ../config.html.spellLevelsWithoutSlots spellSection.keyVal)}}
           <div class="flex-row spellSlotRow">
             <div class="flex-col flex spellSlotLabel">
               <span>{{spellSection.name}} Spell Slots</span>
             </div>
-            <div class="flex-col flex smallCol">
-              <label class="checkmark mb0 flex smallCheck">
-                <input type="checkbox" >
-                <span class="smallDot tearShape fairyFire" data-id="{{spellSection.spellSlot}}"></span>
-              </label>
-            </div>
+            {{#unless (eq spellSection.keyVal 'all')}}
+              {{#each (spellSlots ../actorData.spells spellSection.spellSlot) as |isAvailable SID|}}
+                <div class="flex-col flex smallCol">
+                  <label class="checkmark mb0 flex smallCheck">
+                    <input
+                    type="checkbox"
+                    {{#if isAvailable}} checked="checked" {{/if}}
+                    >
+                    <span class="smallDot tearShape fairyFire" data-id="{{spellSection.spellSlot}}"></span>
+                  </label>
+                </div>
+              {{/each}}
+          {{/unless}}
           </div>
         {{/unless}}
       </div>
