@@ -21,24 +21,48 @@
   </nav>
 
   <section class="item-tabs">
+
     <div class="tab" data-group="itemTabs" data-tab="description">
+
       <div class="flex-section">
-        <label for="data.itemDescription.text">
+
+        <label for="data.quantity">
+          <div class="flex-row">
+            <p>Quantity</p>
+            <div class="item-description">
+              <input type="number" name="data.quantity" value="{{itemData.quantity}}" >
+            </div>
+          </div>
+        </label>
+
+        <label for="data.weight">
+          <div class="flex-row">
+            <p>Weight</p>
+            <div class="item-description">
+              <input type="number" name="data.weight" value="{{itemData.weight}}" >
+            </div>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="flex-section">
+        <label for="data.description.value">
+
           <div class="flex-row align-center">
             <p class="doubleLabel"> {{ localize 'WonderSystem.Description'}} </p>
-          </div>
-
-          <div class="item-properties">
-
           </div>
 
           <div class="item-description">
             <textarea name="data.description.value" placeholder="Description">{{itemData.description.value}}</textarea>
           </div>
         </label>
+
       </div>
     </div>
+
     <div class="tab" data-group="itemTabs" data-tab="details"> Details </div>
+
     <div class="tab" data-group="itemTabs" data-tab="effects"> Effects </div>
   </section>
 </form>

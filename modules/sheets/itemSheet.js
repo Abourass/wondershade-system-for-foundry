@@ -10,6 +10,13 @@ export default class WonderItemSheet extends ItemSheet {
       // resizable: false,
       // draggable: false,
       classes: ['wondershade', 'sheet', 'item'],
+      tabs: [
+        {
+          navSelector: '.item-tabs-ctrls',
+          contentSelector: '.item-tabs',
+          initial: 'description',
+        },
+      ],
       // scrollY: ['.sheet-body'],
     });
   }
@@ -22,6 +29,8 @@ export default class WonderItemSheet extends ItemSheet {
   getData() {
     // Execute the default getData() method
     const data = super.getData();
+    data.itemData = data.data.data;
+    console.log('⚸💀 > data', data);
     // Attach the localization to the data
     data.config = CONFIG.wondershade;
     return data;
