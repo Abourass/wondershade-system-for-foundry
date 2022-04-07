@@ -2,6 +2,7 @@ import { WonderSystemConf } from './modules/config.js';
 import WonderItemSheet from './modules/sheets/itemSheet.js';
 import WonderActorSheet from './modules/sheets/actorSheet.js';
 import preloadHBSTemplates from './modules/system/preloadHBS.js';
+import registerSystemSettings from './modules/system/settings.js';
 
 Hooks.once('init', () => {
   console.log('[WonderSystem:Loading]');
@@ -14,6 +15,7 @@ Hooks.once('init', () => {
   Actors.unregisterSheet('core', ActorSheet);
   Actors.registerSheet('wondershade', WonderActorSheet, { makeDefault: true });
 
+  registerSystemSettings();
   preloadHBSTemplates();
 });
 
