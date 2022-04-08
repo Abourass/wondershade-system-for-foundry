@@ -1,3 +1,5 @@
+import { loadCloudOpacity, loadCloudTheme } from '../theme/cloudThemes.js';
+
 export default function registerSystemSettings(){
   // Register Cloud Options
   game.settings.register('wondershade', 'cloudTheme', {
@@ -20,22 +22,21 @@ export default function registerSystemSettings(){
       seashell: 'Seashell',
     },
     default: 'cyber',
-    onChange: (value) => {
-      console.log(value);
-      let css = document.getElementById('wondershade-cloud-theme');
-
-      if (!css){
-        css = document.createElement('style');
-        css.id = 'wondershade-cloud-theme';
-        document.head.appendChild(css);
-      }
-
-      css.textContent = `
-        .clouds {
-          background: transparent url(https://wonder-vtt.s3.us-west-1.amazonaws.com/${value}-clouds.webp) repeat top center;
-          -webkit-animation: move-clouds-back 320s linear infinite;
-          animation: move-clouds-back 320s linear infinite;
-        }`;
+    onChange: loadCloudTheme,
+  });
+  // Register Cloud Opacity Option
+  game.settings.register('wondershade', 'cloudOpacity', {
+    name: 'Cloud Opacity',
+    hint: 'Choose your preferred cloud opacity',
+    scope: 'client',
+    config: true,
+    type: Number,
+    range: {
+      min: 0,
+      max: 1,
+      step: 0.05,
     },
+    default: 0.5,
+    onChange: loadCloudOpacity,
   });
 }

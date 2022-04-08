@@ -3,6 +3,7 @@ import WonderItemSheet from './modules/sheets/itemSheet.js';
 import WonderActorSheet from './modules/sheets/actorSheet.js';
 import preloadHBSTemplates from './modules/system/preloadHBS.js';
 import registerSystemSettings from './modules/system/settings.js';
+import { loadCloudTheme } from './modules/theme/cloudThemes.js';
 
 Hooks.once('init', () => {
   console.log('[WonderSystem:Loading]');
@@ -17,6 +18,8 @@ Hooks.once('init', () => {
 
   registerSystemSettings();
   preloadHBSTemplates();
+  // Load User's preferred cloud theme
+  loadCloudTheme(game.settings.get('wondershade', 'cloudTheme'));
 });
 
 Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.localize(data[key]));
