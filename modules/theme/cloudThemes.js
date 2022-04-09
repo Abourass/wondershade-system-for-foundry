@@ -39,3 +39,31 @@ export const loadCloudOpacity = (value) => {
       opacity: ${value};
     }`;
 };
+
+/**
+ * createGalaxy
+ *
+ * Attaches the relevant HTML higher up the DOM so they don't get targeted by the Sheet refresh.
+ */
+export const createGalaxy = () => {
+  function insertAfter(newNode, existingNode) {
+    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+  }
+
+  const charSheet = document.querySelectorAll('.wondershade.sheet.character');
+
+  charSheet.forEach((sheet) => {
+    if (sheet.children.length === 3) {
+      const stars = document.createElement('div');
+      stars.classList.add('stars');
+      const twinkle = document.createElement('div');
+      twinkle.classList.add('twinkling');
+      const clouds = document.createElement('div');
+      clouds.classList.add('clouds');
+
+      insertAfter(stars, sheet.children[0]);
+      insertAfter(twinkle, sheet.children[1]);
+      insertAfter(clouds, sheet.children[2]);
+    }
+  });
+};

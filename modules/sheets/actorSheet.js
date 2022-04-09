@@ -1,3 +1,5 @@
+import { createGalaxy } from '../theme/cloudThemes.js';
+
 export default class WonderActorSheet extends ActorSheet {
   /**
    * Options for the UI composition
@@ -137,6 +139,8 @@ export default class WonderActorSheet extends ActorSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
+
+    createGalaxy();
 
     // Owner-only Listeners
     if (this.actor.owner) {
