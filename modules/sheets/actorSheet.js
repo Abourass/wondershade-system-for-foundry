@@ -136,12 +136,21 @@ export default class WonderActorSheet extends ActorSheet {
   }
 
   activateListeners(html) {
+    super.activateListeners(html);
+
     // Owner-only Listeners
     if (this.actor.owner) {
       html.find('.stat-roll').click(this._onStatRoll.bind(this));
     }
 
-    super.activateListeners(html);
+    // Attach Edit Event to Items
+    this._itemEditEvent(html);
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.isEditable) return;
+
+    // Attach the delete event to items
+    this._itemDeleteEvent(html);
 
     html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
   }
@@ -164,6 +173,25 @@ export default class WonderActorSheet extends ActorSheet {
         for (let i = value; i < max; i++){ ctx.actor.data.data.spells[key].slots.push(false); }
       }
     }
+  }
+
+  _itemEditEvent(html){
+    // Render the item sheet for viewing/editing prior to the editable check.
+    html.find('.item-edit').click((ev) => {
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      item.sheet.render(true);
+    });
+  }
+
+  _itemDeleteEvent(html){
+    // Delete Inventory Item
+    html.find('.item-delete').click((ev) => {
+      const li = $(ev.currentTarget).parents('.item');
+      const item = this.actor.items.get(li.data('itemId'));
+      item.delete();
+      li.slideUp(200, () => this.render(false));
+    });
   }
 
   _spellSlotCheckEvent(event) {
