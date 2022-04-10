@@ -10,12 +10,8 @@
   "minimumCoreVersion": 9,
   "compatibleCoreVersion": "9",
   "scripts": [],
-  "esmodules": [
-    "wonderSystem.js"
-  ],
-  "styles": [
-    "styles/index.min.css"
-  ],
+  "esmodules": [ "wonderSystem.js" ],
+  "styles": [ "styles/index.min.css" ],
   "languages": [
     { "lang": "en", "name": "English", "path": "lang/en.json" }
   ],

@@ -140,6 +140,7 @@ export default class WonderActorSheet extends ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
+    // Inject the Galaxy Theme high up enough into the DOM it's not affected by the sheet refresh
     createGalaxy();
 
     // Owner-only Listeners
@@ -156,6 +157,7 @@ export default class WonderActorSheet extends ActorSheet {
     // Attach the delete event to items
     this._itemDeleteEvent(html);
 
+    // Attach the spell slot change event
     html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
   }
 
