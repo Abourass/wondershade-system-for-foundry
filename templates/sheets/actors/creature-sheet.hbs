@@ -1,0 +1,21 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <div class="body">
+    <div class="header">
+      <h1 class="title neon">Call of Wondershade</h1>
+    </div>
+    <div class="base">
+      <div class="flex-row">
+        {{> "systems/wondershade/templates/partials/layout/backgroundInfo.hbs" }}
+        {{> "systems/wondershade/templates/partials/layout/stats.hbs" }}
+      </div>
+      <div class="flex-row" style="padding-top: 0; padding-bottom: 0">
+        {{> "systems/wondershade/templates/partials/layout/forces.hbs" }}
+      </div>
+      <div class="flex-row" style="padding-top: 0; padding-bottom: 5px">
+        {{> "systems/wondershade/templates/partials/layout/difficultyInitAndRest.hbs" }}
+      </div>
+      <div class="flex-row">
+      </div>
+    </div>
+  </div>
+</form>
