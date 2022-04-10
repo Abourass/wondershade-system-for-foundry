@@ -47,16 +47,6 @@ export default class WonderActorSheet extends ActorSheet {
     // Let's alias actor.data.data since it's tedious to access
     ctx.actorData = actorData.data;
 
-    // ctx.actorData.spellSlots = Object.keys(actorData.data.spells).map(key => {
-    //   if (key !== 'pact'){
-    //     return ({
-    //       level: key,
-    //       checked: actorData.data.spells[key],
-    //     })
-    //   }
-    //   return;
-    // })
-
     this._prepareItems(ctx);
 
     // if (data.actorData.firstOpen){
