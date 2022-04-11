@@ -1,4 +1,5 @@
 import { createGalaxy } from '../theme/cloudThemes.js';
+import attachCollapsibleListeners from '../theme/collapsible.js';
 
 export default class WonderActorSheet extends ActorSheet {
   /**
@@ -149,6 +150,8 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Attach the spell slot change event
     html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
+
+    attachCollapsibleListeners();
   }
 
   _onStatRoll(event) {
