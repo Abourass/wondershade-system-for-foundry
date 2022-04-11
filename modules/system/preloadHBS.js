@@ -15,5 +15,9 @@ export default async function preloadHBSTemplates(){
     // Inventory
     'systems/wondershade/templates/partials/layout/inventory/weapons.hbs',
     'systems/wondershade/templates/partials/layout/inventory/equipment.hbs',
+    'systems/wondershade/templates/partials/layout/inventory/consumables.hbs',
+    'systems/wondershade/templates/partials/layout/inventory/tools.hbs',
+    'systems/wondershade/templates/partials/layout/inventory/loot.hbs',
+    'systems/wondershade/templates/partials/layout/inventory/containers.hbs',
   ]);
 }

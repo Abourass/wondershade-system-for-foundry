@@ -118,14 +118,14 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Assign the user specific data to the context
     ctx.weapons = weapons;
-    ctx.equipment = equipment;
+    ctx.allEquipment = equipment;
     ctx.consumables = consumables;
     ctx.tools = tools;
-    ctx.loot = loot;
+    ctx.allLoot = loot;
     ctx.classFeatures = classFeatures;
-    ctx.feats = feats;
-    ctx.spells = spells;
-    ctx.backpack = backpack;
+    ctx.allFeats = feats;
+    ctx.allSpells = spells;
+    ctx.containers = backpack;
   }
 
   activateListeners(html) {
@@ -162,18 +162,6 @@ export default class WonderActorSheet extends ActorSheet {
     item.roll();
   }
 
-  _prepareSpellSlots(ctx){
-    for (const key of Object.keys(ctx.actor.data.data.spells)){
-      if (key !== 'pact'){
-        const { value, max } = ctx.actor.data.data.spells[key];
-        ctx.actor.data.data.spells[key].slots = [];
-
-        for (let i = 0; i < value; i++){ ctx.actor.data.data.spells[key].slots.push(true); }
-        for (let i = value; i < max; i++){ ctx.actor.data.data.spells[key].slots.push(false); }
-      }
-    }
-  }
-
   _itemEditEvent(html){
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click((ev) => {
@@ -191,6 +179,18 @@ export default class WonderActorSheet extends ActorSheet {
       item.delete();
       li.slideUp(200, () => this.render(false));
     });
+  }
+
+  _prepareSpellSlots(ctx){
+    for (const key of Object.keys(ctx.actor.data.data.spells)){
+      if (key !== 'pact'){
+        const { value, max } = ctx.actor.data.data.spells[key];
+        ctx.actor.data.data.spells[key].slots = [];
+
+        for (let i = 0; i < value; i++){ ctx.actor.data.data.spells[key].slots.push(true); }
+        for (let i = value; i < max; i++){ ctx.actor.data.data.spells[key].slots.push(false); }
+      }
+    }
   }
 
   _spellSlotCheckEvent(event) {
