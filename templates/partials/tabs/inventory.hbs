@@ -72,28 +72,6 @@
     <!-- /Currency: Drops -->
   </div>
   <hr />
-  <ul>
-    {{#each weapons as |weapon wID|}}
-      <li data-item-id="{{weapon._id}}" class="item">
-        <div class="img-col">
-          <a class="rollable" data-roll-type="item">
-            <img src="{{weapon.img}}" title="{{weapon.name}}" width="24" height="24"/>
-          </a>
-        </div>
-        <div class="desc-col">
-          <h4>{{weapon.name}}</h4>
-        </div>
-        <div class="controls-col">
-          <div class="item-controls">
-            <a class="item-control item-edit" title="Edit Item">
-              <i class="fas fa-edit"></i>
-            </a>
-            <a class="item-control item-delete" title="Delete Item">
-              <i class="fas fa-trash"></i>
-            </a>
-          </div>
-        </div>
-      </li>
-    {{/each}}
-  </fieldset>
+  {{> "systems/wondershade/templates/partials/layout/inventory/weapons.hbs"}}
+  {{> "systems/wondershade/templates/partials/layout/inventory/equipment.hbs"}}
 </div>
