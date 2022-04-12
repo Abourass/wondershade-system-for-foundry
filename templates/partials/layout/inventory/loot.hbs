@@ -1,5 +1,12 @@
 <div class="item-section">
-  <div class="collapsible">{{ localize "WonderSystem.ItemTypeLootPl" }}</div>
+  <div class="collapsible">
+    <span>{{ localize "WonderSystem.ItemTypeLootPl" }}</span>
+    <div>
+      <a title="Add Item" class="item-control add-item">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+  </div>
   <ul class="collapsible-content">
     {{#each allLoot as |loot wID|}}
       <li data-item-id="{{loot._id}}" class="item">

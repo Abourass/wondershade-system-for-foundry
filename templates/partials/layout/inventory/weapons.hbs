@@ -1,5 +1,12 @@
 <div class="item-section">
-  <div class="collapsible">{{ localize "WonderSystem.ItemTypeWeaponPl" }}</div>
+  <div class="collapsible">
+    <span>{{ localize "WonderSystem.ItemTypeWeaponPl" }}</span>
+    <div>
+      <a title="Add Item" class="item-control add-item">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+  </div>
   <ul class="collapsible-content">
     {{#each weapons as |weapon wID|}}
       <li data-item-id="{{weapon._id}}" class="item">
