@@ -151,6 +151,9 @@ export default class WonderActorSheet extends ActorSheet {
     // Attach the spell slot change event
     html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
 
+    // Attach the spell slot disable event
+    html.find('.smallDot').contextmenu(this._toggleDisabledSlots.bind(this));
+
     attachCollapsibleListeners();
   }
 
@@ -183,6 +186,20 @@ export default class WonderActorSheet extends ActorSheet {
 
   _prepareSpellSlots(ctx){
     this._calculateSpellSlots(ctx.actor.data.data.spellSlots);
+  }
+
+  _toggleDisabledSlots(event){
+    // Grab the Input next to the button
+    const input = event.currentTarget.previousElementSibling;
+    // Grab the spell slot level from the data-attributes
+    const spellLevel = input.dataset.level;
+    // Check if we are about to remove the disabled flag
+    const increasingSlots = (input.disabled === true);
+    // Invert the disabled flag
+    input.disabled = !input.disabled;
+    // Increase or decrease the available slots
+    let { available } = this.object.data.data.spellSlots[spellLevel];
+    increasingSlots ? available++ : available--;
   }
 
   _spellSlotCheckEvent(event) {
