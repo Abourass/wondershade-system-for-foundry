@@ -13,6 +13,7 @@ export default async function preloadHBSTemplates(){
     'systems/wondershade/templates/partials/tabs/magick.hbs',
     'systems/wondershade/templates/partials/tabs/skills.hbs',
     // Inventory
+    'systems/wondershade/templates/partials/layout/inventory/currencies.hbs',
     'systems/wondershade/templates/partials/layout/inventory/weapons.hbs',
     'systems/wondershade/templates/partials/layout/inventory/equipment.hbs',
     'systems/wondershade/templates/partials/layout/inventory/consumables.hbs',
