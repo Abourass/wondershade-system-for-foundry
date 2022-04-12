@@ -123,6 +123,17 @@
           "spell8": { "value": 0, "override": null, "max": 6 },
           "spell9": { "value": 0, "override": null, "max": 6 },
           "pact": { "value": 0, "override": null }
+        },
+        "spellSlots": {
+          "firstLevel": { "checked": [], "available": 4, "max": 6 },
+          "secondLevel": { "checked": [], "available": 0, "max": 6 },
+          "thirdLevel": { "checked": [], "available": 0, "max": 6 },
+          "fourthLevel": { "checked": [], "available": 0, "max": 6 },
+          "fifthLevel": { "checked": [], "available": 0, "max": 6 },
+          "sixthLevel": { "checked": [], "available": 0, "max": 6 },
+          "seventhLevel": { "checked": [], "available": 0, "max": 6 },
+          "eighthLevel": { "checked": [], "available": 0, "max": 6 },
+          "ninthLevel": { "checked": [], "available": 0, "max": 6 }
         }
       }
     },

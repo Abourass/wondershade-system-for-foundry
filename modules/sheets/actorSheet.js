@@ -182,26 +182,33 @@ export default class WonderActorSheet extends ActorSheet {
   }
 
   _prepareSpellSlots(ctx){
-    for (const key of Object.keys(ctx.actor.data.data.spells)){
-      if (key !== 'pact'){
-        const { value, max } = ctx.actor.data.data.spells[key];
-        ctx.actor.data.data.spells[key].slots = [];
-
-        for (let i = 0; i < value; i++){ ctx.actor.data.data.spells[key].slots.push(true); }
-        for (let i = value; i < max; i++){ ctx.actor.data.data.spells[key].slots.push(false); }
-      }
-    }
+    this._calculateSpellSlots(ctx.actor.data.data.spellSlots);
   }
 
   _spellSlotCheckEvent(event) {
     const checked = event.currentTarget.checked;
-    const spellLevel = event.currentTarget.dataset.id;
-    const { spells } = this.object.data.data;
+    const spellLevel = event.currentTarget.dataset.level;
+    const index = Number(event.currentTarget.dataset.index) + 1;
+    const { spellSlots } = this.object.data.data;
 
     if (checked){
-      spells[spellLevel].value++;
+      spellSlots[spellLevel].checked.push(index);
     } else {
-      spells[spellLevel].value--;
+      spellSlots[spellLevel].checked = spellSlots[spellLevel].checked.filter(i => i !== index);
+    }
+
+    this._calculateSpellSlots(spellSlots);
+  }
+
+  _calculateSpellSlots(spellSlots){
+    for (const key of Object.keys(spellSlots)){
+      const { checked, available, max } = spellSlots[key];
+
+      spellSlots[key].slots = Array.from({length: max}, (_, i) => i + 1).map((i) => {
+        if (checked.includes(i)) return 'checked';
+        if (i > available) return 'disabled';
+        return 'unchecked';
+      });
     }
   }
 }
