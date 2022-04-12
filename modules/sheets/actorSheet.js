@@ -195,18 +195,21 @@ export default class WonderActorSheet extends ActorSheet {
     const spellLevel = input.dataset.level;
     // Check if we are about to remove the disabled flag
     const increasingSlots = (input.disabled === true);
+    // Remove check if checked
+    if (input.checked) input.checked = false;
     // Invert the disabled flag
     input.disabled = !input.disabled;
     // Increase or decrease the available slots
-    let { available } = this.object.data.data.spellSlots[spellLevel];
-    increasingSlots ? available++ : available--;
+    const { available } = this.actor.data.data.spellSlots[spellLevel];
+    // Save the data
+    this.actor.update({ data: { spellSlots: { [spellLevel]: { available: increasingSlots ? available + 1 : available - 1 } } } });
   }
 
   _spellSlotCheckEvent(event) {
     const checked = event.currentTarget.checked;
     const spellLevel = event.currentTarget.dataset.level;
     const index = Number(event.currentTarget.dataset.index) + 1;
-    const { spellSlots } = this.object.data.data;
+    const { spellSlots } = this.actor.data.data;
 
     if (checked){
       spellSlots[spellLevel].checked.push(index);
@@ -215,6 +218,7 @@ export default class WonderActorSheet extends ActorSheet {
     }
 
     this._calculateSpellSlots(spellSlots);
+    this.actor.update({ data: { spellSlots: { [spellLevel]: { checked: spellSlots[spellLevel].checked } } } });
   }
 
   _calculateSpellSlots(spellSlots){
