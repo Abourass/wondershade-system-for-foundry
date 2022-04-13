@@ -16,9 +16,27 @@
                 <span></span>
               </label>
               <div class="skillLabelCol">
+                {{#if (eq skill.keyVal 'alertness')}}
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <label class="clickable-label">
+                        <strong>{{skill.name}}</strong>
+                      </label>
+                    </div>
+                    <div class="flip-card-back">
+                      <label class="clickable-label">
+                        <strong>Awareness</strong>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                
+                {{else}}
                 <label class="clickable-label">
                   <strong>{{skill.name}}</strong>
                 </label>
+                {{/if}}
                 <label for="data.skills.{{skill.keyVal}}.value" class="pr0 full-height">
                   <input
                     type="number"
