@@ -44,3 +44,5 @@ Handlebars.registerHelper('includes', (arr, value) => arr.includes(value));
 Handlebars.registerHelper('atKey', (data, key) => data[key]);
 
 Handlebars.registerHelper('spellSlots', (data, spellLevel) => data[`${spellLevel}Level`].slots);
+
+Handlebars.registerHelper('hasSome', data => data.length > 0);
