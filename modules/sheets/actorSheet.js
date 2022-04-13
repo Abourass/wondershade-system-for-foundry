@@ -148,6 +148,9 @@ export default class WonderActorSheet extends ActorSheet {
     // Attach the delete event to items
     this._itemDeleteEvent(html);
 
+    // Add Inventory Item
+    html.find('.add-item').click(this._itemCreationEvent.bind(this));
+
     // Attach the spell slot change event
     html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
 
@@ -163,6 +166,24 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Roll the stat
     item.roll();
+  }
+
+  async _itemCreationEvent(event){
+    event.preventDefault();
+
+    const element = event.currentTarget;
+    const { itemType } = element.dataset;
+
+    const itemData = {
+      name: `New ${itemType}`,
+      type: itemType,
+      data: duplicate(element.dataset),
+    };
+    // Remove the type from the dataset since it's in the itemData.type prop.
+    delete itemData.data.itemType;
+
+    // Finally, create the item!
+    return Item.create(itemData, {parent: this.actor});
   }
 
   _itemEditEvent(html){
