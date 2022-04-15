@@ -41,12 +41,15 @@ i {
     }
   }
 }
+.category .category-header .category-title {
+  color: #df86dfd6;
+}
 
 #client-settings {
   box-shadow: none;
   background: transparent;
 
-  label { font-family: 'Raleway' }
+  label { font-family: 'Raleway' !important }
 
   header.window-header {
     background: #312436;
@@ -149,11 +152,14 @@ section#ui-right {
 .app.window-app {
   header.window-header {
     background: #312436;
+    width: 100%;
+    border-radius: 6px 6px 0 0;
   }
   section.window-content {
     background: var(--color-border-dark-2);
+    width: 100%;
 
-    label { font-family: 'Raleway'; }
+    label { font-family: 'Raleway' !important; }
     select { color: whitesmoke; }
     .dialog-buttons {
       button.dialog-button {
