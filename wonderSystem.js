@@ -11,12 +11,12 @@ import WonderItem from './modules/documents/item.js';
 Hooks.once('init', () => {
   console.log('[WonderSystem:Loading]');
   // Add utility classes to the global game object so that they're more easily accessible in global contexts.
-  game.wondershade = { rollItemMacro };
+  game.wondershade = { WonderItem, rollItemMacro };
 
   // Add conf for localization and html stuff
   CONFIG.wondershade = WonderSystemConf;
   // Register custom Item Class
-  CONFIG.Item.entityClass = WonderItem;
+  CONFIG.Item.documentClass = WonderItem;
   // Unregister the default item sheet
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('wondershade', WonderItemSheet, { makeDefault: true });

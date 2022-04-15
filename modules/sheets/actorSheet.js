@@ -47,8 +47,12 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Let's alias actor.data.data since it's tedious to access
     ctx.actorData = actorData.data;
+    // Attach flags
+    ctx.flags = actorData.flags;
 
-    this._prepareItems(ctx);
+    if (actorData.type === 'character' || actorData.type === 'npc') {
+      this._prepareItems(ctx);
+    }
 
     // if (data.actorData.firstOpen){
     //   const maxHealth = Math.round(((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5);
@@ -134,22 +138,19 @@ export default class WonderActorSheet extends ActorSheet {
     // Inject the Galaxy Theme high up enough into the DOM it's not affected by the sheet refresh
     createGalaxy();
 
-    // Owner-only Listeners
-    if (this.actor.owner) {
-      html.find('.stat-roll').click(this._onStatRoll.bind(this));
-    }
-
     // Attach Edit Event to Items
-    this._itemEditEvent(html);
+    this._attachItemEditEvents(html);
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    // Attach the delete event to items
-    this._itemDeleteEvent(html);
+    attachCollapsibleListeners();
 
     // Add Inventory Item
     html.find('.add-item').click(this._itemCreationEvent.bind(this));
+
+    // Attach the delete event to items
+    this._attachItemDeletionEvents(html);
 
     // Attach the spell slot change event
     html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
@@ -157,15 +158,66 @@ export default class WonderActorSheet extends ActorSheet {
     // Attach the spell slot disable event
     html.find('.smallDot').contextmenu(this._toggleDisabledSlots.bind(this));
 
-    attachCollapsibleListeners();
+    // Rollable abilities.
+    html.find('.rollable').click(this._onRoll.bind(this));
+
+    if (this.actor.isOwner){
+      // Attach the delete event to items
+      this._attachItemDeletionEvents(html);
+    }
   }
 
-  _onStatRoll(event) {
-    const itemID = event.currentTarget.closest('.item').dataset.itemId;
-    const item = this.actor.getOwnedItem(itemID);
+  async _onRoll(event) {
+    event.preventDefault();
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    console.log('[WonderSystem:Roll] -> dataset', dataset);
 
-    // Roll the stat
-    item.roll();
+    // Handle item rolls.
+
+    if (dataset?.rollType === 'item') {
+      console.log('[WonderSystem:Roll] -> item');
+      const itemId = element.closest('.item').dataset.itemId;
+      console.log('[WonderSystem:Roll] -> itemId', itemId);
+      const item = this.actor.items.get(itemId);
+      console.log('[WonderSystem:Roll] -> item', item);
+      if (item) return item.roll();
+    }
+
+    // Handle rolls that supply the formula directly.
+    if (dataset.roll) {
+      const label = dataset.label ? `[ability] ${dataset.label}` : '';
+      const roll = new Roll(dataset.roll, this.actor.getRollData());
+      console.log('[WonderSystem:Roll] -> roll', roll);
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
+      return roll;
+    }
+
+    // Handle skill rolls.
+    if (dataset.rollSkill){
+      const label = dataset.label ? `[skill] ${dataset.label}` : '';
+      const { value: skillValue } = this.actor.data.data.skills[dataset.rollSkill];
+      const roll = new Roll('d100+@attributes.difficulty[Difficulty]+@attributes.willpower[Willpower]', this.actor.getRollData());
+      console.log({ roll, skillValue });
+      console.log({chatTemplate: roll.CHAT_TEMPLATE});
+      const res = await roll.evaluate();
+      console.log({res});
+      // The resulting equation after it was rolled
+      console.log({result: roll.result});
+      // The total resulting from the roll
+      console.log({total: roll.total});
+      console.log({chatTemplate: roll.CHAT_TEMPLATE});
+      roll.toMessage({
+        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+        flavor: label,
+        rollMode: game.settings.get('core', 'rollMode'),
+      });
+      return roll;
+    }
   }
 
   async _itemCreationEvent(event){
@@ -186,7 +238,7 @@ export default class WonderActorSheet extends ActorSheet {
     return Item.create(itemData, {parent: this.actor});
   }
 
-  _itemEditEvent(html){
+  _attachItemEditEvents(html){
     // Render the item sheet for viewing/editing prior to the editable check.
     html.find('.item-edit').click((ev) => {
       const li = $(ev.currentTarget).parents('.item');
@@ -195,7 +247,7 @@ export default class WonderActorSheet extends ActorSheet {
     });
   }
 
-  _itemDeleteEvent(html){
+  _attachItemDeletionEvents(html){
     // Delete Inventory Item
     html.find('.item-delete').click((ev) => {
       const li = $(ev.currentTarget).parents('.item');

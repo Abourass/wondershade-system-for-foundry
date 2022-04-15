@@ -4,20 +4,20 @@
  */
 export default class WonderItem extends Item {
   chatTemplate = {
-    consumable: 'systems/wondershade/templates/chat/consumable.hbs',
-    equipment: 'systems/wondershade/templates/chat/equipment.hbs',
-    spell: 'systems/wondershade/templates/chat/spell.hbs',
-    weapon: 'systems/wondershade/templates/chat/weapon.hbs',
+    consumable: '/systems/wondershade/templates/chat/consumables.hbs',
+    equipment: '/systems/wondershade/templates/chat/equipment.hbs',
+    spell: '/systems/wondershade/templates/chat/spell.hbs',
+    weapon: '/systems/wondershade/templates/chat/weapon.hbs',
   };
 
-  // /**
-  //  * Augment the basic Item data model with additional dynamic data.
-  //  */
-  // prepareData() {
-  //   // As with the actor class, items are documents that can have their data
-  //   // preparation methods overridden (such as prepareBaseData()).
-  //   super.prepareData();
-  // }
+  /**
+   * Augment the basic Item data model with additional dynamic data.
+   */
+  prepareData() {
+    // As with the actor class, items are documents that can have their data
+    // preparation methods overridden (such as prepareBaseData()).
+    super.prepareData();
+  }
 
   // /**
   //  * Prepare a data object which is passed to any Roll formulas which are created related to this Item
@@ -38,18 +38,16 @@ export default class WonderItem extends Item {
    * @private
    */
   async roll() {
+    console.log('[WonderItem] roll');
     const chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
     };
 
-    const cardData = {
-      ...this.data,
-      owner: this.actor._id,
-    };
+    const cardData = { ...this.data, owner: this.actor._id };
 
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
-    
+
     chatData.roll = true;
     return ChatMessage.create(chatData);
   }

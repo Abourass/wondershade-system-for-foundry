@@ -20,12 +20,12 @@
                 <div class="flip-card">
                   <div class="flip-card-inner">
                     <div class="flip-card-front">
-                      <label class="clickable-label">
+                      <label class="clickable-label rollable" data-roll-skill="{{skill.keyVal}}" data-label="{{skill.name}}">
                         <strong>{{skill.name}}</strong>
                       </label>
                     </div>
                     <div class="flip-card-back">
-                      <label class="clickable-label">
+                      <label class="clickable-label rollable" data-roll-skill="{{skill.keyVal}}" data-label="{{skill.name}}">
                         <strong>Awareness</strong>
                       </label>
                     </div>
@@ -33,7 +33,7 @@
                 </div>
                 
                 {{else}}
-                <label class="clickable-label">
+                <label class="clickable-label rollable" data-roll-skill="{{skill.keyVal}}" data-label="{{skill.name}}">
                   <strong>{{skill.name}}</strong>
                 </label>
                 {{/if}}
@@ -65,7 +65,7 @@
                 <span></span>
               </label>
               <div class="skillLabelCol">
-                <label class="clickable-label">
+                <label class="clickable-label rollable" data-roll-skill="{{skill.keyVal}}" data-label="{{skill.name}}">
                   <strong>{{skill.name}}</strong>
                 </label>
                 <label for="data.skills.{{skill.keyVal}}.value" class="pr0 full-height">
@@ -96,7 +96,7 @@
                 <span></span>
               </label>
               <div class="skillLabelCol">
-                <label class="clickable-label">
+                <label class="clickable-label rollable" data-roll-skill="{{skill.keyVal}}" data-label="{{skill.name}}">
                   <strong>{{skill.name}}</strong>
                 </label>
                 <label for="data.skills.{{skill.keyVal}}.value" class="pr0 full-height">
