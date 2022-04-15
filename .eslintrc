@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": [ "airbnb-base" ],
+  "extends": [ "@typhonjs-fvtt/eslint-config-foundry.js", "airbnb-base" ],
   "env": {
     "shared-node-browser": true,
     "node": true,
@@ -24,7 +24,7 @@
     "no-restricted-syntax": "off",
     "no-unused-expressions": "off",
     "no-console": "off",
-    "no-shadow": ["error", { "hoist": "never" }],
+    "no-shadow": ["error", { "builtinGlobals": true, "hoist": "all", "allow": ["event"] }],
     "no-param-reassign": "off",
     "no-prototype-builtins": "off",
     "no-new": "off",
