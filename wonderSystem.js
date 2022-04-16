@@ -30,8 +30,13 @@ Hooks.once('init', () => {
   loadCloudTheme(game.settings.get('wondershade', 'cloudTheme'));
 });
 
+/*
+ * Localize everything in the config file under `.local`
+ * moves all the localized objects to under the base config
+ * then deletes the `.local` property
+ * @param {object} config
+*/
 function localizeConfig(config){
-  console.log('[WonderSystem:Localizing]', config);
   for (const key in config.local) {
     if (typeof config.local[key] === 'string') {
       if (config.local.hasOwnProperty(key)) {
@@ -48,15 +53,13 @@ function localizeConfig(config){
       }
     }
   }
-  console.log('[WonderSystem:Localized]', config);
+  delete config.local;
   return config;
 }
 
 Hooks.once('setup', () => {
   localizeConfig(CONFIG.wondershade);
 });
-
-Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.localize(data[key]));
 
 Handlebars.registerHelper('skillChecked', (data, skill, debug = false) => {
   if (debug) {
