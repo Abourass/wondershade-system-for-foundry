@@ -30,6 +30,32 @@ Hooks.once('init', () => {
   loadCloudTheme(game.settings.get('wondershade', 'cloudTheme'));
 });
 
+function localizeConfig(config){
+  console.log('[WonderSystem:Localizing]', config);
+  for (const key in config.local) {
+    if (typeof config.local[key] === 'string') {
+      if (config.local.hasOwnProperty(key)) {
+        const element = config.local[key];
+        config[key] = game.i18n.localize(element);
+      }
+    } else {
+      for (const subKey in config.local[key]) {
+        if (config.local[key].hasOwnProperty(subKey)) {
+          if (!config[key]) config[key] = {};
+          const element = config.local[key][subKey];
+          config[key][subKey] = game.i18n.localize(element);
+        }
+      }
+    }
+  }
+  console.log('[WonderSystem:Localized]', config);
+  return config;
+}
+
+Hooks.once('setup', () => {
+  localizeConfig(CONFIG.wondershade);
+});
+
 Handlebars.registerHelper('dynamicLocalization', (data, key) => game.i18n.localize(data[key]));
 
 Handlebars.registerHelper('skillChecked', (data, skill, debug = false) => {

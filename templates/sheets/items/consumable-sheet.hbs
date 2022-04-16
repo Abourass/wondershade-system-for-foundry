@@ -12,7 +12,7 @@
           <span class="item-status">{{itemStatus}}</span>
         </div>
       </div>
-      
+      {{log config}}
 
       <ul class="summary flex-row">
         <li>
@@ -21,7 +21,7 @@
 
         <li>
           <select name="data.rarity">
-            {{selectOptions config.itemRarity selected=data.rarity blank="Rarity"}}
+            {{selectOptions config.itemRarity selected=item.data.data.rarity blank="Rarity"}}
           </select>
         </li>
 

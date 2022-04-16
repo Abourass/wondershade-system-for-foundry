@@ -7,8 +7,6 @@ export default class WonderItemSheet extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       width: 600,
       height: 600,
-      // resizable: false,
-      // draggable: false,
       classes: ['wondershade', 'sheet', 'item'],
       // scrollY: ['.sheet-body'],
       resizable: true,
@@ -91,7 +89,7 @@ export default class WonderItemSheet extends ItemSheet {
   /**
    * Get the Array of item properties which are used in the small sidebar of the description tab.
    * @param {object} item  Copy of the item data being prepared for display.
-   * @returns {string[]}   List of property labels to be shown.
+   * @returns {Array<string>}   List of property labels to be shown.
    * @private
    */
   _getItemProperties(item) {
