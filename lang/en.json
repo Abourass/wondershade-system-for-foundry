@@ -518,6 +518,7 @@
   "WonderSystem.ItemEquipmentType": "Equipment Type",
   "WonderSystem.ItemEquipmentUsage": "Equipment Usage",
   "WonderSystem.ItemName": "Item Name",
+  "WonderSystem.ConsumableName": "Consumable Name",
   "WonderSystem.ItemNew": "New {type}",
   "WonderSystem.ItemRechargeCheck": "{name} recharge check",
   "WonderSystem.ItemRechargeFailure": "failure!",
