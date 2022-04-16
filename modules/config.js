@@ -15,6 +15,13 @@ function dynamicSort(property) {
 
 export const WonderSystemConf = {
   local: {
+    armorTypes: {
+      light: 'WonderSystem.EquipmentLight',
+      medium: 'WonderSystem.EquipmentMedium',
+      heavy: 'WonderSystem.EquipmentHeavy',
+      natural: 'WonderSystem.EquipmentNatural',
+      shield: 'WonderSystem.EquipmentShield',
+    },
     attr: {
       str: 'WonderSystem.attributes.STR',
       int: 'WonderSystem.attributes.INT',
@@ -50,6 +57,52 @@ export const WonderSystemConf = {
       atwill: 'WonderSystem.SpellPrepAtWill',
       innate: 'WonderSystem.SpellPrepInnate',
     },
+    weaponProperties: {
+      ada: 'WonderSystem.WeaponPropertiesAda',
+      amm: 'WonderSystem.WeaponPropertiesAmm',
+      fin: 'WonderSystem.WeaponPropertiesFin',
+      fir: 'WonderSystem.WeaponPropertiesFir',
+      foc: 'WonderSystem.WeaponPropertiesFoc',
+      hvy: 'WonderSystem.WeaponPropertiesHvy',
+      lgt: 'WonderSystem.WeaponPropertiesLgt',
+      lod: 'WonderSystem.WeaponPropertiesLod',
+      mgc: 'WonderSystem.WeaponPropertiesMgc',
+      rch: 'WonderSystem.WeaponPropertiesRch',
+      rel: 'WonderSystem.WeaponPropertiesRel',
+      ret: 'WonderSystem.WeaponPropertiesRet',
+      sil: 'WonderSystem.WeaponPropertiesSil',
+      spc: 'WonderSystem.WeaponPropertiesSpc',
+      thr: 'WonderSystem.WeaponPropertiesThr',
+      two: 'WonderSystem.WeaponPropertiesTwo',
+      ver: 'WonderSystem.WeaponPropertiesVer',
+    },
+    miscEquipmentTypes: {
+      clothing: 'WonderSystem.EquipmentClothing',
+      trinket: 'WonderSystem.EquipmentTrinket',
+      vehicle: 'WonderSystem.EquipmentVehicle',
+    },
+    equipmentTypes: {
+      clothing: 'WonderSystem.EquipmentClothing',
+      trinket: 'WonderSystem.EquipmentTrinket',
+      vehicle: 'WonderSystem.EquipmentVehicle',
+      light: 'WonderSystem.EquipmentLight',
+      medium: 'WonderSystem.EquipmentMedium',
+      heavy: 'WonderSystem.EquipmentHeavy',
+      natural: 'WonderSystem.EquipmentNatural',
+      shield: 'WonderSystem.EquipmentShield',
+    },
+    itemActionTypes: {
+      mwak: 'WonderSystem.ActionMWAK',
+      rwak: 'WonderSystem.ActionRWAK',
+      msak: 'WonderSystem.ActionMSAK',
+      rsak: 'WonderSystem.ActionRSAK',
+      save: 'WonderSystem.ActionSave',
+      heal: 'WonderSystem.ActionHeal',
+      abil: 'WonderSystem.ActionAbil',
+      util: 'WonderSystem.ActionUtil',
+      other: 'WonderSystem.ActionOther',
+    },
+
   },
 
   html: {
