@@ -88,44 +88,6 @@ section#ui-right {
       }
     }
 
-    section#chat {
-      ol#chat-log {
-        li.chat-message {
-          color: #e9e9e9;
-          font-family: 'Raleway';
-          background: #2e2e2ed6;
-          border: 1px solid #28c3ccb8 !important;
-          &.whisper { border: 1px solid #7275bb !important }
-
-          header.message-header {
-            h4.message-sender { color: #db88db; }
-            span.message-metadata {
-              time.message-timestamp { color: #9d9d9dba; }
-            }
-          }
-
-          .message-content {
-            .nue {
-              a { color: #45d5d5; }
-            }
-
-            footer.nue {
-              color: #b1afa2;
-              font-family: 'Lora';
-            }
-          }
-        }
-      }
-
-      #chat-form {
-        textarea {
-          color: whitesmoke;
-          background: #20201fc7;
-          font-family: 'Raleway';
-        }
-      }
-    }
-
     #settings {
       h2 {
         background: rgb(92 58 137 / 10%);
@@ -145,6 +107,54 @@ section#ui-right {
           font-family: 'Raleway';
         }
       }
+    }
+  }
+}
+
+section#chat {
+  ol#chat-log {
+    li.chat-message {
+      color: #e9e9e9;
+      font-family: Raleway;
+      background: #2e2e2ed6;
+      border: 1px solid #5b3956!important;
+      background-image: url(https://s3.amazonaws.com/files.d20.io/images/97938169/2H_jIrRYHQLhEIW3TlZYow/max.png?1574800581), url(https://s3.amazonaws.com/files.d20.io/images/97938213/qxfGqZZDIGms6oySxMyPtA/max.png?1574800622), url(https://s3.amazonaws.com/files.d20.io/images/97938159/DQvw7NbZMn_E52h6RW8DUA/max.png?1574800572), url(https://s3.amazonaws.com/files.d20.io/images/97938152/iX1L3c8KUcynHfqZz1Qwgw/max.png?1574800563), url(https://wonder-vtt.s3.us-west-1.amazonaws.com/chat-stars.webp);
+      background-position: left top, right top, right bottom, left bottom, center center;
+      background-repeat: no-repeat;
+      background-size: auto;
+      &.whisper {
+        border: 1px solid #7275bb !important;
+        background-image: url(https://wonder-vtt.s3.us-west-1.amazonaws.com/chat-stars.webp) !important;
+        background-position: center center !important;
+        background-repeat: no-repeat;
+        background-size: auto;
+      }
+
+      header.message-header {
+        h4.message-sender { color: #db88db; }
+        span.message-metadata {
+          time.message-timestamp { color: #9d9d9dba; }
+        }
+      }
+
+      .message-content {
+        .nue {
+          a { color: #45d5d5; }
+        }
+
+        footer.nue {
+          color: #b1afa2;
+          font-family: 'Lora';
+        }
+      }
+    }
+  }
+
+  #chat-form {
+    textarea {
+      color: whitesmoke;
+      background: #20201fc7;
+      font-family: 'Raleway';
     }
   }
 }

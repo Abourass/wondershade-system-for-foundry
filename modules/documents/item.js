@@ -38,13 +38,14 @@ export default class WonderItem extends Item {
    * @private
    */
   async roll() {
-    console.log('[WonderItem] roll');
+    console.log('[WonderItem] roll', this);
     const chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
     };
 
     const cardData = { ...this.data, owner: this.actor._id };
+    console.log('[WonderItem] cardData', cardData);
 
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
 
