@@ -6,14 +6,14 @@
         <h1>
           <input type="name" value="{{item.name}}" placeholder="{{ localize 'WonderSystem.ConsumableName' }}" name="name" class="item-input">
         </h1>
-  {{log item}}
+  
         <div class="item-subtitle">
           <h4 class="item-type">{{item.data.data.consumableType}}</h4>
           <span class="item-status">{{itemStatus}}</span>
         </div>
       </div>
-      {{log config}}
-
+      {{log 'config' config}}
+      {{log 'item' item}}
       <ul class="summary flex-row">
         <li>
           {{lookup config.consumableTypes data.consumableType}}
@@ -37,4 +37,10 @@
     <a class="item" data-tab="details">{{ localize "WonderSystem.Details" }}</a>
     <a class="item" data-tab="effects">{{ localize "WonderSystem.Effects" }}</a>
   </nav>
+
+  <section class="sheet-body">
+
+    {{!-- Description --}}
+    {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+  </section>
 </form>
