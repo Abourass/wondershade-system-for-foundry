@@ -11,6 +11,51 @@ export default class WonderItem extends Item {
   };
 
   /**
+   * Which ability score modifier is used by this item.
+   * @type {string|null}
+   */
+  get abilityMod() {
+    const itemData = this.data.data;
+    if (!('ability' in itemData)) return null;
+
+    // Case 1 - defined directly by the item
+    if (itemData.ability) return itemData.ability;
+
+    // Case 2 - inferred from a parent actor
+    if (this.actor) {
+      const actorData = this.actor.data.data;
+
+      // Spells - Use Actor spellcasting modifier
+      if (this.data.type === 'spell') return actorData.attributes.spellcasting || 'int';
+
+      // Tools - default to Intelligence
+      if (this.data.type === 'tool') return 'int';
+
+      // Weapons
+      if (this.data.type === 'weapon') {
+        const wt = itemData.weaponType;
+
+        // Weapons using the spellcasting modifier
+        if (['msak', 'rsak'].includes(itemData.actionType)) {
+          return actorData.attributes.spellcasting || 'int';
+        }
+
+        // Finesse weapons - Str or Dex (PHB pg. 147)
+        if (itemData.properties.fin === true) {
+          return (actorData.abilities.dex.mod >= actorData.abilities.str.mod) ? 'dex' : 'str';
+        }
+
+        // Ranged weapons - Dex (PH p.194)
+        if (['simpleR', 'martialR'].includes(wt)) return 'dex';
+      }
+      return 'str';
+    }
+
+    // Case 3 - unknown
+    return null;
+  }
+
+  /**
    * Augment the basic Item data model with additional dynamic data.
    */
   prepareData() {
@@ -108,6 +153,36 @@ export default class WonderItem extends Item {
 
     // If this item is owned, we prepareFinalAttributes() at the end of actor init
     if (!this.isOwned) this.prepareFinalAttributes();
+  }
+
+  /**
+   * Compute item attributes which might depend on prepared actor data. If this item is
+   * embedded this method will be called after the actor's data is prepared. Otherwise it
+   * will be called at the end of `Item5e#prepareDerivedData`.
+   */
+  prepareFinalAttributes() {
+    // Proficiency
+    const isProficient = (this.type === 'spell') || this.data.data.proficient; // Always proficient in spell attacks.
+    this.data.data.prof = new Proficiency(this.actor?.data.data.attributes.prof, isProficient);
+
+    if (this.data.data.hasOwnProperty('actionType')) {
+      // Ability checks
+      this.labels.abilityCheck = game.i18n.format('WonderSystem.AbilityPromptTitle', {
+        ability: CONFIG.WonderSystem.abilities[this.data.data?.ability],
+      });
+
+      // Saving throws
+      this.getSaveDC();
+
+      // To Hit
+      this.getAttackToHit();
+
+      // Limited Uses
+      this.prepareMaxUses();
+
+      // Damage Label
+      this.getDerivedDamageLabel();
+    }
   }
 
   // /**
