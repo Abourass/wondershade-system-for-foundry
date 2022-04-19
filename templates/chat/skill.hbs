@@ -1,5 +1,15 @@
 <div class="skill-roll">
   <h1>{{skill.label}}</h1>
+  <h2>{{actor.name}}</h2>
+  {{#if roll.success}}
+    <div class="success-banner">
+      <span>{{roll.outcome}}</span>
+    </div>
+  {{else}}
+    <div class="failure-banner {{#if roll.hard}}hard{{/if}} {{#if roll.crit}}crit{{/if}}">
+      <span>{{roll.outcome}}</span>
+    </div>
+  {{/if}}
   <div class="roll-results">
     <div class="roll-line">
       {{#unless (eq willpower 0)}}

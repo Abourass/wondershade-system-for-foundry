@@ -37,12 +37,29 @@ export default class WonderActor extends Actor {
       : 0;
     // if hard success and crit success are the same subtract one from crit success
     if (hardSuccess === criticalSuccess) --criticalSuccess;
-    // Hard Failure is 100 - hard Success
-    const hardFailure = Math.keepInsideRange(100 - hardSuccess, 1, 100);
-    // Critical Failure is 100 - critical Success
-    const criticalFailure = Math.keepInsideRange(100 - criticalSuccess, 1, 100);
+    // Hard Failure is 100 - 33% lack of skill
+    const hardFailure = Math.keepInsideRange(100 - Math.floor((100 - success) / 3), 1, 100);
+    // Critical Failure is 100 - 14.28% lack of skill
+    const criticalFailure = Math.keepInsideRange(100 - Math.floor((100 - success) / 7), 1, 100);
 
     return { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure };
+  }
+
+  _getOutcome(computedRoll, skillValue, actor){
+    const { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure } = this._getSuccessAndFailure(skillValue, actor);
+
+    if (computedRoll <= success) {
+      if (computedRoll <= hardSuccess) {
+        if (computedRoll <= criticalSuccess) return 'Critical Success';
+        return 'Hard Success';
+      }
+      return 'Success';
+    }
+    if (computedRoll >= hardFailure) {
+      if (computedRoll >= criticalFailure) return 'Critical Failure';
+      return 'Hard Failure';
+    }
+    return 'Failure';
   }
 
   /**
@@ -61,6 +78,9 @@ export default class WonderActor extends Actor {
     const { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure } = this._getSuccessAndFailure(ctx.skillValue, actor);
 
     await ctx.roll.evaluate({ async: true });
+
+    const computedRoll = Math.keepInsideRange(Number(ctx.roll.result) + willpower, 1, 100);
+    const rollOutcome = this._getOutcome(computedRoll, ctx.skillValue, actor);
 
     const chatData = {
       user: game.user._id,
@@ -88,7 +108,11 @@ export default class WonderActor extends Actor {
       roll: {
         ctx: ctx.roll,
         result: ctx.roll.result,
-        computed: Math.keepInsideRange(Number(ctx.roll.result) + willpower, 1, 100),
+        computed: computedRoll,
+        outcome: rollOutcome,
+        success: (computedRoll <= success),
+        hard: rollOutcome === 'Hard Success' || rollOutcome === 'Hard Failure',
+        crit: rollOutcome === 'Critical Success' || rollOutcome === 'Critical Failure',
       },
       difficulty: Number(actor.data.attributes.difficulty),
       willpower,
