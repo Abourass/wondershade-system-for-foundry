@@ -22,7 +22,6 @@ export default class WonderActor extends Actor {
 
   _getSuccessAndFailure(skillValue, actor){
     if (typeof skillValue !== 'number') Number(skillValue);
-
     // Grab the actors roll difficulty
     const difficulty = Number(actor.data.attributes.difficulty);
     // Success is equal to the skill's value minus the difficulty
@@ -68,8 +67,6 @@ export default class WonderActor extends Actor {
    * @private
    */
   async rollSkill(ctx) {
-    console.debug('[WonderActor:rollSkill()] -> ctx', ctx);
-    console.debug('[WonderActor:rollSkill()] -> this', this);
     // Alias the actor to make the function more self documenting
     const actor = this.data;
     // Grab the actors willpower
@@ -82,6 +79,13 @@ export default class WonderActor extends Actor {
     const computedRoll = Math.keepInsideRange(Number(ctx.roll.result) + willpower, 1, 100);
     const rollOutcome = this._getOutcome(computedRoll, ctx.skillValue, actor);
 
+    if (rollOutcome === 'Critical Failure'){
+      ctx.roll.dice[0].options.sfx = {
+        specialEffect: 'PlayAnimationImpact',
+      };
+    }
+
+    console.log(ctx.roll);
     const chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor }),
@@ -117,7 +121,6 @@ export default class WonderActor extends Actor {
       difficulty: Number(actor.data.attributes.difficulty),
       willpower,
     };
-    console.debug('[WonderActor:rollSkill()] -> cardData', cardData);
 
     chatData.content = await renderTemplate(this.chatTemplates.skill, cardData);
 
