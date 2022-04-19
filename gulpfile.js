@@ -16,8 +16,8 @@ gulp.task('less', () => gulp
     less({ plugins: [autoprefix] }).on('error', logError),
   )
   .pipe(cleanCSS({debug: true}, (details) => {
-    console.log(`${details.name}: ${details.stats.originalSize}`);
-    console.log(`${details.name}: ${details.stats.minifiedSize}`);
+    console.debug(`${details.name}: ${details.stats.originalSize}`);
+    console.debug(`${details.name}: ${details.stats.minifiedSize}`);
   }))
   .pipe(sourcemaps.write())
   .pipe(rename({ suffix: '.min'}))

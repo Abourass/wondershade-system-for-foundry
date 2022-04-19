@@ -23,21 +23,21 @@ export default class WonderItemSheet extends ItemSheet {
 
   async getData(options) {
     // Execute the default getData() method
-    const data = super.getData(options);
+    const ctx = super.getData(options);
     // Item Data
-    const itemData = data.data;
+    const itemData = ctx.data;
 
-    data.labels = this.items?.labels;
+    ctx.labels = this.items?.labels;
 
     // Attach the localization to the data
-    data.config = CONFIG.wondershade;
+    ctx.config = CONFIG.wondershade;
 
     // Item Type, Status, and Details
-    data.itemType = game.i18n.localize(`ITEM.Type${data.item.type.titleCase()}`);
-    data.itemStatus = this._getItemStatus(itemData);
-    data.itemProperties = this._getItemProperties(itemData);
-    // data.baseItems = await this._getItemBaseTypes(itemData);
-    data.isPhysical = itemData.data.hasOwnProperty('quantity');
+    ctx.itemType = game.i18n.localize(`ITEM.Type${ctx.item.type.titleCase()}`);
+    ctx.itemStatus = this._getItemStatus(itemData);
+    ctx.itemProperties = this._getItemProperties(itemData);
+    // ctx.baseItems = await this._getItemBaseTypes(itemData);
+    ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
     return data;
   }

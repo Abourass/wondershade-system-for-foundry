@@ -7,14 +7,17 @@ import { loadCloudTheme } from './modules/theme/cloudThemes.js';
 import createItemMacro from './modules/system/createItemMacro.js';
 import rollItemMacro from './modules/system/rollItemMacro.js';
 import WonderItem from './modules/documents/item.js';
+import WonderActor from './modules/documents/ActorDoc.js';
 
 Hooks.once('init', () => {
-  console.log('[WonderSystem:Loading]');
+  console.debug('[WonderSystem:Loading]');
   // Add utility classes to the global game object so that they're more easily accessible in global contexts.
-  game.wondershade = { WonderItem, rollItemMacro };
+  game.wondershade = { WonderActor, WonderItem, rollItemMacro };
 
   // Add conf for localization and html stuff
   CONFIG.wondershade = WonderSystemConf;
+  // Register custom actor class
+  CONFIG.Actor.documentClass = WonderActor;
   // Register custom Item Class
   CONFIG.Item.documentClass = WonderItem;
   // Unregister the default item sheet
@@ -39,7 +42,7 @@ const isALocalizationString = value => typeof value === 'string' && value.starts
  * then deletes the `.local` property
  * @param {object} config
 */
-function localizeConfig(config){
+function localizeConfig(config){ // TODO: This can definitely be optimized, but at the moment I haven't the mind for it
   for (const key in config.local) {
     if (typeof config.local[key] === 'string' && isALocalizationString(config.local[key])) {
       if (config.local.hasOwnProperty(key)) {
@@ -108,6 +111,8 @@ Handlebars.registerHelper('atKey', (data, key) => data[key]);
 Handlebars.registerHelper('spellSlots', (data, spellLevel) => data[`${spellLevel}Level`].slots);
 
 Handlebars.registerHelper('hasSome', data => data.length > 0);
+
+Handlebars.registerHelper('formatDifficultyText', text => ((text.toString()[0] === '-') ? text : `+${text}`));
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */

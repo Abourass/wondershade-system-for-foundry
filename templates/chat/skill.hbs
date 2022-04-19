@@ -1,0 +1,23 @@
+<div class="skill-roll">
+  <h1>{{skill.label}}</h1>
+  <div class="roll-results">
+    <div class="roll-line">
+      {{#unless (eq willpower 0)}}
+        <span class="roll-result" title="Roll Result">{{roll.result}}</span>
+        <span class="roll-will" title="Willpower">({{formatDifficultyText willpower}}) = </span>
+      {{/unless}}
+      <span class="roll-computed">{{roll.computed}}</span>
+    </div>
+    <span class="roll-line"> VS </span>
+    <div class="roll-line">
+      {{#unless (eq difficulty 0)}}
+        <span class="roll-skill" title="{{skill.label}}">{{skill.value}}</span>
+        <span class="roll-difficulty" title="Difficulty">({{formatDifficultyText difficulty}}) = </span>
+      {{/unless}}
+      <span class="roll-success">{{condition.success}}</span>
+    </div>
+  </div>
+</div>
+
+{{log 'skill' skill}}
+{{log 'this' this}}

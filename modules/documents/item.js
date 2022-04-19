@@ -75,8 +75,8 @@ export default class WonderItem extends Item {
     const data = itemData.data;
     console.debug('[WonderItem] GLOBAL CONFIG', CONFIG);
     const config = CONFIG.wondershade;
-    console.log('[WonderItem] prepareDerivedData', itemData);
-    console.log('[WonderItem] this.labels', this);
+    console.debug('[WonderItem] prepareDerivedData', itemData);
+    console.debug('[WonderItem] this.labels', this);
     this.labels = {};
     const labels = this.labels;
 
@@ -206,14 +206,14 @@ export default class WonderItem extends Item {
    * @private
    */
   async roll() {
-    console.log('[WonderItem] roll', this);
+    console.debug('[WonderItem:roll()] -> this', this);
     const chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
     };
 
     const cardData = { ...this.data, owner: this.actor._id };
-    console.log('[WonderItem] cardData', cardData);
+    console.debug('[WonderItem:roll()] -> cardData', cardData);
 
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
 
