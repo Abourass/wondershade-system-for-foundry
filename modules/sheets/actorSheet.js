@@ -171,16 +171,16 @@ export default class WonderActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    console.log('[WonderSystem:Roll] -> dataset', dataset);
+    console.debug('[WonderSystem:Roll] -> dataset', dataset);
 
     // Handle item rolls.
 
     if (dataset?.rollType === 'item') {
-      console.log('[WonderSystem:Roll] -> item');
+      console.debug('[WonderSystem:Roll] -> item');
       const itemId = element.closest('.item').dataset.itemId;
-      console.log('[WonderSystem:Roll] -> itemId', itemId);
+      console.debug('[WonderSystem:Roll] -> itemId', itemId);
       const item = this.actor.items.get(itemId);
-      console.log('[WonderSystem:Roll] -> item', item);
+      console.debug('[WonderSystem:Roll] -> item', item);
       if (item) return item.roll();
     }
 
@@ -188,7 +188,7 @@ export default class WonderActorSheet extends ActorSheet {
     if (dataset.roll) {
       const label = dataset.label ? `[ability] ${dataset.label}` : '';
       const roll = new Roll(dataset.roll, this.actor.getRollData());
-      console.log('[WonderSystem:Roll] -> roll', roll);
+      console.debug('[WonderSystem:Roll] -> roll', roll);
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
@@ -202,15 +202,15 @@ export default class WonderActorSheet extends ActorSheet {
       const label = dataset.label ? `[skill] ${dataset.label}` : '';
       const { value: skillValue } = this.actor.data.data.skills[dataset.rollSkill];
       const roll = new Roll('d100+@attributes.difficulty[Difficulty]+@attributes.willpower[Willpower]', this.actor.getRollData());
-      console.log({ roll, skillValue });
-      console.log({chatTemplate: roll.CHAT_TEMPLATE});
+      console.debug({ roll, skillValue });
+      console.debug({chatTemplate: roll.CHAT_TEMPLATE});
       const res = await roll.evaluate();
-      console.log({res});
+      console.debug({res});
       // The resulting equation after it was rolled
-      console.log({result: roll.result});
+      console.debug({result: roll.result});
       // The total resulting from the roll
-      console.log({total: roll.total});
-      console.log({chatTemplate: roll.CHAT_TEMPLATE});
+      console.debug({total: roll.total});
+      console.debug({chatTemplate: roll.CHAT_TEMPLATE});
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
