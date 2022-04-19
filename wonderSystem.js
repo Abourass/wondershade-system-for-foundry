@@ -30,6 +30,9 @@ Hooks.once('init', () => {
   loadCloudTheme(game.settings.get('wondershade', 'cloudTheme'));
 });
 
+const isObject = value => !!(value && typeof value === 'object' && !Array.isArray(value));
+const isALocalizationString = value => typeof value === 'string' && value.startsWith('WonderSystem.');
+
 /*
  * Localize everything in the config file under `.local`
  * moves all the localized objects to under the base config
@@ -38,19 +41,41 @@ Hooks.once('init', () => {
 */
 function localizeConfig(config){
   for (const key in config.local) {
-    if (typeof config.local[key] === 'string') {
+    if (typeof config.local[key] === 'string' && isALocalizationString(config.local[key])) {
       if (config.local.hasOwnProperty(key)) {
         const element = config.local[key];
         config[key] = game.i18n.localize(element);
       }
-    } else {
+    } else if (isObject(config.local[key])) {
       for (const subKey in config.local[key]) {
-        if (config.local[key].hasOwnProperty(subKey)) {
+        if (typeof config.local[key][subKey] === 'string' && isALocalizationString(config.local[key][subKey])) {
+          if (config.local[key].hasOwnProperty(subKey)) {
+            if (!config[key]) config[key] = {};
+            const element = config.local[key][subKey];
+            config[key][subKey] = game.i18n.localize(element);
+          }
+        } else if (isObject(config.local[key][subKey])) {
+          for (const subsubKey in config.local[key][subKey]) {
+            if (typeof config.local[key][subKey][subsubKey] === 'string' && isALocalizationString(config.local[key][subKey][subsubKey])) {
+              if (config.local[key][subKey].hasOwnProperty(subsubKey)) {
+                if (!config[key]) config[key] = {};
+                if (!config[key][subKey]) config[key][subKey] = {};
+                const element = config.local[key][subKey][subsubKey];
+                config[key][subKey][subsubKey] = game.i18n.localize(element);
+              }
+            } else {
+              if (!config[key]) config[key] = {};
+              if (!config[key][subKey]) config[key][subKey] = {};
+              config[key][subKey][subsubKey] = config.local[key][subKey][subsubKey];
+            }
+          }
+        } else {
           if (!config[key]) config[key] = {};
-          const element = config.local[key][subKey];
-          config[key][subKey] = game.i18n.localize(element);
+          config[key][subKey] = config.local[key][subKey];
         }
       }
+    } else {
+      config[key] = config.local[key];
     }
   }
   delete config.local;
