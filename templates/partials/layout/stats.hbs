@@ -3,10 +3,9 @@
     {{#each actorData.abilities}}
       {{#if (lte this.menuOrder 3)}}
         <div class="stat-block">
-          <label for="data.abilities.{{@key}}.value" class="label flex-col align-center clickable-label">
-            <div class="flex-row align-center justify-center">
+          <label for="data.abilities.{{@key}}.value" class="label flex-col align-center">
+            <div class="flex-row align-center justify-center rollable" data-roll-ability="{{@key}}" data-label="{{lookup ../config.attr @key}}">
               <span>{{lookup ../config.attr @key}}</span>
-              {{!-- <button class="skillButton"></button> --}}
             </div>
             <input
               name="data.abilities.{{@key}}.value"
@@ -23,8 +22,11 @@
     {{#each actorData.abilities}}
       {{#if (gte this.menuOrder 4)}}
         <div class="stat-block">
-          <label for="data.abilities.{{@key}}.value" class="label flex-col align-center clickable-label">
-            <div class="flex-row align-center justify-center">
+          <label for="data.abilities.{{@key}}.value" class="label flex-col align-center">
+            <div
+              class="flex-row align-center justify-center {{#unless (eq @key 'iLuck')}}rollable{{/unless}}"
+              {{#unless (eq @key 'iLuck')}}data-roll-ability="{{@key}}" data-label="{{lookup ../config.attr @key}}"{{/unless}}
+            >
               <span>{{lookup ../config.attr @key}}</span>
               {{!-- <button class="skillButton"></button> --}}
             </div>

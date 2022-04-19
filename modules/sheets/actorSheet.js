@@ -198,25 +198,21 @@ export default class WonderActorSheet extends ActorSheet {
     }
 
     // Handle skill rolls.
-    if (dataset.rollSkill){
-      const label = dataset.label ?? '';
-      const { value: skillValue } = this.actor.data.data.skills[dataset.rollSkill];
-      const roll = new Roll('1d100', this.actor.getRollData()); // +@attributes.difficulty[Difficulty]+@attributes.willpower[Willpower]
-      await this.actor.rollSkill({ label, skillValue, skillName: dataset.rollSkill, roll });
-      // console.debug({ roll, skillValue });
-      // console.debug({chatTemplate: roll.CHAT_TEMPLATE});
-      // const res = await roll.evaluate();
-      // console.debug({res});
-      // // The resulting equation after it was rolled
-      // console.debug({result: roll.result});
-      // // The total resulting from the roll
-      // console.debug({total: roll.total});
-      // console.debug({chatTemplate: roll.CHAT_TEMPLATE});
-      // roll.toMessage({
-      //   speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      //   flavor: label,
-      //   rollMode: game.settings.get('core', 'rollMode'),
-      // });
+    if (dataset.rollSkill || dataset.rollForce || dataset.rollAbility) {
+      console.log('[ActorSheet:Roll] -> skill', dataset);
+      console.log('[ActorSheet:Roll] -> actor', this.actor);
+      const { value } = (() => {
+        if (dataset.rollSkill) return this.actor.data.data.skills[dataset.rollSkill];
+        if (dataset.rollForce) return this.actor.data.data.attributes[dataset.rollForce];
+        if (dataset.rollAbility) return this.actor.data.data.abilities[dataset.rollAbility];
+      })();
+      const roll = new Roll('1d100', this.actor.getRollData());
+      await this.actor.roll({
+        label: dataset.label,
+        value,
+        name: dataset?.rollSkill || dataset?.rollStat || dataset?.rollAbility,
+        roll,
+      });
       return roll;
     }
   }

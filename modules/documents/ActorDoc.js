@@ -20,12 +20,12 @@ export default class WonderActor extends Actor {
     super.prepareData();
   }
 
-  _getSuccessAndFailure(skillValue, actor){
-    if (typeof skillValue !== 'number') Number(skillValue);
+  _getSuccessAndFailure(value, difficulty){
+    if (typeof value !== 'number') Number(value);
     // Grab the actors roll difficulty
-    const difficulty = Number(actor.data.attributes.difficulty);
+    if (typeof difficulty !== 'number') difficulty = Number(difficulty);
     // Success is equal to the skill's value minus the difficulty
-    const success = Math.keepInsideRange(skillValue + difficulty, 1, 100);
+    const success = Math.keepInsideRange(value + difficulty, 1, 100);
     // Hard Success is 33% of success
     const hardSuccess = (success !== 1)
       ? Math.keepInsideRange(Math.floor(success / 3), 1, 100)
@@ -44,8 +44,8 @@ export default class WonderActor extends Actor {
     return { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure };
   }
 
-  _getOutcome(computedRoll, skillValue, actor){
-    const { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure } = this._getSuccessAndFailure(skillValue, actor);
+  _getOutcome(computedRoll, value, difficulty){
+    const { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure } = this._getSuccessAndFailure(value, difficulty);
 
     if (computedRoll <= success) {
       if (computedRoll <= hardSuccess) {
@@ -66,23 +66,23 @@ export default class WonderActor extends Actor {
    * @param {Event} event   The originating click event
    * @private
    */
-  async rollSkill(ctx) {
+  async roll(ctx) {
     // Alias the actor to make the function more self documenting
     const actor = this.data;
     // Grab the actors willpower
     const willpower = Number(actor.data.attributes.willpower);
+    // Grab the characters difficulty
+    const difficulty = Number(actor.data.attributes.difficulty);
     // Get the success and failure values for this skill
-    const { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure } = this._getSuccessAndFailure(ctx.skillValue, actor);
+    const { success, hardSuccess, criticalSuccess, hardFailure, criticalFailure } = this._getSuccessAndFailure(ctx.value, difficulty);
 
     await ctx.roll.evaluate({ async: true });
 
     const computedRoll = Math.keepInsideRange(Number(ctx.roll.result) + willpower, 1, 100);
-    const rollOutcome = this._getOutcome(computedRoll, ctx.skillValue, actor);
+    const rollOutcome = this._getOutcome(computedRoll, ctx.value, difficulty);
 
     if (rollOutcome === 'Critical Failure'){
-      ctx.roll.dice[0].options.sfx = {
-        specialEffect: 'PlayAnimationImpact',
-      };
+      ctx.roll.dice[0].options.sfx = { specialEffect: 'PlayAnimationImpact' };
     }
 
     console.log(ctx.roll);
@@ -98,8 +98,8 @@ export default class WonderActor extends Actor {
       actor,
       owner: actor._id,
       skill: {
-        keyVal: ctx.skillName,
-        value: Number(ctx.skillValue),
+        keyVal: ctx.name,
+        value: Number(ctx.value),
         label: ctx.label,
       },
       condition: {
