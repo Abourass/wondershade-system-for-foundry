@@ -73,7 +73,8 @@ export default class WonderItem extends Item {
     // Get the Item's data
     const itemData = this.data;
     const data = itemData.data;
-    const C = CONFIG.WonderSystem;
+    console.debug('[WonderItem] GLOBAL CONFIG', CONFIG);
+    const config = CONFIG.wondershade;
     console.log('[WonderItem] prepareDerivedData', itemData);
     console.log('[WonderItem] this.labels', this);
     this.labels = {};
@@ -87,19 +88,19 @@ export default class WonderItem extends Item {
     // Spell Level,  School, and Components
     if (itemData.type === 'spell') {
       data.preparation.mode = data.preparation.mode || 'prepared';
-      labels.level = C.spellLevels[data.level];
-      labels.school = C.spellSchools[data.school];
-      labels.components = Object.entries(data.components).reduce((arr, c) => {
-        if (c[1] !== true) return arr;
-        arr.push(c[0].titleCase().slice(0, 1));
+      labels.level = config.spellLevels[data.level];
+      labels.school = config.spellSchools[data.school];
+      labels.components = Object.entries(data.components).reduce((arr, component) => {
+        if (component[1] !== true) return arr;
+        arr.push(component[0].titleCase().slice(0, 1));
         return arr;
       }, []);
       labels.materials = data?.materials?.value ?? null;
     } else if (itemData.type === 'feat') { // Feat Items
       const act = data.activation;
-      if (act && (act.type === C.abilityActivationTypes.legendary)){
+      if (act && (act.type === config.abilityActivationTypes.legendary)){
         labels.featType = game.i18n.localize('WonderSystem.LegendaryActionLabel');
-      } else if (act && (act.type === C.abilityActivationTypes.lair)){
+      } else if (act && (act.type === config.abilityActivationTypes.lair)){
         labels.featType = game.i18n.localize('WonderSystem.LairActionLabel');
       } else if (act && act.type){
         labels.featType = game.i18n.localize(data.damage.length ? 'WonderSystem.Attack' : 'WonderSystem.Action');
@@ -112,7 +113,8 @@ export default class WonderItem extends Item {
     if (data.hasOwnProperty('activation')) {
       // Ability Activation Label
       const act = data.activation || {};
-      if (act) labels.activation = [act.cost, C.abilityActivationTypes[act.type]].filterJoin(' ');
+      console.debug('[WonderItem] config', config);
+      if (act) labels.activation = [act.cost, config.abilityActivationTypes[act.type]].filterJoin(' ');
 
       // Target Label
       const tgt = data.target || {};
@@ -121,7 +123,7 @@ export default class WonderItem extends Item {
         tgt.value = null;
         tgt.units = null;
       }
-      labels.target = [tgt.value, C.distanceUnits[tgt.units], C.targetTypes[tgt.type]].filterJoin(' ');
+      labels.target = [tgt.value, config.distanceUnits[tgt.units], config.targetTypes[tgt.type]].filterJoin(' ');
 
       // Range Label
       const rng = data.range || {};
@@ -129,12 +131,12 @@ export default class WonderItem extends Item {
         rng.value = null;
         rng.long = null;
       }
-      labels.range = [rng.value, rng.long ? `/ ${rng.long}` : null, C.distanceUnits[rng.units]].filterJoin(' ');
+      labels.range = [rng.value, rng.long ? `/ ${rng.long}` : null, config.distanceUnits[rng.units]].filterJoin(' ');
 
       // Duration Label
       const dur = data.duration || {};
       if (['inst', 'perm'].includes(dur.units)) dur.value = null;
-      labels.duration = [dur.value, C.timePeriods[dur.units]].filterJoin(' ');
+      labels.duration = [dur.value, config.timePeriods[dur.units]].filterJoin(' ');
 
       // Recharge Label
       const chg = data.recharge || {};
@@ -147,7 +149,7 @@ export default class WonderItem extends Item {
       const dam = data.damage || {};
       if (dam.parts) {
         labels.damage = dam.parts.map(d => d[0]).join(' + ').replace(/\+ -/g, '- ');
-        labels.damageTypes = dam.parts.map(d => C.damageTypes[d[1]]).join(', ');
+        labels.damageTypes = dam.parts.map(d => config.damageTypes[d[1]]).join(', ');
       }
     }
 
