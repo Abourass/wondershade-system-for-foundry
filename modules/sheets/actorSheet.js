@@ -136,32 +136,31 @@ export default class WonderActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Inject the Galaxy Theme high up enough into the DOM it's not affected by the sheet refresh
-    createGalaxy();
+    if (this.actor.type === 'character') createGalaxy(html);
 
-    // Attach Edit Event to Items
-    this._attachItemEditEvents(html);
+    console.log(this.actor);
+
+    attachCollapsibleListeners(html);
 
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    attachCollapsibleListeners();
-
-    // Add Inventory Item
-    html.find('.add-item').click(this._itemCreationEvent.bind(this));
-
-    // Attach the delete event to items
-    this._attachItemDeletionEvents(html);
-
-    // Attach the spell slot change event
-    html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
-
-    // Attach the spell slot disable event
-    html.find('.smallDot').contextmenu(this._toggleDisabledSlots.bind(this));
-
-    // Rollable abilities.
-    html.find('.rollable').click(this._onRoll.bind(this));
-
     if (this.actor.isOwner){
+      // Attach Edit Event to Items
+      this._attachItemEditEvents(html);
+
+      // Add Inventory Item
+      html.find('.add-item').click(this._itemCreationEvent.bind(this));
+
+      // Attach the spell slot change event
+      html.find('.spellSlotCheck').change(this._spellSlotCheckEvent.bind(this));
+
+      // Attach the spell slot disable event
+      html.find('.smallDot').contextmenu(this._toggleDisabledSlots.bind(this));
+
+      // Rollable abilities.
+      html.find('.rollable').click(this._onRoll.bind(this));
+
       // Attach the delete event to items
       this._attachItemDeletionEvents(html);
     }

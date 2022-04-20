@@ -45,12 +45,12 @@ export const loadCloudOpacity = (value) => {
  *
  * Attaches the relevant HTML higher up the DOM so they don't get targeted by the Sheet refresh.
  */
-export const createGalaxy = () => {
+export const createGalaxy = (html) => {
   function insertAfter(newNode, existingNode) {
     existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
   }
 
-  const charSheet = document.querySelectorAll('.wondershade.sheet.character');
+  const charSheet = [...html.parent().parent()];
 
   charSheet.forEach((sheet) => {
     if (sheet.children.length === 3) {

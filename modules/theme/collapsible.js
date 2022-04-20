@@ -2,9 +2,9 @@
 import localDB from 'https://cdn.skypack.dev/pin/localforage@v1.10.0-vSTz1U7CF0tUryZh6xTs/mode=imports,min/optimized/localforage.js';
 import isInView from '../generic/isInView.js';
 
-export default async function attachCollapsibleListeners(){
+export default async function attachCollapsibleListeners(html){
   let areOpen = await localDB.getItem('wondershade.collapsible') ?? [];
-  const elements = [...document.getElementsByClassName('collapsible')];
+  const elements = [...html.find('.collapsible')];
 
   elements.map(async(el, i) => {
     el.onclick = async() => {

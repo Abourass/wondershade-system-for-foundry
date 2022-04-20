@@ -165,26 +165,26 @@ export default class WonderItem extends Item {
   prepareFinalAttributes() {
     // Proficiency
     const isProficient = (this.type === 'spell') || this.data.data.proficient; // Always proficient in spell attacks.
-    this.data.data.prof = new Proficiency(this.actor?.data.data.attributes.prof, isProficient);
+    // this.data.data.prof = new Proficiency(this.actor?.data.data.attributes.prof, isProficient);
 
-    if (this.data.data.hasOwnProperty('actionType')) {
-      // Ability checks
-      this.labels.abilityCheck = game.i18n.format('WonderSystem.AbilityPromptTitle', {
-        ability: CONFIG.WonderSystem.abilities[this.data.data?.ability],
-      });
+    // if (this.data.data.hasOwnProperty('actionType')) {
+    //   // Ability checks
+    //   this.labels.abilityCheck = game.i18n.format('WonderSystem.AbilityPromptTitle', {
+    //     ability: CONFIG.WonderSystem.abilities[this.data.data?.ability],
+    //   });
 
-      // Saving throws
-      this.getSaveDC();
+    //   // Saving throws
+    //   this.getSaveDC();
 
-      // To Hit
-      this.getAttackToHit();
+    //   // To Hit
+    //   this.getAttackToHit();
 
-      // Limited Uses
-      this.prepareMaxUses();
+    //   // Limited Uses
+    //   this.prepareMaxUses();
 
-      // Damage Label
-      this.getDerivedDamageLabel();
-    }
+    //   // Damage Label
+    //   this.getDerivedDamageLabel();
+    // }
   }
 
   // /**
