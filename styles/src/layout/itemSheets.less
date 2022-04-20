@@ -41,7 +41,8 @@
           line-height: 26px;
           margin: 0;
           text-transform: capitalize;
-          font-family: 'Lora';
+          font-family: 'Raleway';
+          color: #d3d3d357;
         }
 
         .item-status {
@@ -68,6 +69,13 @@
             line-height: 34px;
             color: #4b4a44;
             flex: 1;
+
+            &:first-child {
+              font-weight: 400;
+              font-family: 'Modesto Condensed';
+              letter-spacing: 1.7px;
+              font-size: 22px;
+            }
 
             &:last-child {
               border-right: none;
@@ -115,5 +123,44 @@
         }
       }
     }
+
+    .tab.details.active {
+      h3.form-header {
+        border-top: 2px groove #312436c2;
+        border-bottom: 2px groove #312436c2;
+        color: whitesmoke;
+        font-family: 'Raleway';
+        font-size: 20px;
+        font-weight: 500;
+        padding: 2px 0;
+      }
+
+      .form-group {
+        select {
+          height: 24px;
+          flex: 1;
+        }
+      }
+
+      .spell-components {
+        label {
+          flex: auto;
+
+          &:first-child {
+            flex: 0 0 100%;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  nav.sheet-navigation.tabs {
+    margin-bottom: 3px;
+    margin-top: 2px;
+    flex: 0 0 30px;
+    align-items: center;
+    font-size: 18px;
+    font-family: 'Raleway';
   }
 }

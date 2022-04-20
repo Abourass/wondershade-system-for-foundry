@@ -85,7 +85,6 @@ export default class WonderActor extends Actor {
       ctx.roll.dice[0].options.sfx = { specialEffect: 'PlayAnimationImpact' };
     }
 
-    console.log(ctx.roll);
     const chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor }),

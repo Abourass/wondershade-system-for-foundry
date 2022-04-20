@@ -34,7 +34,7 @@ export default class WonderActorSheet extends ActorSheet {
   getData() {
     // Execute the default getData() method
     const ctx = super.getData();
-    console.debug('[WonderSystem:CTX]', ctx);
+    // console.debug('[WonderSystem:CTX]', ctx);
 
     // Prepare the spell slots early so they are copied in the next step
     this._prepareSpellSlots(ctx);
@@ -138,7 +138,7 @@ export default class WonderActorSheet extends ActorSheet {
     // Inject the Galaxy Theme high up enough into the DOM it's not affected by the sheet refresh
     if (this.actor.type === 'character') createGalaxy(html);
 
-    console.log(this.actor);
+    // console.log(this.actor);
 
     attachCollapsibleListeners(html);
 
@@ -170,16 +170,16 @@ export default class WonderActorSheet extends ActorSheet {
     event.preventDefault();
     const element = event.currentTarget;
     const dataset = element.dataset;
-    console.debug('[ActorSheet:Roll] -> dataset', dataset);
+    // console.debug('[ActorSheet:Roll] -> dataset', dataset);
 
     // Handle item rolls.
 
     if (dataset?.rollType === 'item') {
-      console.debug('[ActorSheet:Roll] -> item');
+      // console.debug('[ActorSheet:Roll] -> item');
       const itemId = element.closest('.item').dataset.itemId;
-      console.debug('[ActorSheet:Roll] -> itemId', itemId);
+      // console.debug('[ActorSheet:Roll] -> itemId', itemId);
       const item = this.actor.items.get(itemId);
-      console.debug('[ActorSheet:Roll] -> item', item);
+      // console.debug('[ActorSheet:Roll] -> item', item);
       if (item) return item.roll();
     }
 
@@ -187,7 +187,7 @@ export default class WonderActorSheet extends ActorSheet {
     if (dataset.roll) {
       const label = dataset.label ? `[ability] ${dataset.label}` : '';
       const roll = new Roll(dataset.roll, this.actor.getRollData());
-      console.debug('[ActorSheet:Roll] -> roll', roll);
+      // console.debug('[ActorSheet:Roll] -> roll', roll);
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
         flavor: label,
@@ -198,8 +198,8 @@ export default class WonderActorSheet extends ActorSheet {
 
     // Handle skill rolls.
     if (dataset.rollSkill || dataset.rollForce || dataset.rollAbility) {
-      console.log('[ActorSheet:Roll] -> skill', dataset);
-      console.log('[ActorSheet:Roll] -> actor', this.actor);
+      // console.log('[ActorSheet:Roll] -> skill', dataset);
+      // console.log('[ActorSheet:Roll] -> actor', this.actor);
       const { value } = (() => {
         if (dataset.rollSkill) return this.actor.data.data.skills[dataset.rollSkill];
         if (dataset.rollForce) return this.actor.data.data.attributes[dataset.rollForce];

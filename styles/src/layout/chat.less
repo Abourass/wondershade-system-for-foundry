@@ -27,19 +27,19 @@
   }
 
   .success-banner, .failure-banner {
-    padding: 5px;
+    padding: 3px 0;
     margin-bottom: 5px;
     color: #f2f2f2;
     font-family: "Lucida Bright", "Cambria", serif;
     font-size: 16px;
     font-weight: bold;
-    letter-spacing: 1.638px;
+    letter-spacing: 1.3px;
     text-align: center;
     text-transform: uppercase;
-    border-radius: 3px;
+    border-radius: 2px;
   }
 
-  .success-banner { background: #cf74c378; }
+  .success-banner { background: #cf74c35c; }
   .failure-banner {
     background: #44e1e136;
     color: rgb(205 41 72 / 72%);
@@ -59,6 +59,9 @@
 
       &.vs {
         width: 20%;
+        font-family: "Lucida Bright", "Cambria", serif;
+        font-size: 16px;
+        line-height: 17px;
       }
 
       .roll-will, .roll-difficulty {
@@ -67,9 +70,13 @@
       }
 
       .roll-computed, .roll-success {
-        font-weight: bold;
-        color: #e5d280;
-        font-size: 20px;
+        font-weight: 700;
+        color: #f2f2f2e8;
+        font-size: 26px;
+        line-height: 20px;
+        margin-bottom: 8px;
+        margin-top: 2px;
+        font-family: Helvetica, Verdana, sans-serif;
       }
     }
   }

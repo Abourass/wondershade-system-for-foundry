@@ -39,7 +39,7 @@ export default class WonderItemSheet extends ItemSheet {
     // ctx.baseItems = await this._getItemBaseTypes(itemData);
     ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
-    return data;
+    return ctx;
   }
 
   /**
@@ -51,7 +51,7 @@ export default class WonderItemSheet extends ItemSheet {
    */
   async _getItemBaseTypes(item) {
     const type = item.type === 'equipment' ? 'armor' : item.type;
-    const ids = CONFIG.WonderSystem[`${type}Ids`];
+    const ids = CONFIG.wondershade[`${type}Ids`];
     if (ids === undefined) return {};
 
     const typeProperty = type === 'armor' ? 'armor.type' : `${type}Type`;
@@ -76,7 +76,7 @@ export default class WonderItemSheet extends ItemSheet {
    */
   _getItemStatus(item) {
     if (item.type === 'spell') {
-      return CONFIG.WonderSystem.spellPreparationModes[item.data.preparation];
+      return CONFIG.wondershade.spellPreparationModes[item.data.preparation];
     }
     if (['weapon', 'equipment'].includes(item.type)) {
       return game.i18n.localize(item.data.equipped ? 'WonderSystem.Equipped' : 'WonderSystem.Unequipped');
@@ -99,7 +99,7 @@ export default class WonderItemSheet extends ItemSheet {
     if (item.type === 'weapon') {
       props.push(...Object.entries(item.data.properties)
         .filter(e => e[1] === true)
-        .map(e => CONFIG.WonderSystem.weaponProperties[e[0]]));
+        .map(e => CONFIG.wondershade.weaponProperties[e[0]]));
     } else if (item.type === 'spell') {
       props.push(
         labels.components,
@@ -108,7 +108,7 @@ export default class WonderItemSheet extends ItemSheet {
         item.data.components.ritual ? game.i18n.localize('WonderSystem.Ritual') : null,
       );
     } else if (item.type === 'equipment') {
-      props.push(CONFIG.WonderSystem.equipmentTypes[item.data.armor.type]);
+      props.push(CONFIG.wondershade.equipmentTypes[item.data.armor.type]);
       if (this.item.isArmor || this._isItemMountable(item)) props.push(labels.armor);
     } else if (item.type === 'feat') {
       props.push(labels.featType);
@@ -116,7 +116,7 @@ export default class WonderItemSheet extends ItemSheet {
 
     // Action type
     if (item.data.actionType) {
-      props.push(CONFIG.WonderSystem.itemActionTypes[item.data.actionType]);
+      props.push(CONFIG.wondershade.itemActionTypes[item.data.actionType]);
     }
 
     // Action usage

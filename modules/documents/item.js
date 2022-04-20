@@ -73,10 +73,10 @@ export default class WonderItem extends Item {
     // Get the Item's data
     const itemData = this.data;
     const data = itemData.data;
-    console.debug('[WonderItem] GLOBAL CONFIG', CONFIG);
+    // console.debug('[WonderItem] GLOBAL CONFIG', CONFIG);
     const config = CONFIG.wondershade;
-    console.debug('[WonderItem] prepareDerivedData', itemData);
-    console.debug('[WonderItem] this.labels', this);
+    // console.debug('[WonderItem] prepareDerivedData', itemData);
+    // console.debug('[WonderItem] this.labels', this);
     this.labels = {};
     const labels = this.labels;
 
@@ -113,7 +113,7 @@ export default class WonderItem extends Item {
     if (data.hasOwnProperty('activation')) {
       // Ability Activation Label
       const act = data.activation || {};
-      console.debug('[WonderItem] config', config);
+      // console.debug('[WonderItem] config', config);
       if (act) labels.activation = [act.cost, config.abilityActivationTypes[act.type]].filterJoin(' ');
 
       // Target Label
@@ -167,24 +167,24 @@ export default class WonderItem extends Item {
     const isProficient = (this.type === 'spell') || this.data.data.proficient; // Always proficient in spell attacks.
     // this.data.data.prof = new Proficiency(this.actor?.data.data.attributes.prof, isProficient);
 
-    // if (this.data.data.hasOwnProperty('actionType')) {
-    //   // Ability checks
-    //   this.labels.abilityCheck = game.i18n.format('WonderSystem.AbilityPromptTitle', {
-    //     ability: CONFIG.WonderSystem.abilities[this.data.data?.ability],
-    //   });
+    if (this.data.data.hasOwnProperty('actionType')) {
+      // Ability checks
+      this.labels.abilityCheck = game.i18n.format('WonderSystem.AbilityPromptTitle', {
+        ability: CONFIG.wondershade.abilities[this.data.data?.ability],
+      });
 
-    //   // Saving throws
-    //   this.getSaveDC();
+      // Saving throws
+      this.getSaveDC();
 
-    //   // To Hit
-    //   this.getAttackToHit();
+      // To Hit
+      this.getAttackToHit();
 
-    //   // Limited Uses
-    //   this.prepareMaxUses();
+      // Limited Uses
+      this.prepareMaxUses();
 
-    //   // Damage Label
-    //   this.getDerivedDamageLabel();
-    // }
+      // Damage Label
+      this.getDerivedDamageLabel();
+    }
   }
 
   // /**
@@ -206,14 +206,14 @@ export default class WonderItem extends Item {
    * @private
    */
   async roll() {
-    console.debug('[WonderItem:roll()] -> this', this);
+    // console.debug('[WonderItem:roll()] -> this', this);
     const chatData = {
       user: game.user._id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
     };
 
     const cardData = { ...this.data, owner: this.actor._id };
-    console.debug('[WonderItem:roll()] -> cardData', cardData);
+    // console.debug('[WonderItem:roll()] -> cardData', cardData);
 
     chatData.content = await renderTemplate(this.chatTemplate[this.type], cardData);
 

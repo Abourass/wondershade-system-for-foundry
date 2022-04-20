@@ -1,0 +1,93 @@
+<form class="{{cssClass}} flex-col" autocomplete="off">
+  <header class="sheet-header flex-row">
+    <img src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-details flex-col">
+      <div class="flex-row">
+        <h1>
+          <input type="name" value="{{item.name}}" placeholder="{{ localize 'WonderSystem.SpellName' }}" name="name" class="item-input">
+        </h1>
+  
+        <div class="item-subtitle">
+          <h4 class="item-type">{{itemType}}</h4>
+          <span class="item-status">{{itemStatus}}</span>
+        </div>
+      </div>
+      {{log '[SpellSheet] -> this' this}}
+      <ul class="summary flex-row">
+        <li>
+          {{item.labels.level}}
+        </li>
+
+        <li>
+          {{item.labels.school}}
+        </li>
+
+        <li>
+          <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item active" data-tab="description">{{ localize "WonderSystem.Description" }}</a>
+    <a class="item" data-tab="details">{{ localize "WonderSystem.Details" }}</a>
+    <a class="item" data-tab="effects">{{ localize "WonderSystem.Effects" }}</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{!-- Description --}}
+    {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+
+    {{!-- Details Tab --}}
+    <div class="tab details" data-group="primary" data-tab="details">
+      <h3 class="form-header">{{ localize 'WonderSystem.SpellDetails' }}</h3>
+
+      {{!-- Spell Level --}}
+      <div class="form-group">
+        <label>{{ localize 'WonderSystem.SpellLevel' }}</label>
+        <select name="data.level" data-dtype="Number">
+          {{#select data.level}}
+            {{#each config.spellLevels as |name lvl|}}
+              <option value="{{lvl}}">{{name}}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </div>
+
+      {{!-- Spell School --}}
+      <div class="form-group">
+        <label>{{ localize "WonderSystem.SpellSchool" }}</label>
+        <select name="data.school">
+          {{#select data.school}}
+            {{#each config.spellSchools as |name sch|}}
+              <option value="{{sch}}">{{name}}</option>
+            {{/each}}
+          {{/select}}
+        </select>
+      </div>
+
+      {{!-- Spell Components --}}
+      <div class="spell-components form-group stacked">
+        <label>{{ localize "WonderSystem.SpellComponents" }}</label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.components.vocal" {{checked data.components.vocal}}/> {{ localize "WonderSystem.ComponentVerbal" }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.components.somatic" {{checked data.components.somatic}}/> {{ localize "WonderSystem.ComponentSomatic" }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.components.material" {{checked data.components.material}}/> {{ localize "WonderSystem.ComponentMaterial" }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.components.concentration" {{checked data.components.concentration}}/> {{ localize "WonderSystem.Concentration" }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.components.ritual" {{checked data.components.ritual}}/> {{ localize "WonderSystem.Ritual" }}
+        </label>
+      </div>
+
+    </div>
+  </section>
+</form>
