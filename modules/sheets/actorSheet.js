@@ -178,12 +178,18 @@ export default class WonderActorSheet extends ActorSheet {
     // Handle item rolls.
 
     if (dataset?.rollType === 'item') {
+      const itemEl = element.closest('.item');
       // console.debug('[ActorSheet:Roll] -> item');
-      const itemId = element.closest('.item').dataset.itemId;
+      const { itemId, itemStat, itemSpell } = itemEl.dataset;
       // console.debug('[ActorSheet:Roll] -> itemId', itemId);
       const item = this.actor.items.get(itemId);
       // console.debug('[ActorSheet:Roll] -> item', item);
-      if (item) return item.roll();
+      const { value } = (itemSpell)
+        ? this.actor.data.data.attributes.sanity
+        : this.actor.data.data.abilities[itemStat];
+      const roll = new Roll('1d100', this.actor.getRollData());
+      await item.roll({ value, name: itemStat, roll });
+      return roll;
     }
 
     // Handle rolls that supply the formula directly.

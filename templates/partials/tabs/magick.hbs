@@ -48,7 +48,7 @@
         <ul>
           {{#each (spells ../this spellSection.keyVal) as |spell SID|}}
           {{log '[SpellSheet] -> spell' spell}}
-            <li data-item-id="{{spell._id}}" class="item">
+            <li data-item-id="{{spell._id}}" data-item-spell="true" class="item">
               <div class="img-col">
                 <a class="rollable" data-roll-type="item">
                   <img src="{{spell.img}}" title="{{spell.name}}" width="24" height="24"/>

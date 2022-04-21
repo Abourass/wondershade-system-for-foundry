@@ -1,3 +1,32 @@
-<h1>{{name}}</h1>
-<img src="{{img}}" alt="">
+<div class="skill-roll">
+  <img src="{{item.img}}" alt="">
+  <h1>{{item.name}}</h1>
+  <h2>{{actor.name}}</h2>
+  {{#if roll.success}}
+    <div class="success-banner">
+      <span>{{roll.outcome}}</span>
+    </div>
+  {{else}}
+    <div class="failure-banner {{#if roll.hard}}hard{{/if}} {{#if roll.crit}}crit{{/if}}">
+      <span>{{roll.outcome}}</span>
+    </div>
+  {{/if}}
+  <div class="roll-results">
+    <div class="roll-line">
+      {{#unless (eq willpower 0)}}
+        <span class="roll-result" title="Roll Result">{{roll.result}}</span>
+        <span class="roll-will" title="Willpower">({{formatDifficultyText willpower}}) = </span>
+      {{/unless}}
+      <span class="roll-computed">{{roll.computed}}</span>
+    </div>
+    <span class="roll-line vs"> VS </span>
+    <div class="roll-line">
+      {{#unless (eq difficulty 0)}}
+        <span class="roll-skill" title="{{item.label}}">{{item.value}}</span>
+        <span class="roll-difficulty" title="Difficulty">({{formatDifficultyText difficulty}}) = </span>
+      {{/unless}}
+      <span class="roll-success">{{condition.success}}</span>
+    </div>
+  </div>
+</div>
 {{log '[chatTemplate:weapon] -> this' this}}

@@ -12,7 +12,6 @@ export default class WonderItemSheet extends ItemSheet {
       resizable: true,
       scrollY: ['.tab.details'],
       tabs: [{navSelector: '.tabs', contentSelector: '.sheet-body', initial: 'description'}],
-
     });
   }
 
@@ -34,10 +33,10 @@ export default class WonderItemSheet extends ItemSheet {
 
     // Item Type, Status, and Details
     ctx.itemType = game.i18n.localize(`ITEM.Type${ctx.item.type.titleCase()}`);
-    ctx.itemStatus = this._getItemStatus(itemData);
-    ctx.itemProperties = this._getItemProperties(itemData);
-    // ctx.baseItems = await this._getItemBaseTypes(itemData);
-    ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
+    // ctx.itemStatus = this._getItemStatus(itemData);
+    // ctx.itemProperties = this._getItemProperties(itemData);
+    // // ctx.baseItems = await this._getItemBaseTypes(itemData);
+    // ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
     return ctx;
   }

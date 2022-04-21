@@ -48,7 +48,7 @@
       <div class="form-group">
         <label>{{ localize 'WonderSystem.SpellLevel' }}</label>
         <select name="data.level" data-dtype="Number">
-          {{#select data.level}}
+          {{#select data.data.level}}
             {{#each config.spellLevels as |name lvl|}}
               <option value="{{lvl}}">{{name}}</option>
             {{/each}}
@@ -60,7 +60,7 @@
       <div class="form-group">
         <label>{{ localize "WonderSystem.SpellSchool" }}</label>
         <select name="data.school">
-          {{#select data.school}}
+          {{#select data.data.school}}
             {{#each config.spellSchools as |name sch|}}
               <option value="{{sch}}">{{name}}</option>
             {{/each}}

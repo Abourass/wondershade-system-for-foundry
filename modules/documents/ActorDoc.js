@@ -33,7 +33,7 @@ export default class WonderActor extends Actor {
 
     const computedRoll = keepInsideRange(Number(ctx.roll.result) + willpower, 1, 100);
     // Get the success and failure values for this skill
-    const { condition, outcome } = getOutcomeAndConditions(computedRoll, willpower, difficulty, innateLuck);
+    const { condition, outcome } = getOutcomeAndConditions(computedRoll, ctx.value, difficulty, innateLuck);
 
     if (outcome === 'Critical Failure'){
       ctx.roll.dice[0].options.sfx = { specialEffect: 'PlayAnimationImpact' };
