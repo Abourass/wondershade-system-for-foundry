@@ -111,14 +111,14 @@ export const WonderSystemConf = {
 //  * The set of Ability Scores used within the system.
 //  * @enum {string}
 //  */
-// WonderSystemConf.local.abilities = {
-//   str: 'WonderSystem.AbilityStr',
-//   dex: 'WonderSystem.AbilityDex',
-//   con: 'WonderSystem.AbilityCon',
-//   int: 'WonderSystem.AbilityInt',
-//   wis: 'WonderSystem.AbilityWis',
-//   cha: 'WonderSystem.AbilityCha',
-// };
+WonderSystemConf.local.abilities = {
+  str: 'WonderSystem.AbilityStr',
+  dex: 'WonderSystem.AbilityDex',
+  con: 'WonderSystem.AbilityCon',
+  int: 'WonderSystem.AbilityInt',
+  wis: 'WonderSystem.AbilityPow',
+  cha: 'WonderSystem.AbilityCha',
+};
 
 // /**
 //  * Localized abbreviations for Ability Scores.
@@ -997,6 +997,7 @@ WonderSystemConf.local.spellLevels = {
   7: 'WonderSystem.SpellLevel7',
   8: 'WonderSystem.SpellLevel8',
   9: 'WonderSystem.SpellLevel9',
+  10: 'WonderSystem.SpellLevel10',
 };
 
 /**

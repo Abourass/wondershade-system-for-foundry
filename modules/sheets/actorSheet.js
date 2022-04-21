@@ -42,6 +42,8 @@ export default class WonderActorSheet extends ActorSheet {
     // Create a safe clone of the actor data
     const actorData = this.actor.data.toObject(false);
 
+    console.log('[WonderSystem:ActorData]', actorData);
+
     // Attach the localization to the ctx
     ctx.config = CONFIG.wondershade;
 
@@ -104,8 +106,7 @@ export default class WonderActorSheet extends ActorSheet {
       if (item.type === 'feat') feats.push(item);
       if (item.type === 'spell'){
         switch (item.data.level) {
-          case 'cantrip': spells.cantrips.push(item); break;
-          case 'wonder': spells.wonderSpells.push(item); break;
+          case 0: spells.cantrips.push(item); break;
           case 1: spells.firstLevel.push(item); break;
           case 2: spells.secondLevel.push(item); break;
           case 3: spells.thirdLevel.push(item); break;
@@ -115,6 +116,7 @@ export default class WonderActorSheet extends ActorSheet {
           case 7: spells.seventhLevel.push(item); break;
           case 8: spells.eighthLevel.push(item); break;
           case 9: spells.ninthLevel.push(item); break;
+          case 10: spells.wonderSpells.push(item); break;
         }
       }
       if (item.type === 'backpack') backpack.push(item);
@@ -130,6 +132,7 @@ export default class WonderActorSheet extends ActorSheet {
     ctx.allFeats = feats;
     ctx.allSpells = spells;
     ctx.containers = backpack;
+    console.log('[WonderSystem:ActorSheet:_prepareItems]', ctx);
   }
 
   activateListeners(html) {
