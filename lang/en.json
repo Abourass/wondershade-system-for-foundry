@@ -765,6 +765,7 @@
   "WonderSystem.SpellLevel7": "7th Level",
   "WonderSystem.SpellLevel8": "8th Level",
   "WonderSystem.SpellLevel9": "9th Level",
+  "WonderSystem.SpellLevel10": "Wonder",
   "WonderSystem.SpellLevelSlot": "{level} ({n} Slots)",
   "WonderSystem.SpellLevelPact": "Pact Slot [Level {level}] ({n} Slots)",
   "WonderSystem.SpellMaterials": "Spellcasting Materials",
