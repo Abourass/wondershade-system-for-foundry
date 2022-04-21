@@ -110,6 +110,16 @@ Handlebars.registerHelper('atKey', (data, key) => data[key]);
 
 Handlebars.registerHelper('spellSlots', (data, spellLevel) => data[`${spellLevel}Level`].slots);
 
+Handlebars.registerHelper('spells', (data, spellLevel) => {
+  if ('allSpells' in data){
+    if (spellLevel === 'cantrips') return data.allSpells[spellLevel];
+    if (spellLevel === 'finesse-and-class') return data.allSpells.finesse;
+    if (spellLevel === 'wonder') return data.allSpells.wonderSpells;
+    return data.allSpells[`${spellLevel}Level`];
+  }
+  console.error('[WonderSystem::HBS:Spells] -> data failure ', data);
+});
+
 Handlebars.registerHelper('hasSome', data => data.length > 0);
 
 Handlebars.registerHelper('formatDifficultyText', text => ((text.toString()[0] === '-') ? text : `+${text}`));
