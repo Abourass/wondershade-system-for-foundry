@@ -1,0 +1,46 @@
+<form class="{{cssClass}} flex-col" autocomplete="off">
+  <header class="sheet-header flex-row">
+    <img src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-details flex-col">
+      <div class="flex-row">
+        <h1>
+          <input type="name" value="{{item.name}}" placeholder="{{ localize 'WonderSystem.ConsumableName' }}" name="name" class="item-input">
+        </h1>
+  
+        <div class="item-subtitle">
+          <h4 class="item-type">{{itemType}}</h4>
+          <span class="item-status">{{itemStatus}}</span>
+        </div>
+      </div>
+      {{log 'config' config}}
+      {{log 'item' item}}
+      <ul class="summary flex-row">
+        <li>
+          {{!-- {{lookup config.consumableTypes data.consumableType}} --}}
+        </li>
+
+        <li>
+          {{!-- <select name="data.rarity">
+            {{selectOptions config.itemRarity selected=item.data.data.rarity blank="Rarity"}}
+          </select> --}}
+        </li>
+
+        <li>
+          <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item active" data-tab="description">{{ localize "WonderSystem.Description" }}</a>
+    <a class="item" data-tab="details">{{ localize "WonderSystem.Details" }}</a>
+    <a class="item" data-tab="effects">{{ localize "WonderSystem.Effects" }}</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{!-- Description --}}
+    {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+  </section>
+</form>
