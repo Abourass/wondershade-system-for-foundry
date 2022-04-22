@@ -38,7 +38,38 @@
   <section class="sheet-body">
 
     {{!-- Description --}}
-    {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+    <div class="tab flexrow active" data-group="primary" data-tab="description">
+      <div class="item-properties">
+        {{#if isPhysical}}
+          <div class="form-group">
+            <label>{{ localize "WonderSystem.Quantity" }}</label>
+            <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number"/>
+          </div>
+
+          
+
+          <div class="form-group">
+            <label>{{ localize "WonderSystem.Weight" }}</label>
+            <input type="text" name="data.weight" value="{{data.data.weight}}" data-dtype="Number"/>
+          </div>
+
+          <div class="form-group">
+            <label>{{ localize "WonderSystem.Price" }}</label>
+            <input type="text" name="data.price" value="{{data.data.price}}" />
+          </div>
+        {{/if}}
+
+        <ol class="properties-list">
+          {{#each itemProperties}}
+            <li>{{this}}</li>
+          {{/each}}
+        </ol>
+      </div>
+
+        {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+    </div>
+    {{log 'data-description' data}}
+          {{log '[ItemDescription] -> this' this}}
 
     {{!-- Details Tab --}}
     <div class="tab details" data-group="primary" data-tab="details">
@@ -72,19 +103,19 @@
       <div class="spell-components form-group stacked">
         <label>{{ localize "WonderSystem.SpellComponents" }}</label>
         <label class="checkbox">
-          <input type="checkbox" name="data.components.vocal" {{checked data.components.vocal}}/> {{ localize "WonderSystem.ComponentVerbal" }}
+          <input type="checkbox" name="data.components.vocal" {{checked data.data.components.vocal}}/> {{ localize "WonderSystem.ComponentVerbal" }}
         </label>
         <label class="checkbox">
-          <input type="checkbox" name="data.components.somatic" {{checked data.components.somatic}}/> {{ localize "WonderSystem.ComponentSomatic" }}
+          <input type="checkbox" name="data.components.somatic" {{checked data.data.components.somatic}}/> {{ localize "WonderSystem.ComponentSomatic" }}
         </label>
         <label class="checkbox">
-          <input type="checkbox" name="data.components.material" {{checked data.components.material}}/> {{ localize "WonderSystem.ComponentMaterial" }}
+          <input type="checkbox" name="data.components.material" {{checked data.data.components.material}}/> {{ localize "WonderSystem.ComponentMaterial" }}
         </label>
         <label class="checkbox">
-          <input type="checkbox" name="data.components.concentration" {{checked data.components.concentration}}/> {{ localize "WonderSystem.Concentration" }}
+          <input type="checkbox" name="data.components.concentration" {{checked data.data.components.concentration}}/> {{ localize "WonderSystem.Concentration" }}
         </label>
         <label class="checkbox">
-          <input type="checkbox" name="data.components.ritual" {{checked data.components.ritual}}/> {{ localize "WonderSystem.Ritual" }}
+          <input type="checkbox" name="data.components.ritual" {{checked data.data.components.ritual}}/> {{ localize "WonderSystem.Ritual" }}
         </label>
       </div>
 
