@@ -24,5 +24,7 @@ export default async function preloadHBSTemplates(){
     'systems/wondershade/templates/sheets/items/partials/item-description.hbs',
     'systems/wondershade/templates/sheets/items/partials/item-activation.hbs',
     'systems/wondershade/templates/sheets/items/partials/item-action.hbs',
+    // Actor Sheets
+    'systems/wondershade/templates/sheets/actors/partials/active-effects.hbs',
   ]);
 }

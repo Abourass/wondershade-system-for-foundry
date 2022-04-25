@@ -12,6 +12,7 @@
           <span class="item-status">{{itemStatus}}</span>
         </div>
       </div>
+      {{log 'this' this}}
       {{log 'config' config}}
       {{log 'item' item}}
       <ul class="summary flex-row">
@@ -42,5 +43,58 @@
 
     {{!-- Description --}}
     {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+
+    {{!-- Details Tab --}}
+    <div class="tab details" data-group="primary" data-tab="details">
+      <h3 class="form-header">{{ localize "WonderSystem.ItemConsumableDetails" }}</h3>
+
+      {{!-- Consumable Type --}}
+      <div class="form-group">
+        <label>{{ localize "WonderSystem.ItemConsumableType" }}</label>
+        <select name="data.consumableType">
+          {{selectOptions config.consumableTypes selected=data.data.consumableType}}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>{{localize "WonderSystem.Attunement"}}</label>
+        <select name="data.attunement" data-dtype="Number">
+            {{selectOptions config.attunements selected=data.data.attunement localize=true}}
+        </select>
+      </div>
+
+      <div class="form-group stacked">
+        <label>{{ localize "WonderSystem.ItemConsumableStatus" }}</label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.equipped" {{checked data.data.equipped}}/> {{ localize "WonderSystem.Equipped" }}
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" name="data.identified" {{checked data.data.identified}}/> {{ localize "WonderSystem.Identified" }}
+        </label>
+      </div>
+
+      <h3 class="form-header">{{ localize "WonderSystem.ItemConsumableUsage" }}</h3>
+      
+      {{!-- Item Activation Template --}}
+      {{> "systems/wondershade/templates/sheets/items/partials/item-activation.hbs"}}
+
+      {{#if data.activation.type}}
+        <div class="form-group">
+          <label class="checkbox">
+            <input type="checkbox" name="data.uses.autoDestroy" {{checked data.data.uses.autoDestroy}}/> {{ localize "WonderSystem.ItemDestroyEmpty" }}
+          </label>
+        </div>
+      {{/if}}
+
+      <h3 class="form-header">{{ localize "WonderSystem.ItemConsumableActivation" }}</h3>
+
+      {{!-- Item Action Template --}}
+      {{> "systems/wondershade/templates/sheets/items/partials/item-action.hbs"}}
+    </div>
+
+    {{!-- Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/wondershade/templates/sheets/actors/partials/active-effects.hbs"}}
+    </div>
   </section>
 </form>
