@@ -116,6 +116,14 @@ export default class WonderItem extends Item {
     // if (!this.isOwned) this.prepareFinalAttributes();
   }
 
+  /**
+   * Does the item provide an amount of healing instead of conventional damage?
+   * @type {boolean}
+   */
+  get isHealing() {
+    return (this.data.data.actionType === 'heal') && this.data.data.damage.parts.length;
+  }
+
   // /**
   //  * Populate a label with the compiled and simplified damage formula based on owned item
   //  * actor data. This is only used for display purposes and is not related to `Item5e#rollDamage`.
