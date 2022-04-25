@@ -23,5 +23,6 @@ export default async function preloadHBSTemplates(){
     // Item Sheets
     'systems/wondershade/templates/sheets/items/partials/item-description.hbs',
     'systems/wondershade/templates/sheets/items/partials/item-activation.hbs',
+    'systems/wondershade/templates/sheets/items/partials/item-action.hbs',
   ]);
 }
