@@ -4,7 +4,7 @@
     <div class="header-details flex-col">
       <div class="flex-row">
         <h1>
-          <input type="name" value="{{item.name}}" placeholder="{{ localize 'WonderSystem.ConsumableName' }}" name="name" class="item-input">
+          <input type="name" value="{{item.name}}" placeholder="{{ localize 'WonderSystem.ItemName' }}" name="name" class="item-input">
         </h1>
   
         <div class="item-subtitle">
@@ -39,8 +39,121 @@
   </nav>
 
   <section class="sheet-body">
-
     {{!-- Description --}}
     {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+
+    {{!-- Details --}}
+    <div class="tab details" data-group="primary" data-tab="details">
+      <h3 class="form-header">{{ localize "WonderSystem.ItemEquipmentDetails" }}</h3>
+
+      {{!-- Equipment Type --}}
+      <div class="form-group">
+        <label>{{ localize "WonderSystem.ItemEquipmentType" }}</label>
+        <select name="data.armor.type">
+          <option value=""></option>
+          <optgroup label="{{ localize "WonderSystem.Armor" }}">
+            {{selectOptions config.armorTypes selected=data.data.armor.type}}
+          </optgroup>
+            {{selectOptions config.miscEquipmentTypes selected=data.data.armor.type}}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>{{ localize "WonderSystem.ItemEquipmentBase" }}</label>
+        <select name="data.baseItem">
+          {{selectOptions baseItems selected=data.data.baseItem blank=""}}
+        </select>
+      </div>
+
+      {{#unless isMountable}}
+        <div class="form-group">
+          <label>{{localize "WonderSystem.Attunement"}}</label>
+          <select name="data.attunement" data-dtype="Number">
+            {{selectOptions config.attunements selected=data.data.attunement localize=true}}
+          </select>
+        </div>
+
+        {{!-- Equipment Status --}}
+        <div class="form-group stacked">
+          <label>{{ localize "WonderSystem.ItemEquipmentStatus" }}</label>
+          <label class="checkbox">
+            <input type="checkbox" name="data.proficient" {{checked data.data.proficient}}/> {{ localize "WonderSystem.Proficient" }}
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox" name="data.equipped" {{checked data.data.equipped}}/> {{ localize "WonderSystem.Equipped" }}
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox" name="data.identified" {{checked data.data.identified}}/> {{ localize "WonderSystem.Identified" }}
+          </label>
+        </div>
+      {{/unless}}
+
+      {{!-- Armor Class --}}
+      {{#if hasAC}}
+        <div class="form-group">
+          <label>{{ localize "WonderSystem.ArmorClass" }}</label>
+          <div class="form-fields">
+            <input type="text" name="data.armor.value" value="{{data.data.armor.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if hasDexModifier}}
+        {{!-- Dexterity Modifier --}}
+        <div class="form-group">
+          <label>{{ localize "WonderSystem.ItemEquipmentDexMod" }}</label>
+          <div class="form-fields">
+            <input type="text" name="data.armor.dex" value="{{data.data.armor.dex}}" data-dtype="Number" placeholder="{{ localize 'WonderSystem.Unlimited' }}"/>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if isArmor}}
+        {{!-- Required Strength --}}
+        <div class="form-group">
+          <label>{{ localize "WonderSystem.ItemRequiredStr" }}</label>
+          <div class="form-fields">
+            <input type="text" name="data.strength" value="{{data.data.strength}}" data-dtype="Number" placeholder="{{ localize 'WonderSystem.None' }}"/>
+          </div>
+        </div>
+
+        {{!-- Stealth Disadvantage --}}
+        <div class="form-group">
+          <label>{{ localize "WonderSystem.ItemEquipmentStealthDisav" }}</label>
+          <input type="checkbox" name="data.stealth" value="1" {{checked data.data.stealth}}/>
+        </div>
+      {{/if}}
+
+      {{#if isMountable}}
+        {{> 'systems/wondershade/templates/sheets/items/partials/item-mountable.hbs'}}
+        <div class="form-group">
+          <label>{{localize 'WonderSystem.Speed'}}</label>
+          <div class="form-fields">
+            <input type="text" name="data.speed.value" value="{{data.data.speed.value}}" placeholder="0" data-dtype="Number">
+            <span class="sep">{{localize 'WonderSystem.FeetAbbr'}}</span>
+            <input type="text" name="data.speed.conditions" value="{{data.data.speed.conditions}}">
+          </div>
+        </div>
+      {{/if}}
+
+      <h3 class="form-header">{{ localize "WonderSystem.ItemEquipmentUsage" }}</h3>
+
+      {{!-- Item Activation Template --}}
+      {{> "systems/wondershade/templates/sheets/items/partials/item-activation.hbs"}}
+
+      <h3 class="form-header">{{ localize "WonderSystem.ItemEquipmentAction" }}</h3>
+
+      {{!-- Item Action Template --}}
+      {{> "systems/wondershade/templates/sheets/items/partials/item-action.hbs"}}
+
+    </div>
+
+    {{!-- Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+        {{> "systems/wondershade/templates/sheets/actors/partials/active-effects.hbs"}}
+    </div>
+
   </section>
 </form>
