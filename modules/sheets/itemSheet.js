@@ -35,7 +35,7 @@ export default class WonderItemSheet extends ItemSheet {
     ctx.itemType = game.i18n.localize(`ITEM.Type${ctx.item.type.titleCase()}`);
     // ctx.itemStatus = this._getItemStatus(itemData);
     // ctx.itemProperties = this._getItemProperties(itemData);
-    // // ctx.baseItems = await this._getItemBaseTypes(itemData);
+    ctx.baseItems = await this._getItemBaseTypes(itemData);
     // ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
     return ctx;
