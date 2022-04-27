@@ -22,7 +22,7 @@
         </li>
 
         <li>
-          <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
+          <input type="text" name="data.source" value="{{data.data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
         </li>
       </ul>
     </div>
@@ -38,5 +38,64 @@
 
     {{!-- Description --}}
     {{> 'systems/wondershade/templates/sheets/items/partials/item-description.hbs'}}
+
+    {{!-- Details Tab --}}
+    <div class="tab details" data-group="primary" data-tab="details">
+
+        {{!-- Tool Type --}}
+        <div class="form-group">
+            <label>{{ localize "WonderSystem.ItemToolType" }}</label>
+            <select name="data.toolType">
+                {{selectOptions config.toolTypes selected=data.data.toolType blank=""}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>{{ localize "WonderSystem.ItemToolBase" }}</label>
+            <select name="data.baseItem">
+                {{selectOptions baseItems selected=data.data.baseItem blank=""}}
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>{{localize "WonderSystem.Attunement"}}</label>
+            <select name="data.attunement" data-dtype="Number">
+                {{selectOptions config.attunements selected=data.data.attunement}}
+            </select>
+        </div>
+
+        {{!-- Tool Proficiency --}}
+        <div class="form-group">
+            <label>{{ localize "WonderSystem.ItemToolProficiency" }}</label>
+              <select name="data.proficient" data-dtype="Number">
+                  {{selectOptions config.proficiencyLevels selected=data.data.proficient}}
+              </select>
+        </div>
+
+        {{!-- Ability Check --}}
+        <div class="form-group">
+            <label>{{ localize "WonderSystem.DefaultAbilityCheck" }}</label>
+            <select name="data.ability">
+                {{selectOptions config.abilities selected=data.data.ability}}
+            </select>
+        </div>
+
+        {{!-- Tool Bonus --}}
+        <div class="form-group">
+            <label>{{ localize "WonderSystem.ItemToolBonus" }}</label>
+            <input type="text" name="data.bonus" value="{{data.data.bonus}}"/>
+        </div>
+
+        {{!-- Chat Message Flavor --}}
+        <div class="form-group stacked">
+            <label>{{ localize "WonderSystem.ChatFlavor" }}</label>
+            <input type="text" name="data.chatFlavor" value="{{data.data.chatFlavor}}"/>
+        </div>
+    </div>
+
+    {{!-- Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/wondershade/templates/sheets/actors/partials/active-effects.hbs"}}
+    </div>
   </section>
 </form>
