@@ -7,7 +7,7 @@
         <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number"/>
       </div>
 
-      {{log 'data-description' data}}
+      {{log '[ItemDescription] -> data-description' data}}
       {{log '[ItemDescription] -> this' this}}
 
       <div class="form-group">
@@ -21,12 +21,34 @@
       </div>
     {{/if}}
 
-    <ol class="properties-list">
-      {{#each itemProperties}}
-        <li>{{this}}</li>
-      {{/each}}
-    </ol>
+    {{#if (or labels.toHit labels.derivedDamage)}}
+      <h4 class="properties-header">{{localize "WonderSystem.Attack"}}/{{localize "WonderSystem.Damage"}}</h4>
+      <ol class="properties-list">
+        {{#if labels.save}}
+          <li>{{labels.save}}</li>
+        {{/if}}
+
+        {{#if labels.toHit}}
+          <li>{{labels.toHit}} {{localize "WonderSystem.ToHit"}}</li>
+        {{/if}}
+
+        {{#each labels.derivedDamage}}
+          <li>{{label}}</li>
+        {{/each}}
+      </ol>
+    {{/if}}
+
+
+    {{#if itemProperties.length}}
+      <h4 class="properties-header">{{localize "WonderSystem.Properties"}}</h4>
+      <ol class="properties-list">
+        {{#each itemProperties}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ol>
+    {{/if}}
+
   </div>
 
-    {{editor content=data.description.value target="data.data.description.value" button=true owner=owner editable=editable}}
+    {{editor content=data.data.description.value target="data.description.value" button=true owner=owner editable=editable}}
 </div>

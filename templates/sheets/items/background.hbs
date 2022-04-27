@@ -1,0 +1,40 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header flex-row">
+    <img src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+    <div class="header-details flex-col">
+      <div class="flex-row">
+        <h1>
+          <input type="name" value="{{item.name}}" placeholder="{{ localize 'WonderSystem.ConsumableName' }}" name="name" class="item-input">
+        </h1>
+  
+        <div class="item-subtitle">
+          <h4 class="item-type">{{itemType}}</h4>
+          <span class="item-status">{{itemStatus}}</span>
+        </div>
+      </div>
+      {{log 'config' config}}
+      {{log 'item' item}}
+      <ul class="summary flex-row">
+        <li>
+          <input type="text" name="data.source" value="{{data.data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="sheet-navigation tabs" data-group="primary">
+    <a class="item active" data-tab="description">{{ localize "WonderSystem.Description" }}</a>
+    <a class="item" data-tab="advancement">{{ localize "DND5E.AdvancementTitle" }}</a>
+  </nav>
+
+  <section class="sheet-body">
+    {{!-- Description Tab --}}
+    <div class="tab flexrow active" data-group="primary" data-tab="description">
+      {{editor content=data.data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+    </div>
+
+  {{!-- Advancement Tab --}}
+  {{> "systems/wondershade/templates/sheets/items/partials/item-advancement.hbs"}}
+
+  </section>
+</form>
