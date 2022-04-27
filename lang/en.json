@@ -12,6 +12,7 @@
   "ITEM.TypeFeat": "Feature",
   "ITEM.TypeLoot": "Loot",
   "ITEM.TypeSpell": "Spell",
+  "ITEM.TypeSubclass": "Subclass",
   "ITEM.TypeTool": "Tool",
   "ITEM.TypeWeapon": "Weapon",
 
@@ -194,6 +195,8 @@
   "WonderSystem.ChatContextDoubleDamage": "Apply Double Damage",
   "WonderSystem.ChatContextHalfDamage": "Apply Half Damage",
   "WonderSystem.ChatFlavor": "Chat Message Flavor",
+  "WonderSystem.ClassIdentifier": "Class Identifier",
+  "WonderSystem.ClassIdentifierHint": "This class's data will be accessible using <strong>@classes.{identifier}</strong> in roll formulas.",
   "WonderSystem.ClassLevels": "Class Levels",
   "WonderSystem.ClassMakeOriginal": "Original Class",
   "WonderSystem.ClassMakeOriginalHint": "First class taken by character used to determine certain class traits when multiclassing.",

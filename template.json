@@ -274,6 +274,7 @@
         "consumable",
         "tool",
         "loot",
+        "background",
         "class",
         "spell",
         "feat",
@@ -360,6 +361,10 @@
       "chatFlavor": "",
       "proficient": 0,
       "bonus": ""
+    },
+    "background": {
+      "templates": ["itemDescription"],
+      "advancement": []
     },
     "spell": {
       "templates": ["itemDescription", "activatedEffect", "action"],

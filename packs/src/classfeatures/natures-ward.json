@@ -1,0 +1,97 @@
+{
+  "_id": "OTvrJSJSUgAwXrWX",
+  "name": "Nature's Ward",
+  "permission": {
+    "default": 0
+  },
+  "type": "feat",
+  "data": {
+    "description": {
+      "value": "<p>When you reach 10th level, you can't be charmed or frightened by elementals or fey, and you are immune to poison and disease.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "PHB pg. 69",
+    "activation": {
+      "type": "",
+      "cost": 0,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": ""
+    },
+    "target": {
+      "value": "",
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": "",
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "Circle of the Land 10",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "flags": {},
+  "img": "icons/commodities/flowers/lotus-pink.webp",
+  "effects": [
+    {
+      "_id": "Jxpz4MZmgTy7z7cm",
+      "changes": [
+        {
+          "key": "data.traits.ci.value",
+          "mode": 2,
+          "value": "diseased"
+        },
+        {
+          "key": "data.traits.ci.value",
+          "mode": 2,
+          "value": "poisoned"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "icons/commodities/flowers/lotus-pink.webp",
+      "label": "Nature's Ward",
+      "origin": "Item.OTvrJSJSUgAwXrWX",
+      "transfer": true,
+      "flags": {},
+      "tint": ""
+    }
+  ]
+}

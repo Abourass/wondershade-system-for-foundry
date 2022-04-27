@@ -1,0 +1,93 @@
+{
+  "_id": "zSlV0O2rQMdoq6pB",
+  "name": "Fighting Style: Defense",
+  "permission": {
+    "default": 0
+  },
+  "type": "feat",
+  "data": {
+    "description": {
+      "value": "<p>While you are wearing armor, you gain a +1 bonus to AC</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "PHB pg. 72; 73; 85; 91",
+    "activation": {
+      "type": "",
+      "cost": 0,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": ""
+    },
+    "target": {
+      "value": "",
+      "units": "",
+      "type": "",
+      "width": null
+    },
+    "range": {
+      "value": "",
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "Fighter 1, Champion 10, Paladin 2, Ranger 2",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "flags": {},
+  "img": "icons/equipment/shield/heater-stone-orange.webp",
+  "effects": [
+    {
+      "_id": "U3so0zDcVt4sIBRz",
+      "flags": {},
+      "changes": [
+        {
+          "key": "data.attributes.ac.bonus",
+          "value": "+1",
+          "mode": 2
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "icons/equipment/shield/heater-stone-orange.webp",
+      "label": "Fighting Style: Defense",
+      "origin": "Item.4mQUDmiDBePkQD6Y",
+      "tint": "",
+      "transfer": true
+    }
+  ]
+}

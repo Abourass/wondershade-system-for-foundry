@@ -1,0 +1,97 @@
+{
+  "_id": "bqWA7t9pDELbNRkp",
+  "name": "Purity of Body",
+  "permission": {
+    "default": 0
+  },
+  "type": "feat",
+  "data": {
+    "description": {
+      "value": "<p>At 10th level, your mastery of the ki flowing through you makes you immune to disease and poison.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "PHB pg. 79",
+    "activation": {
+      "type": "",
+      "cost": 0,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": ""
+    },
+    "target": {
+      "value": "",
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": "",
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "Monk 10",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "flags": {},
+  "img": "icons/magic/control/encase-creature-humanoid-hold.webp",
+  "effects": [
+    {
+      "_id": "JjH64T4YkNP1VTt4",
+      "changes": [
+        {
+          "key": "data.traits.ci.value",
+          "mode": 2,
+          "value": "diseased"
+        },
+        {
+          "key": "data.traits.ci.value",
+          "mode": 2,
+          "value": "poisoned"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "icons/magic/control/encase-creature-humanoid-hold.webp",
+      "label": "Purity of Body",
+      "origin": "Item.dvtlIzR4gvdfb7Od",
+      "transfer": true,
+      "flags": {},
+      "tint": ""
+    }
+  ]
+}

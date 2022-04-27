@@ -1,0 +1,92 @@
+{
+  "_id": "7D2EkLdISwShEDlN",
+  "name": "Ki: Diamond Soul",
+  "permission": {
+    "default": 0
+  },
+  "type": "feat",
+  "data": {
+    "description": {
+      "value": "<p>Beginning at 14th level, your mastery of ki grants you proficiency in all saving throws. Additionally, whenever you make a saving throw and fail, you can spend 1 ki point to reroll it and take the second result.</p>",
+      "chat": "",
+      "unidentified": ""
+    },
+    "source": "PHB pg. 79",
+    "activation": {
+      "type": "",
+      "cost": 0,
+      "condition": ""
+    },
+    "duration": {
+      "value": "",
+      "units": ""
+    },
+    "target": {
+      "value": "",
+      "units": "",
+      "type": ""
+    },
+    "range": {
+      "value": "",
+      "long": null,
+      "units": ""
+    },
+    "uses": {
+      "value": null,
+      "max": "",
+      "per": null
+    },
+    "consume": {
+      "type": "",
+      "target": "",
+      "amount": null
+    },
+    "ability": "",
+    "actionType": "",
+    "attackBonus": 0,
+    "chatFlavor": "",
+    "critical": {
+      "threshold": null,
+      "damage": ""
+    },
+    "damage": {
+      "parts": [],
+      "versatile": ""
+    },
+    "formula": "",
+    "save": {
+      "ability": "",
+      "dc": null,
+      "scaling": "spell"
+    },
+    "requirements": "Monk 14",
+    "recharge": {
+      "value": null,
+      "charged": false
+    }
+  },
+  "flags": {},
+  "img": "icons/magic/water/projectile-icecicle.webp",
+  "effects": [
+    {
+      "_id": "v6jhyPoAYRIIXBG1",
+      "changes": [
+        {
+          "key": "flags.dnd5e.diamondSoul",
+          "mode": 5,
+          "value": "true"
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null
+      },
+      "icon": "icons/magic/water/projectile-icecicle.webp",
+      "label": "Diamond Soul",
+      "origin": "Item.PRME1bZBvnc2E0iH",
+      "transfer": true,
+      "flags": {},
+      "tint": ""
+    }
+  ]
+}
