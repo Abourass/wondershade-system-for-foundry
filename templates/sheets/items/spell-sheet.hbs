@@ -23,7 +23,7 @@
         </li>
 
         <li>
-          <input type="text" name="data.source" value="{{data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
+          <input type="text" name="data.source" value="{{data.data.source}}" placeholder="{{ localize 'WonderSystem.Source' }}">
         </li>
       </ul>
     </div>
@@ -46,8 +46,6 @@
             <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number"/>
           </div>
 
-          
-
           <div class="form-group">
             <label>{{ localize "WonderSystem.Weight" }}</label>
             <input type="text" name="data.weight" value="{{data.data.weight}}" data-dtype="Number"/>
@@ -66,7 +64,7 @@
         </ol>
       </div>
 
-        {{editor content=data.description.value target="data.description.value" button=true owner=owner editable=editable}}
+        {{editor content=data.data.description.value target="data.description.value" button=true owner=owner editable=editable}}
     </div>
     {{log 'data-description' data}}
           {{log '[ItemDescription] -> this' this}}
@@ -102,23 +100,74 @@
       {{!-- Spell Components --}}
       <div class="spell-components form-group stacked">
         <label>{{ localize "WonderSystem.SpellComponents" }}</label>
-        <label class="checkbox">
-          <input type="checkbox" name="data.components.vocal" {{checked data.data.components.vocal}}/> {{ localize "WonderSystem.ComponentVerbal" }}
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="data.components.somatic" {{checked data.data.components.somatic}}/> {{ localize "WonderSystem.ComponentSomatic" }}
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="data.components.material" {{checked data.data.components.material}}/> {{ localize "WonderSystem.ComponentMaterial" }}
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="data.components.concentration" {{checked data.data.components.concentration}}/> {{ localize "WonderSystem.Concentration" }}
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="data.components.ritual" {{checked data.data.components.ritual}}/> {{ localize "WonderSystem.Ritual" }}
-        </label>
+        {{#each config.spellComponents as |component key|}}
+          <label class="checkbox">
+            <input type="checkbox" name="data.components.{{key}}" {{checked (lookup ../data.data.components key)}}>
+            {{component.label}}
+          </label>
+        {{/each}}
       </div>
 
+      {{!-- Material Components --}}
+      <div class="form-group stacked">
+        <label>{{ localize "WonderSystem.SpellMaterials" }}</label>
+        <input class="materials" type="text" name="data.materials.value" value="{{data.data.materials.value}}"/>
+        {{#if data.data.materials.value}}
+          <div class="spell-materials flexrow">
+            <label>{{ localize "WonderSystem.Supply" }}</label>
+            <input type="text" name="data.materials.supply" value="{{data.data.materials.supply}}" data-dtype="Number" Placeholder="0"/>
+
+            <label>{{ localize "WonderSystem.CostGP" }}</label>
+            <input type="text" name="data.materials.cost" value="{{data.data.materials.cost}}" data-dtype="Number" Placeholder="-"/>
+            
+            <label>{{ localize "WonderSystem.Consumed" }}</label>
+            <input type="checkbox" name="data.materials.consumed" {{checked data.data.materials.consumed}}/>
+          </div>
+        {{/if}}
+      </div>
+
+      {{!-- Preparation Mode --}}
+      <div class="form-group input-select">
+        <label>{{ localize "WonderSystem.SpellPreparationMode" }}</label>
+        <div class="form-fields">
+          <label class="checkbox prepared">
+            {{ localize "WonderSystem.SpellPrepared" }} <input type="checkbox" name="data.preparation.prepared" {{checked data.data.preparation.prepared}}/>
+          </label>
+          <select name="data.preparation.mode">
+            {{ selectOptions config.spellPreparationModes selected=data.data.preparation.mode }}
+          </select>
+        </div>
+      </div>
+
+      <h3 class="form-header">{{ localize "WonderSystem.SpellCastingHeader" }}</h3>
+
+      {{!-- Item Activation Template --}}
+      {{> "systems/wondershade/templates/sheets/items/partials/item-activation.hbs"}}
+
+      <h3 class="form-header">{{ localize "WonderSystem.SpellEffects" }}</h3>
+
+      {{!-- Item Action Template --}}
+      {{> "systems/wondershade/templates/sheets/items/partials/item-action.hbs"}}
+
+      {{!-- Spell Level Scaling --}}
+      <div class="form-group">
+        <label>{{ localize "WonderSystem.LevelScaling" }}</label>
+        <div class="form-fields">
+          <select name="data.scaling.mode">
+            {{#select data.data.scaling.mode}}
+              {{#each config.spellScalingModes as |name key|}}
+                <option value="{{key}}">{{name}}</option>
+              {{/each}}
+            {{/select}}
+          </select>
+          <input type="text" name="data.scaling.formula" value="{{data.data.scaling.formula}}" placeholder="{{ localize 'WonderSystem.ScalingFormula' }}"/>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/wondershade/templates/sheets/actors/partials/active-effects.hbs"}}
     </div>
   </section>
 </form>

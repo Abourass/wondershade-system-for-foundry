@@ -25,6 +25,7 @@
   <nav class="sheet-navigation tabs" data-group="primary">
     <a class="item active" data-tab="description">{{ localize "WonderSystem.Description" }}</a>
     <a class="item" data-tab="details">{{ localize "WonderSystem.Details" }}</a>
+    <a class="item" data-tab="advancement">{{localize "WonderSystem.AdvancementTitle"}}</a>
   </nav>
 
   <section class="sheet-body">
@@ -37,20 +38,15 @@
     {{!-- Details Tab --}}
     <div class="tab details" data-group="primary" data-tab="details">
 
-      {{!-- Class Levels --}}
+      {{!-- Identifier --}}
       <div class="form-group">
-        <label>{{ localize "WonderSystem.ClassLevels" }}</label>
+        <label>{{ localize "WonderSystem.Identifier" }}</label>
         <div class="form-fields">
-          <input type="text" name="data.levels" value="{{data.data.levels}}" data-dtype="Number"/>
+          <input type="text" name="data.identifier" value="{{data.data.identifier}}">
         </div>
-      </div>
-
-      {{!-- Subclass Name --}}
-      <div class="form-group">
-        <label>{{ localize "WonderSystem.SubclassName" }}</label>
-        <div class="form-fields">
-          <input type="text" name="data.subclass" value="{{data.data.subclass}}"/>
-        </div>
+        <p class="hint">
+          {{{localize "WonderSystem.ClassIdentifierHint" identifier=data.data.identifier}}}
+        </p>
       </div>
 
       {{!-- Class Hit Dice --}}
@@ -60,7 +56,7 @@
           <select name="data.hitDice">
             {{#select data.data.hitDice}}
               {{#each config.hitDieTypes}}
-              <option value="{{this}}">{{this}}</option>
+                <option value="{{this}}">{{this}}</option>
               {{/each}}
             {{/select}}
           </select>
@@ -75,25 +71,11 @@
       </div>
 
       {{!-- Spellcasting --}}
-      <div class="form-group">
-        <label>{{localize 'WonderSystem.SpellProgression'}}</label>
-        <div class="form-fields">
-          <select name="data.spellcasting.progression">
-            {{selectOptions config.spellProgression selected=data.data.spellcasting.progression localize=true}}
-          </select>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label>{{localize "WonderSystem.SpellAbility"}}</label>
-        <div class="form-fields">
-          <select name="data.spellcasting.ability">
-            {{selectOptions config.abilities selected=data.data.spellcasting.ability blank=""}}
-          </select>
-        </div>
-      </div>
+      <h3 class="form-header">{{localize "WonderSystem.Spellcasting"}}</h3>
+      {{> "systems/wondershade/templates/sheets/items/partials/item-spellcasting.hbs"}}
 
       {{!-- Proficiencies --}}
+      <h3 class="form-header">{{localize "WonderSystem.Proficiency"}}</h3>
       <div class="form-group">
         <label>
           {{ localize "WonderSystem.ClassSaves" }}
@@ -125,7 +107,7 @@
           {{localize "WonderSystem.ClassSkillsEligible"}}
           {{#if editable }}
             <a class="trait-selector class-skills" data-target="data.skills.choices" data-options="skills.choices">
-              <i class="fas fa-edit"></i>
+                <i class="fas fa-edit"></i>
             </a>
           {{/if}}
         </label>
@@ -150,11 +132,15 @@
         <div class="form-fields">
           <ul class="traits-list">
             {{#each data.data.skills.value}}
-              <li class="tag {{this}}">{{lookup ../config.skills this}}</li>
+                <li class="tag {{this}}">{{lookup ../config.skills this}}</li>
             {{/each}}
           </ul>
         </div>
       </div>
     </div>
+
+    {{!-- Advancement Tab --}}
+    {{> "systems/wondershade/templates/sheets/items/partials/item-advancement.hbs"}}
+
   </section>
 </form>
