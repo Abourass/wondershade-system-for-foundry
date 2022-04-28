@@ -276,6 +276,7 @@
         "loot",
         "background",
         "class",
+        "subclass",
         "spell",
         "feat",
         "backpack"
@@ -318,6 +319,10 @@
       }
     },
     "htmlFields": ["description.value", "description.chat", "description.unidentified"],
+    "background": {
+      "templates": ["itemDescription"],
+      "advancement": []
+    },
     "backpack": {
       "templates": ["itemDescription", "physicalItem"],
       "capacity": { "type": "weight", "value": 0, "weightless": false },
@@ -325,10 +330,12 @@
     },
     "class": {
       "templates": ["itemDescription"],
+      "identifier": "",
       "levels": 1,
       "subclass": "",
       "hitDice": "d6",
       "hitDiceUsed": 0,
+      "advancement": [],
       "saves": [],
       "skills": { "number": 2, "choices": [], "value": [] },
       "spellcasting": { "progression": "none", "ability": "" }
@@ -362,10 +369,7 @@
       "proficient": 0,
       "bonus": ""
     },
-    "background": {
-      "templates": ["itemDescription"],
-      "advancement": []
-    },
+    
     "spell": {
       "templates": ["itemDescription", "activatedEffect", "action"],
       "level": 1,
@@ -381,6 +385,13 @@
       "materials": { "value": "", "consumed": false, "cost": 0, "supply": 0 },
       "preparation": { "mode": "prepared", "prepared": false },
       "scaling": { "mode": "none", "formula": null }
+    },
+    "subclass": {
+      "templates": ["itemDescription"],
+      "identifier": "",
+      "classIdentifier": "",
+      "advancement": [],
+      "spellcasting": { "progression": "none", "ability": "" }
     },
     "weapon": {
       "templates": ["itemDescription", "physicalItem" ,"activatedEffect", "action", "mountable"],

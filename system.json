@@ -3,12 +3,7 @@
   "title": "Wondershade",
   "description": "The glittery black heart that beats within my chest. Also known as the Wonder System",
   "author": "Mod",
-  "authors": [],
-  "flags": {},
-  "version": "0.0.85",
-  "templateVersion": 2,
-  "minimumCoreVersion": 9,
-  "compatibleCoreVersion": "9",
+  "version": "0.0.9",
   "scripts": [],
   "esmodules": [ "wonderSystem.js" ],
   "styles": [ "styles/index.min.css" ],
@@ -109,12 +104,14 @@
       "type": "RollTable"
     }
   ],
-  "system": [],
-  "dependencies": [],
-  "socket": false,
-  "manifest": "https://raw.githubusercontent.com/Abourass/wondershade-system-for-foundry/main/system.json",
-  "download": "https://github.com/Abourass/wondershade-system-for-foundry/archive/refs/tags/development.zip",
-  "protected": false,
+  "socket": true,
   "gridDistance": 5,
-  "primaryTokenAttribute": "health"
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "attributes.hp.value",
+  "secondaryTokenAttribute": null,
+  "minimumCoreVersion": "9.245",
+  "compatibleCoreVersion": "9",
+  "url": "https://github.com/Abourass/wondershade-system-for-foundry/",
+  "manifest": "https://raw.githubusercontent.com/Abourass/wondershade-system-for-foundry/main/system.json",
+  "download": "https://github.com/Abourass/wondershade-system-for-foundry/archive/refs/tags/development.zip"
 }
