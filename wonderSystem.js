@@ -1,18 +1,28 @@
 import { WonderSystemConf } from './modules/config.js';
-import WonderItemSheet from './modules/sheets/itemSheet.js';
-import WonderActorSheet from './modules/sheets/actorSheet.js';
-import preloadHBSTemplates from './modules/system/preloadHBS.js';
 import registerSystemSettings from './modules/system/settings.js';
 import { loadCloudTheme } from './modules/theme/cloudThemes.js';
-import createItemMacro from './modules/system/createItemMacro.js';
-import rollItemMacro from './modules/system/rollItemMacro.js';
+import preloadHBSTemplates from './modules/system/preloadHBS.js';
+
+// Import Sheets and Their Base Documents
 import WonderItem from './modules/documents/item.js';
 import WonderActor from './modules/documents/ActorDoc.js';
+import WonderItemSheet from './modules/sheets/itemSheet.js';
+import WonderActorSheet from './modules/sheets/actorSheet.js';
+
+// Import Macros And Helpers
+import { advancement } from './modules/advancement';
+import createItemMacro from './modules/system/createItemMacro.js';
+import rollItemMacro from './modules/system/rollItemMacro.js';
 
 Hooks.once('init', () => {
   console.debug('[WonderSystem:Loading]');
   // Add utility classes to the global game object so that they're more easily accessible in global contexts.
-  game.wondershade = { WonderActor, WonderItem, rollItemMacro };
+  game.wondershade = {
+    advancement,
+    WonderActor,
+    WonderItem,
+    rollItemMacro,
+  };
 
   // Add conf for localization and html stuff
   CONFIG.wondershade = WonderSystemConf;
