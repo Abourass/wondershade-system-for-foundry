@@ -33,9 +33,9 @@ export default class WonderItemSheet extends ItemSheet {
 
     // Item Type, Status, and Details
     ctx.itemType = game.i18n.localize(`ITEM.Type${ctx.item.type.titleCase()}`);
-    // ctx.itemStatus = this._getItemStatus(itemData);
-    // ctx.itemProperties = this._getItemProperties(itemData);
-    ctx.baseItems = await this._getItemBaseTypes(itemData);
+    ctx.itemStatus = this._getItemStatus(itemData);
+    ctx.itemProperties = this._getItemProperties(itemData);
+    // ctx.baseItems = await this._getItemBaseTypes(itemData);
     // ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
     return ctx;
@@ -128,5 +128,18 @@ export default class WonderItemSheet extends ItemSheet {
       );
     }
     return props.filter(p => !!p);
+  }
+
+  /**
+   * Is this item a separate large object like a siege engine or vehicle component that is
+   * usually mounted on fixtures rather than equipped, and has its own AC and HP.
+   * @param {object} item  Copy of item data being prepared for display.
+   * @returns {boolean}    Is item siege weapon or vehicle equipment?
+   * @private
+   */
+  _isItemMountable(item) {
+    const data = item.data;
+    return (item.type === 'weapon' && data.weaponType === 'siege')
+        || (item.type === 'equipment' && data.armor.type === 'vehicle');
   }
 }

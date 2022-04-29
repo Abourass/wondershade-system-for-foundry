@@ -10,7 +10,7 @@ import WonderItemSheet from './modules/sheets/itemSheet.js';
 import WonderActorSheet from './modules/sheets/actorSheet.js';
 
 // Import Macros And Helpers
-import { advancement } from './modules/advancement';
+// import { advancement } from './modules/advancement'; <- Enabling this breaks all of our sheets. No idea. -Mod
 import createItemMacro from './modules/system/createItemMacro.js';
 import rollItemMacro from './modules/system/rollItemMacro.js';
 
@@ -18,7 +18,7 @@ Hooks.once('init', () => {
   console.debug('[WonderSystem:Loading]');
   // Add utility classes to the global game object so that they're more easily accessible in global contexts.
   game.wondershade = {
-    advancement,
+    // advancement,
     WonderActor,
     WonderItem,
     rollItemMacro,
