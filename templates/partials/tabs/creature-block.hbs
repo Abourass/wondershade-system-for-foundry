@@ -1,0 +1,241 @@
+{{!-- Skills --}}
+<div class="tab skills">
+  <h1 class="skillHeading" style="margin-top: 5px">Skills</h1>
+  <div class="skillSection">
+    {{log 'this' this}}
+    {{!-- Left Column --}}
+    <div class="skillCol">
+      <div class="skillDisplay">
+        <label class="checkmark">
+          <input
+            type="checkbox"
+            name="data.skills.alertness.checked"
+            {{#if (skillChecked actorData 'alertness' false)}}checked{{/if}}
+          >
+          <span></span>
+        </label>
+        <div class="skillLabelCol">
+          <label class="clickable-label rollable" data-roll-skill="alertness" data-label="Alertness">
+            <strong>Alertness</strong>
+          </label>
+          <label for="data.skills.alertness.value" class="pr0 full-height">
+            <input
+              type="number"
+              name="data.skills.alertness.value"
+              value="{{skillValue actorData 'alertness' false}}"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="skillDisplay">
+        <label class="checkmark">
+          <input
+            type="checkbox"
+            name="data.skills.athletics.checked"
+            {{#if (skillChecked actorData 'athletics' false)}}checked{{/if}}
+          >
+          <span></span>
+        </label>
+        <div class="skillLabelCol">
+          <label class="clickable-label rollable" data-roll-skill="athletics" data-label="Athletics">
+            <strong>Athletics</strong>
+          </label>
+          <label for="data.skills.athletics.value" class="pr0 full-height">
+            <input
+              type="number"
+              name="data.skills.athletics.value"
+              value="{{skillValue actorData 'athletics' false}}"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    {{!-- /Left Column --}}
+
+    {{!-- Middle Column --}}
+    <div class="skillCol">
+      <div class="skillDisplay">
+        <label class="checkmark">
+          <input
+            type="checkbox"
+            name="data.skills.dodge.checked"
+            {{#if (skillChecked actorData 'dodge' false)}}checked{{/if}}
+          >
+          <span></span>
+        </label>
+        <div class="skillLabelCol">
+          <label class="clickable-label rollable" data-roll-skill="dodge" data-label="Dodge">
+            <strong>Dodge</strong>
+          </label>
+          <label for="data.skills.dodge.value" class="pr0 full-height">
+            <input
+              type="number"
+              name="data.skills.dodge.value"
+              value="{{skillValue actorData 'dodge' false}}"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="skillDisplay">
+        <label class="checkmark">
+          <input
+            type="checkbox"
+            name="data.skills.survival.checked"
+            {{#if (skillChecked actorData 'survival' false)}}checked{{/if}}
+          >
+          <span></span>
+        </label>
+        <div class="skillLabelCol">
+          <label class="clickable-label rollable" data-roll-skill="survival" data-label="Survival">
+            <strong>Survival</strong>
+          </label>
+          <label for="data.skills.survival.value" class="pr0 full-height">
+            <input
+              type="number"
+              name="data.skills.survival.value"
+              value="{{skillValue actorData 'survival' false}}"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    {{!-- /Middle Column --}}
+
+    {{!-- Right Column --}}
+    <div class="skillCol">
+      <div class="skillDisplay">
+        <label class="checkmark">
+          <input
+            type="checkbox"
+            name="data.skills.stealth.checked"
+            {{#if (skillChecked actorData 'stealth' false)}}checked{{/if}}
+          >
+          <span></span>
+        </label>
+        <div class="skillLabelCol">
+          <label class="clickable-label rollable" data-roll-skill="stealth" data-label="Stealth">
+            <strong>Stealth</strong>
+          </label>
+          <label for="data.skills.stealth.value" class="pr0 full-height">
+            <input
+              type="number"
+              name="data.skills.stealth.value"
+              value="{{skillValue actorData 'stealth' false}}"
+            />
+          </label>
+        </div>
+      </div>
+      <div class="skillDisplay">
+        <label class="checkmark">
+          <input
+            type="checkbox"
+            name="data.skills.unsanity.checked"
+            {{#if (skillChecked actorData 'unsanity' false)}}checked{{/if}}
+          >
+          <span></span>
+        </label>
+        <div class="skillLabelCol">
+          <label class="clickable-label rollable" data-roll-skill="unsanity" data-label="Unsanity">
+            <strong>Unsanity</strong>
+          </label>
+          <label for="data.skills.unsanity.value" class="pr0 full-height">
+            <input
+              type="number"
+              name="data.skills.unsanity.value"
+              value="{{skillValue actorData 'unsanity' false}}"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    {{!-- /Right Column --}}
+  </div>
+</div>
+{{!-- /Skills --}}
+
+{{!-- Magick --}}
+<div class="tab magick">
+  <h1 class="skillHeading" style="margin-top: 5px"> {{ localize "WonderSystem.Magick" }} </h1>
+  <div class="magick-controls" data-group="magick-tabs">
+    <a data-tab="wonder" data-group="magick-tabs">{{ localize "WonderSystem.Wonder" }}</a>
+    <a data-tab="finesse-and-class" data-group="magick-tabs">{{ localize "WonderSystem.FinesseAndClass" }}</a>
+    <a data-tab="cantrips" data-group="magick-tabs">{{ localize "WonderSystem.Cantrips" }}</a>
+    <a data-tab="first" data-group="magick-tabs">{{ localize "WonderSystem.FirstNum" }}</a>
+    <a data-tab="second" data-group="magick-tabs">{{ localize "WonderSystem.SecondNum" }}</a>
+    <a data-tab="third" data-group="magick-tabs">{{ localize "WonderSystem.ThirdNum" }}</a>
+    <a data-tab="fourth" data-group="magick-tabs">{{ localize "WonderSystem.FourthNum" }}</a>
+    <a data-tab="fifth" data-group="magick-tabs">{{ localize "WonderSystem.FifthNum" }}</a>
+    <a data-tab="sixth" data-group="magick-tabs">{{ localize "WonderSystem.SixthNum" }}</a>
+    <a data-tab="seventh" data-group="magick-tabs">{{ localize "WonderSystem.SeventhNum" }}</a>
+    <a data-tab="eighth" data-group="magick-tabs">{{ localize "WonderSystem.EighthNum" }}</a>
+    <a data-tab="ninth" data-group="magick-tabs">{{ localize "WonderSystem.NinthNum" }}</a>
+    <a data-tab="all" data-group="magick-tabs">{{ localize "WonderSystem.All" }}</a>
+  </div>
+  <div class="magick-tabs">
+    {{#each config.html.spellSections as |spellSection ID|}}
+    {{log '[SpellSheet] -> spellSection' spellSection}}
+      <div class="tab {{spellSection.keyVal}}" data-tab="{{spellSection.keyVal}}" data-group="magick-tabs">
+        {{!-- Only includes spell slots on spell categories that have them --}}
+        {{#unless (includes ../config.html.spellLevelsWithoutSlots spellSection.keyVal)}}
+          <div class="flex-row spellSlotRow">
+            <div class="flex-col flex spellSlotLabel">
+              <span>{{spellSection.name}} Spell Slots</span>
+            </div>
+            {{#unless (eq spellSection.keyVal 'all')}}
+              {{#each (spellSlots ../actorData.spellSlots spellSection.keyVal) as |status SID|}}
+                <div class="flex-col flex smallCol">
+                  <label class="checkmark mb0 flex smallCheck">
+                    <input
+                      class="spellSlotCheck"
+                      type="checkbox"
+                      data-index="{{SID}}"
+                      data-level="{{spellSection.keyVal}}Level"
+                      {{#if (eq status 'checked')}} checked="checked" {{/if}}
+                      {{#if (eq status 'disabled')}} disabled="disabled" {{/if}}
+                    >
+                    <span class="smallDot tearShape fairyFire"></span>
+                  </label>
+                </div>
+              {{/each}}
+          {{/unless}}
+          </div>
+        {{/unless}}
+
+        <ul>
+          {{#each (spells ../this spellSection.keyVal) as |spell SID|}}
+          {{log '[SpellSheet] -> spell' spell}}
+            <li data-item-id="{{spell._id}}" data-item-spell="true" class="item">
+              <div class="img-col">
+                <a class="rollable" data-roll-type="item">
+                  <img src="{{spell.img}}" title="{{spell.name}}" width="24" height="24"/>
+                </a>
+              </div>
+              <div class="desc-col">
+                <h4>{{spell.name}}</h4>
+              </div>
+              <div class="controls-col">
+                <div class="item-controls">
+                  <a class="item-control item-edit" title="Edit Item">
+                    <i class="fas fa-edit"></i>
+                  </a>
+                  <a class="item-control item-delete" title="Delete Item">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </div>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/each}}
+  </div>
+</div>
+{{!-- /Magick --}}
+  
+{{!-- Inventory --}}
+<div class="tab items">
+  <h1 class="skillHeading">{{ localize "WonderSystem.Inventory" }}</h1>
+  {{> "systems/wondershade/templates/partials/layout/inventory/currencies.hbs"}}
+  {{> "systems/wondershade/templates/partials/layout/inventory/weapons.hbs"}}
+  {{> "systems/wondershade/templates/partials/layout/inventory/loot.hbs"}}
+</div>
