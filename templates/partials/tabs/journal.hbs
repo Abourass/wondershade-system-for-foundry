@@ -1,6 +1,10 @@
+{{log 'journal:data' data}}
 <div class="tab journal" data-tab="journal" data-group="primary-tabs">
   <h1 class="skillHeading">{{ localize "WonderSystem.Journal" }}</h1>
   <div class="flex-col flex">
+    <header class="sheet-header flex-row">
+      <img src="{{data.img}}" data-edit="img" title="{{data.name}}" />
+    </header>
     <h3 class="journalHeader">
       {{ localize "WonderSystem.Bonus" }}
       </h3>

@@ -137,7 +137,7 @@ export default class WonderActorSheet extends ActorSheet {
     super.activateListeners(html);
 
     // Inject the Galaxy Theme high up enough into the DOM it's not affected by the sheet refresh
-    if (this.actor.type === 'character') createGalaxy(html);
+    createGalaxy(html);
 
     // console.log(this.actor);
 
