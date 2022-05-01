@@ -1,3 +1,5 @@
+import injectMCETheme from '../theme/injectMCETheme.js';
+
 export default class WonderItemSheet extends ItemSheet {
   /**
    * Options for the UI composition
@@ -39,6 +41,15 @@ export default class WonderItemSheet extends ItemSheet {
     // ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
     return ctx;
+  }
+
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // Everything below here is only needed if the sheet is editable
+    if (!this.isEditable) return;
+
+    html.find('.editor-edit').click(() => setTimeout(injectMCETheme(html), 900));
   }
 
   /**

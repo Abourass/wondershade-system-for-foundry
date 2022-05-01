@@ -108,6 +108,32 @@
     .tab.flexrow.active {
       padding: 0 5px;
       overflow: hidden auto;
+      height: 100%;
+
+      // Skin the Editor (TinyMCE)
+      .tox {
+        .tox-toolbar-overlord { background-color: #222; }
+
+        .tox-toolbar, .tox-toolbar__overflow, .tox-toolbar__primary {
+          background-color: #31243661;
+        }
+
+        .tox-tbtn {
+          color: var(--color-text-light-3);
+
+          &:hover { background: #16141663 }
+
+          svg {
+            fill: var(--color-text-light-3);
+
+            &:hover { fill: var(--color-text-light-2); }
+          }
+        }
+
+        .tox-editor-container {
+          .mce-content-body  { color: whitesmoke; }
+        }
+      }
 
       .item-properties {
         flex: 0 0 120px;
@@ -163,3 +189,5 @@
     font-family: 'Raleway';
   }
 }
+
+
