@@ -208,6 +208,8 @@
         "history": { "value": 10 },
         "intimidation": { "value": 5 },
         "medicine": { "value": 1 },
+        "nature": { "value": 5 },
+        "navigate": { "value": 15 },
         "occult": { "value": 0 },
         "performance": { "value": 5 },
         "persuade": { "value": 10 },
