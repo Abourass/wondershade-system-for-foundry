@@ -52,9 +52,7 @@ export default class WonderActorSheet extends ActorSheet {
     // Attach flags
     ctx.flags = actorData.flags;
 
-    if (actorData.type === 'character' || actorData.type === 'npc') {
-      this._prepareItems(ctx);
-    }
+    this._prepareItems(ctx);
 
     // if (data.actorData.firstOpen){
     //   const maxHealth = Math.round(((data.actorData.abilities.str.value / 5) + (data.actorData.abilities.con.value / 5)) * 1.5);
