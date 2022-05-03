@@ -30,6 +30,8 @@ Hooks.once('init', () => {
   CONFIG.Actor.documentClass = WonderActor;
   // Register custom Item Class
   CONFIG.Item.documentClass = WonderItem;
+  // Register the initiative formula
+  CONFIG.Combat.initiative.formula = '1d20 + @attributes.init.value';
   // Unregister the default item sheet
   Items.unregisterSheet('core', ItemSheet);
   Items.registerSheet('wondershade', WonderItemSheet, { makeDefault: true });
@@ -39,6 +41,8 @@ Hooks.once('init', () => {
 
   registerSystemSettings();
   preloadHBSTemplates();
+  
+
   // Load User's preferred cloud theme
   loadCloudTheme(game.settings.get('wondershade', 'cloudTheme'));
 });
