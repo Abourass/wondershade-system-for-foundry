@@ -341,6 +341,7 @@ export default class WonderItem extends Item {
   async roll(ctx) {
     // Alias the actor to make the function more self documenting
     const item = this.data;
+    console.log('[WonderItem] this', this);
     const actor = this.actor.data;
     console.log('[WonderItem] roll -> item', item);
     console.log('[WonderItem] roll -> ctx', ctx);
@@ -361,6 +362,13 @@ export default class WonderItem extends Item {
     if (outcome === 'Critical Failure'){
       ctx.roll.dice[0].options.sfx = { specialEffect: 'PlayAnimationImpact' };
     }
+
+    // if (
+    //   (outcome === 'Success' || outcome === 'Hard Success' || outcome === 'Critical Success')
+    //   && (item.type === 'weapon' || item.type === 'spell')
+    //   ){
+
+    // }
 
     const chatData = {
       user: game.user._id,

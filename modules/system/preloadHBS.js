@@ -12,7 +12,6 @@ export default async function preloadHBSTemplates(){
     'systems/wondershade/templates/partials/tabs/inventory.hbs',
     'systems/wondershade/templates/partials/tabs/journal.hbs',
     'systems/wondershade/templates/partials/tabs/magick.hbs',
-    'systems/wondershade/templates/partials/tabs/npc-block.hbs',
     'systems/wondershade/templates/partials/tabs/pawn-block.hbs',
     'systems/wondershade/templates/partials/tabs/skills.hbs',
     // Inventory
