@@ -1,4 +1,20 @@
 .skill-roll {
+  .flex-col{
+    &.item-img {
+      width: 20%;
+      justify-content: center;
+      margin-bottom: 6px;
+      height: 50px;
+    }
+    &.name-col {
+      align-content: center;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      padding-right: 20%;
+    }
+  }
+
   h1, h2 {
     display: block;
     text-align: center;
@@ -26,6 +42,19 @@
     border-bottom: none;
   }
 
+  .success-description, .failure-description {
+    border-radius: 6px;
+    padding: 5px;
+    color: rgb(255 255 255 / 89%);
+    margin-bottom: 2px;
+    border: 1px solid #bfaf6b3d;
+
+    p { margin: 2px 0; }
+  }
+
+  .success-description { background: #cf74c330; }
+  .failure-description { background: #44e1e126; }
+
   .success-banner, .failure-banner {
     padding: 3px 0;
     margin-bottom: 5px;
@@ -36,7 +65,8 @@
     letter-spacing: 1.3px;
     text-align: center;
     text-transform: uppercase;
-    border-radius: 2px;
+    border-radius: 5px;
+    border: 1px solid #bfaf6b3d;
   }
 
   .success-banner { background: #cf74c35c; }
@@ -79,5 +109,14 @@
         font-family: Helvetica, Verdana, sans-serif;
       }
     }
+  }
+}
+
+.chat-message {
+  header.message-header {
+    border-bottom: 2px groove #cf74c35c;
+    border-radius: 3px;
+    margin-bottom: 4px;
+    margin-top: -1px;
   }
 }

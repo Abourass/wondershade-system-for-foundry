@@ -1,9 +1,14 @@
 <div class="skill-roll">
-  <h1>{{item.name}}</h1>
-  <div class="flex-center">
-    <img src="{{item.img}}" alt=""style="max-height: 250px">
+  <div class="flex-row">
+    <div class="flex-col item-img">
+      <img src="{{item.img}}" alt="">
+    </div>
+    <div class="flex-col name-col" style="margin-bottom: 6px">
+      <h1 style="margin-bottom: 0">{{item.name}}</h1>
+      <h2 style="margin-top: 0">{{actor.name}}</h2>
+    </div>
   </div>
-  <h2>{{actor.name}}</h2>
+
   {{#if roll.success}}
     <div class="success-banner">
       <span>{{roll.outcome}}</span>
@@ -29,6 +34,10 @@
       {{/unless}}
       <span class="roll-success">{{condition.success}}</span>
     </div>
+  </div>
+
+  <div class="flex-col {{#if roll.success}}success-description{{else}}failure-description{{/if}}">
+    {{{item.data.description.value}}}
   </div>
 </div>
 
