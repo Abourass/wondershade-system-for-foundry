@@ -29,7 +29,6 @@
               {{#unless (eq @key 'iLuck')}}data-roll-ability="{{@key}}" data-label="{{lookup ../config.attr @key}}"{{/unless}}
             >
               <span>{{lookup ../config.attr @key}}</span>
-              {{!-- <button class="skillButton"></button> --}}
             </div>
             <input
               name="data.abilities.{{@key}}.value"
