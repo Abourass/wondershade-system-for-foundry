@@ -41,7 +41,6 @@ Hooks.once('init', () => {
 
   registerSystemSettings();
   preloadHBSTemplates();
-  
 
   // Load User's preferred cloud theme
   loadCloudTheme(game.settings.get('wondershade', 'cloudTheme'));
@@ -137,6 +136,8 @@ Handlebars.registerHelper('spells', (data, spellLevel) => {
 Handlebars.registerHelper('hasSome', data => data.length > 0);
 
 Handlebars.registerHelper('formatDifficultyText', text => ((text.toString()[0] === '-') ? text : `+${text}`));
+
+Handlebars.registerHelper('lowercase', text => text.toLowerCase());
 
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
