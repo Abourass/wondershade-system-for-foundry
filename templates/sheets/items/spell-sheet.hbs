@@ -102,8 +102,17 @@
         <label>{{ localize "WonderSystem.SpellComponents" }}</label>
         {{#each config.spellComponents as |component key|}}
           <label class="checkbox">
-            <input type="checkbox" name="data.components.{{key}}" {{checked (lookup ../data.data.components key)}}>
-            {{component.label}}
+            <input
+              type="checkbox"
+              {{#if (eq component 'Verbal')}}
+                name="data.components.vocal"
+                {{checked (lookup ../data.data.components 'vocal')}}
+              {{else}}
+                name="data.components.{{lowercase component}}"
+                {{checked (lookup ../data.data.components (lowercase component))}}
+              {{/if}}
+            >
+            {{component}}
           </label>
         {{/each}}
       </div>
