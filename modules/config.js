@@ -965,6 +965,7 @@ WonderSystemConf.local.spellComponents = {
   V: 'WonderSystem.ComponentVerbal',
   S: 'WonderSystem.ComponentSomatic',
   M: 'WonderSystem.ComponentMaterial',
+  R: 'WonderSystem.ComponentRitual',
 };
 
 /**

@@ -210,6 +210,7 @@
   "WonderSystem.ComponentMaterial": "Material",
   "WonderSystem.ComponentSomatic": "Somatic",
   "WonderSystem.ComponentVerbal": "Verbal",
+  "WonderSystem.ComponentRitual": "Ritual",
   "WonderSystem.ConBlinded": "Blinded",
   "WonderSystem.ConCharmed": "Charmed",
   "WonderSystem.ConDeafened": "Deafened",
