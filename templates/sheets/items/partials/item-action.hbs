@@ -12,7 +12,7 @@
 </div>
 
 {{#if data.data.actionType}}
-  {{!-- Ability Modifier --}}
+  {{!-- Ability Modifier / Stat Modifier (TODO)--}}
   <div class="form-group select">
     <label>{{ localize "WonderSystem.AbilityModifier" }}</label>
     <select name="data.ability">
@@ -25,44 +25,48 @@
     </select>
   </div>
 
-  {{!-- Attack Roll Bonus --}}
+  
   {{#if hasAttackRoll}}
-  <div class="form-group">
-    <label>{{ localize "WonderSystem.ItemAttackBonus" }}</label>
-    <div class="form-fields">
-      <input type="text" name="data.attackBonus" value="{{data.data.attackBonus}}"/>
+    {{!-- Attack Roll Bonus --}}
+    <div class="form-group">
+      <label>{{ localize "WonderSystem.ItemAttackBonus" }}</label>
+      <div class="form-fields">
+        <input type="text" name="data.attackBonus" value="{{data.data.attackBonus}}"/>
+      </div>
     </div>
-  </div>
-  {{/if}}
 
-  {{!-- Critical Hit Threshold --}}
-  {{#if hasAttackRoll}}
-  <div class="form-group">
-    <label>{{ localize "WonderSystem.ItemCritThreshold" }}</label>
-    <div class="form-fields">
-      {{ numberInput data.data.critical.threshold name="data.critical.threshold" placeholder="20" max=20 min=1 step=1 }}
+    {{!-- Critical Hit Threshold --}}
+    <div class="form-group">
+      <label>{{ localize "WonderSystem.ItemCritThreshold" }}</label>
+      <div class="form-fields">
+        {{ numberInput data.data.critical.threshold name="data.critical.threshold" placeholder="20" max=20 min=1 step=1 }}
+      </div>
     </div>
-  </div>
-  {{/if}}
 
-  {{!-- Critical Hit Damage --}}
-  {{#if hasAttackRoll}}
-  <div class="form-group">
-    <label>{{ localize "WonderSystem.ItemCritExtraDamage" }}</label>
-    <div class="form-fields">
-      <input type="text" name="data.critical.damage" value="{{data.data.critical.damage}}">
+    {{!-- Critical Hit Damage --}}
+    <div class="form-group">
+      <label>{{ localize "WonderSystem.ItemCritExtraDamage" }}</label>
+      <div class="form-fields">
+        <input type="text" name="data.critical.damage" value="{{data.data.critical.damage}}">
+      </div>
     </div>
-  </div>
   {{/if}}
 
   {{!-- Damage Formula --}}
   <h4 class="damage-header">
-    {{#unless isHealing }}{{ localize "WonderSystem.Damage" }}{{ else }}{{ localize "WonderSystem.Healing" }}{{/unless}} {{ localize "WonderSystem.Formula" }}
+    {{#unless isHealing }}
+      {{ localize "WonderSystem.Damage" }}
+    {{else}}
+      {{ localize "WonderSystem.Healing" }}
+    {{/unless}}
+      {{ localize "WonderSystem.Formula" }}
     <a class="damage-control add-damage"><i class="fas fa-plus"></i></a>
   </h4>
 
   <ol class="damage-parts form-group">
     {{#each data.data.damage.parts as |part i| }}
+    {{log '[DamageParts] -> part' part}}
+    {{log '[DamageParts] -> i' i}}
     <li class="damage-part flexrow" data-damage-part="{{i}}">
       <input type="text" name="data.damage.parts.{{i}}.0" value="{{lookup this "0"}}"/>
       <select name="data.damage.parts.{{i}}.1">

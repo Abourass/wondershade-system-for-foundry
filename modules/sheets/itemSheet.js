@@ -40,6 +40,14 @@ export default class WonderItemSheet extends ItemSheet {
     // ctx.baseItems = await this._getItemBaseTypes(itemData);
     // ctx.isPhysical = itemData.data.hasOwnProperty('quantity');
 
+    if (itemData.type === 'spell' && !Array.isArray(itemData.data.damage.parts)) {
+      const damageParts = [];
+      Object.entries(itemData.data.damage.parts).forEach(([key, val]) => {
+        damageParts.push([val['0'], val['1']]);
+      });
+      itemData.data.damage.parts = damageParts;
+    }
+
     return ctx;
   }
 
@@ -49,7 +57,8 @@ export default class WonderItemSheet extends ItemSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    html.find('.editor-edit').click(() => setTimeout(injectMCETheme(html), 900));
+    html.find('.editor-edit').click(() => setTimeout(injectMCETheme(html), 1100));
+    html.find('.damage-control').click(this._onDamageControl.bind(this));
   }
 
   /**
@@ -152,5 +161,42 @@ export default class WonderItemSheet extends ItemSheet {
     const data = item.data;
     return (item.type === 'weapon' && data.weaponType === 'siege')
         || (item.type === 'equipment' && data.armor.type === 'vehicle');
+  }
+
+  /**
+   * Add or remove a damage part from the damage formula.
+   * @param {Event} event             The original click event.
+   * @returns {Promise<Item5e>|null}  Item with updates applied.
+   * @private
+   */
+  async _onDamageControl(event) {
+    event.preventDefault();
+    const a = event.currentTarget;
+
+    // Add new damage component
+    if (a.classList.contains('add-damage')) {
+      await this._onSubmit(event); // Submit any unsaved changes
+      console.log('[itemSheet] this', this);
+      let { parts } = this.item.data.data.damage;
+      if (!Array.isArray(parts)){
+        const damageParts = [];
+        Object.entries(parts).forEach(([key, val]) => {
+          damageParts.push([val['0'], val['1']]);
+        });
+        parts = damageParts;
+      }
+      console.log('[itemSheet] parts', parts);
+      parts.push(['', '']);
+      return this.item.update({ data: { damage: { parts } }});
+    }
+
+    // Remove a damage component
+    if (a.classList.contains('delete-damage')) {
+      await this._onSubmit(event); // Submit any unsaved changes
+      const li = a.closest('.damage-part');
+      const damage = foundry.utils.deepClone(this.item.data.data.damage);
+      damage.parts.splice(Number(li.dataset.damagePart), 1);
+      return this.item.update({'data.damage.parts': damage.parts});
+    }
   }
 }
