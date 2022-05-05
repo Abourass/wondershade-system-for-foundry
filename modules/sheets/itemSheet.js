@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import injectMCETheme from '../theme/injectMCETheme.js';
 
 export default class WonderItemSheet extends ItemSheet {

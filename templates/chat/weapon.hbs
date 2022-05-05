@@ -44,11 +44,11 @@
   {{/if}}
 
   {{#if roll.success}}
-  <div class="flex-row damage">
-    {{#each item.data.damage.parts as |damageDesc dID|}}
-      <span>[[{{damageDesc.[0]}}]] {{damageDesc.[1]}} damage</span>
-    {{/each}}
-  </div>
+    <div class="flex-col damage" style="align-items: center;">
+      {{#each item.data.damage.parts as |damageDesc dID|}}
+        <span>[[{{damageDesc.[0]}}]] {{damageDesc.[1]}} damage</span>
+      {{/each}}
+    </div>
   {{/if}}
 </div>
 {{log '[chatTemplate:weapon] -> this' this}}

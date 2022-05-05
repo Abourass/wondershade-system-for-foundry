@@ -43,11 +43,11 @@
   {{/if}}
 
   {{#if roll.success}}
-  <div class="flex-row damage">
-    {{#each item.data.damage.parts as |damageDesc dID|}}
-      <span>[[{{damageDesc.[0]}}]] {{damageDesc.[1]}} damage</span>
-    {{/each}}
-  </div>
+    <div class="flex-col damage">
+      {{#each item.data.damage.parts as |damageDesc dID|}}
+        <span>[[{{damageDesc.[0]}}]] {{damageDesc.[1]}} damage</span>
+      {{/each}}
+    </div>
   {{/if}}
 </div>
 
