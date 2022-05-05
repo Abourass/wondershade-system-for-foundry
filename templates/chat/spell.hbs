@@ -36,9 +36,11 @@
     </div>
   </div>
 
-  <div class="flex-col {{#if roll.success}}success-description{{else}}failure-description{{/if}}">
-    {{{item.data.description.value}}}
-  </div>
+  {{#if item.data.description.value}}
+    <div class="flex-col {{#if roll.success}}success-description{{else}}failure-description{{/if}}">
+      {{{item.data.description.value}}}
+    </div>
+  {{/if}}
 
   {{#if roll.success}}
   <div class="flex-row damage">
