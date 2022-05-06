@@ -346,6 +346,11 @@ export default class WonderItem extends Item {
     console.log('[WonderItem] roll -> item', item);
     console.log('[WonderItem] roll -> ctx', ctx);
     console.log('[WonderItem] roll -> this', this);
+    if (item.data.weaponType === 'simpleR' || item.data.weaponType === 'martialR') {
+      ctx.name = 'dex';
+      ctx.value = Number(actor.data.abilities.dex.value);
+    }
+
     // Grab the actors willpower
     const willpower = Number(actor.data.attributes.willpower);
     // Grab the characters difficulty
