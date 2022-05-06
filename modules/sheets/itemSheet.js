@@ -177,7 +177,7 @@ export default class WonderItemSheet extends ItemSheet {
     // Add new damage component
     if (a.classList.contains('add-damage')) {
       await this._onSubmit(event); // Submit any unsaved changes
-      console.log('[itemSheet] this', this);
+      // console.log('[itemSheet] this', this);
       let { parts } = this.item.data.data.damage;
       if (!Array.isArray(parts)){
         const damageParts = [];
@@ -186,7 +186,7 @@ export default class WonderItemSheet extends ItemSheet {
         });
         parts = damageParts;
       }
-      console.log('[itemSheet] parts', parts);
+      // console.log('[itemSheet] parts', parts);
       parts.push(['', '']);
       return this.item.update({ data: { damage: { parts } }});
     }

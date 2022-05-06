@@ -42,7 +42,7 @@ export default class WonderActorSheet extends ActorSheet {
     // Create a safe clone of the actor data
     const actorData = this.actor.data.toObject(false);
 
-    console.log('[WonderSystem:ActorData]', actorData);
+    // console.log('[WonderSystem:ActorData]', actorData);
 
     // Attach the localization to the ctx
     ctx.config = CONFIG.wondershade;
@@ -130,7 +130,7 @@ export default class WonderActorSheet extends ActorSheet {
     ctx.allFeats = feats;
     ctx.allSpells = spells;
     ctx.containers = backpack;
-    console.log('[WonderSystem:ActorSheet:_prepareItems]', ctx);
+    // console.log('[WonderSystem:ActorSheet:_prepareItems]', ctx);
   }
 
   activateListeners(html) {

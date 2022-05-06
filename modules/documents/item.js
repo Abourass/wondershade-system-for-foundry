@@ -341,11 +341,11 @@ export default class WonderItem extends Item {
   async roll(ctx) {
     // Alias the actor to make the function more self documenting
     const item = this.data;
-    console.log('[WonderItem] this', this);
+    // console.log('[WonderItem] this', this);
     const actor = this.actor.data;
-    console.log('[WonderItem] roll -> item', item);
-    console.log('[WonderItem] roll -> ctx', ctx);
-    console.log('[WonderItem] roll -> this', this);
+    // console.log('[WonderItem] roll -> item', item);
+    // console.log('[WonderItem] roll -> ctx', ctx);
+    // console.log('[WonderItem] roll -> this', this);
     if (item.data.weaponType === 'simpleR' || item.data.weaponType === 'martialR') {
       ctx.name = 'dex';
       ctx.value = Number(actor.data.abilities.dex.value);

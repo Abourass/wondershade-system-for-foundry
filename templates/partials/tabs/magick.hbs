@@ -17,7 +17,7 @@
   </div>
   <div class="magick-tabs">
     {{#each config.html.spellSections as |spellSection ID|}}
-    {{log '[SpellSheet] -> spellSection' spellSection}}
+    {{!-- {{log '[SpellSheet] -> spellSection' spellSection}} --}}
       <div class="tab {{spellSection.keyVal}}" data-tab="{{spellSection.keyVal}}" data-group="magick-tabs">
         {{!-- Only includes spell slots on spell categories that have them --}}
         {{#unless (includes ../config.html.spellLevelsWithoutSlots spellSection.keyVal)}}
@@ -47,7 +47,7 @@
 
         <ul>
           {{#each (spells ../this spellSection.keyVal) as |spell SID|}}
-          {{log '[SpellSheet] -> spell' spell}}
+          {{!-- {{log '[SpellSheet] -> spell' spell}} --}}
             <li data-item-id="{{spell._id}}" data-item-spell="true" class="item">
               <div class="img-col">
                 <a class="rollable" data-roll-type="item">
