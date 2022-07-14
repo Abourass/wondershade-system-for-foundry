@@ -3,7 +3,7 @@
   "title": "Wondershade",
   "description": "The glittery black heart that beats within my chest. Also known as the Wonder System",
   "author": "Mod",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "scripts": [],
   "esmodules": [ "wonderSystem.js" ],
   "styles": [ "styles/index.min.css" ],
