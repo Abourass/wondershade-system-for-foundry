@@ -1,9 +1,15 @@
 {
   "name": "wondershade",
   "title": "Wondershade",
-  "description": "The glittery black heart that beats within my chest. Also known as the Wonder System",
-  "author": "Mod",
-  "version": "0.5.4",
+  "description": "The Wonder System for foundry",
+  "authors": [
+    {
+      "name": "ModernCannabist",
+      "discord": "ModernCannabist#8321",
+      "url": "https://github.com/Abourass"
+    }
+  ],
+  "version": "0.6.6",
   "scripts": [],
   "esmodules": [ "wonderSystem.js" ],
   "styles": [ "styles/index.min.css" ],
@@ -109,8 +115,10 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp.value",
   "secondaryTokenAttribute": null,
-  "minimumCoreVersion": "9.245",
-  "compatibleCoreVersion": "9",
+  "compatibility": {
+    "minimum": 10,
+    "verified": "10.291"
+  },
   "url": "https://github.com/Abourass/wondershade-system-for-foundry/",
   "manifest": "https://raw.githubusercontent.com/Abourass/wondershade-system-for-foundry/main/system.json",
   "download": "https://github.com/Abourass/wondershade-system-for-foundry/archive/refs/tags/development.zip"
