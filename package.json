@@ -20,7 +20,7 @@
     "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
     "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.27.4",
+    "eslint-plugin-import": "^2.27.5",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-less": "^5.0.0",
