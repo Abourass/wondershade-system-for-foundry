@@ -1,7 +1,8 @@
 {
-  "name": "wondershade",
+  "id": "wondershade",
   "title": "Wondershade",
   "description": "The Wonder System for foundry",
+  "version": "0.7.6",
   "authors": [
     {
       "name": "ModernCannabist",
@@ -9,7 +10,6 @@
       "url": "https://github.com/Abourass"
     }
   ],
-  "version": "0.6.6",
   "scripts": [],
   "esmodules": [ "wonderSystem.js" ],
   "styles": [ "styles/index.min.css" ],
@@ -115,8 +115,10 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "attributes.hp.value",
   "secondaryTokenAttribute": null,
+  "minimumCoreVersion": "10",
   "compatibility": {
     "minimum": 10,
+    "maximum": 10,
     "verified": "10.291"
   },
   "url": "https://github.com/Abourass/wondershade-system-for-foundry/",
